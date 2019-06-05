@@ -1,0 +1,36 @@
+github.com
+
+register
+
+new repository
+
+git clone https://github.com/losacii/gitnote.git
+cd gitnote
+
+new files, edit, save
+
+git add .     (git status)
+git commit -m "some message"
+git push(upload)
+
+git pull(download)
+
+Merge Conflicts:
+    commit, pull, 
+    <<<<<<<<
+    =======
+    >>>>>>>>
+
+git log
+git reflog
+
+(github is untouched)
+git reset --hard  <commit_hash>
+git reset --hard  origin/master
+    使用hash的前面一部分, 也可以完成reset
+
+github Pages
+    repo --> open main page.html
+    settings --> github pages --> master branch, save
+    (Your site is ready to be published at https://losacii.github.io/gitnote/)
+    go visit: https://losacii.github.io/gitnote/hello.html
