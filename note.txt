@@ -16,3 +16,7 @@ git push(upload)
 git pull(download)
 
 Merge Conflicts:
+    commit, pull, 
+    <<<<<<<<
+    =======
+    >>>>>>>>
