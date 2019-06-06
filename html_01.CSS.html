@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index </title>
+
+    <style>
+        a::before {
+            content: "\21d2 Click Here: ";
+            font-weight: bold;
+        }
+        
+        p::selection {
+            color: green;
+            background-color: darkslategray;
+        }
+
+        @media (min-width: 600px){
+            h1::before{content: "Welcome to My Web Page!"}
+        }
+
+        @media (max-width: 599px){
+            h1::before{content: "Welcome!"}
+        }
+
+        .grid {
+            display: grid;
+            background-color: bisque;
+            padding: 15px;
+            grid-column-gap: 10px;
+            grid-row-gap: 10px;
+            grid-template-columns: 150px auto auto auto auto;
+        }
+
+        .grid-item {
+            background-color: rgb(233, 227, 219);
+            font-size: 18px;
+            padding: 10px;
+            text-align: center;
+        }
+        
+    </style>
+
+    
+
+</head>
+<body>
+    <a href="hello.html">000.hello</a><br><br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a><br>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference">CSS Reference</a><br><br>
+
+    <p>Te veritus imperdiet his, mel ad altera everti erroribus, te sed solet vivendo recteque. Odio inermis sed ei, et sit eleifend appellantur. Te oratio inimicus has, has at latine corpora delicatissimi. Alia quaestio referrentur ius in, et eos dicunt aperiri. Eu eum sale quidam molestie. Te duis inani eos, per ei quis aperiam.</p>
+
+    <h1></h1>
+
+    <div class="grid">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+        <div class="grid-item">10</div>
+        <div class="grid-item">11</div>
+        <div class="grid-item">12</div>
+    </div>
+</body>
+</html>

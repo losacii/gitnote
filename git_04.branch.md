@@ -19,3 +19,12 @@ local branch --> github
     git checkout foo_branch
     git commit -am 'foo branch contents'
     git push --set-upstream origin foo_branch
+
+remote
+    git fetch
+    git merge origin/master
+
+    OR:
+    git pull
+
+
