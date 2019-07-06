@@ -1,0 +1,28 @@
+# ~/.bash_profile
+alias ebash='vim ~/.bash_profile'
+alias sbash='source ~/.bash_profile'
+
+alias o='open .'
+alias s='cd -'
+alias a='cd ..'
+
+alias godown='sudo shutdown -h now'
+alias restart='sudo shutdown -r now'
+
+alias cdd='cd ~/Documents'
+alias cdp='cd ~/Documents/myprojs/Python.Projects/'
+alias cdn='cd ~/Downloads'
+alias notes='subl ~/Documents/notes/'
+alias py='python $*'
+
+PS1='\n{ \t \w }\n🤔 '
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+alias runserver='python manage.py runserver 0.0.0.0:8000'
+alias gi="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary -incognito"
+
+# git
+alias ga='git add .'
+alias gc='git commit -m \"update\"'
+alias gp='git push'
