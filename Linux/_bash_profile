@@ -15,7 +15,8 @@ alias cdn='cd ~/Downloads'
 alias notes='subl ~/Documents/notes/'
 alias py='python $*'
 
-PS1='\n{ \t \w }\n🤔 '
+# PS1='\n{ \t \w }\n🤔 '
+PS1='\n{ \w }\n🤔 '
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

@@ -1,6 +1,8 @@
 " ~/.vimrc
 set nu rnu
 
+nnoremap ;n :e<space>
+
 nnoremap ;fw :w<cr>
 nnoremap ;fe :q!<cr>
 nnoremap ;ee :qa!<cr>
@@ -10,13 +12,15 @@ inoremap ∆ <down>
 inoremap ˚ <up>
 inoremap ¬ <right>
 
-inoremap ˆ <esc>bi
-inoremap ø <esc>ea
+inoremap ≤ <esc>bi
+inoremap ≥ <esc>ea
 
 inoremap ;u <esc>viwUea
 nnoremap ;u viwUe
 
 set tabstop=4
 set autoindent
+
+nnoremap ;x diWi[]<esc>Pe
 
 " this is a testing message, some stuff
