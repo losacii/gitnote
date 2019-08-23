@@ -133,7 +133,7 @@ def main():
         sec_per_word = sys.argv[1]
         DIR = BASEDIR
     else:
-        sec_per_word = 0.03
+        sec_per_word = 0.9
         DIR = BASEDIR
 
     os.chdir(DIR)

@@ -1,0 +1,17 @@
+" line number
+set nu rnu
+
+" mapleader
+let mapleader=','
+
+" open rc file
+nnoremap <leader>rc :tabnew /usr/local/Cellar/neovim/0.3.8/share/nvim/sysinit.vim<cr>
+
+" source rc file
+nnoremap <leader>x :source %<cr>
+
+" open, save, quit
+nnoremap <leader>fo :tabnew<space>
+nnoremap <leader>fw :up<cr>
+nnoremap <leader>fe :q!<cr>
+nnoremap <leader>ee :qa!<cr>
