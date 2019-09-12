@@ -112,8 +112,8 @@ nnoremap <leader>rl ddmy'xPjdd'yP
 nnoremap <leader>rW mnviW"ny`mviW"myviW"np`nviW"mp
 nnoremap <leader>rw mnviw"ny`mviw"myviw"np`nviw"mp
 " move Word right
-nnoremap ;ml viWxEa<space><esc>p
-nnoremap ;mh EBhdEBhP
+nnoremap ;ml viWxEa<space><esc>pBB
+nnoremap ;mh EBhdEBhPWW
 
 " Surround a word with []
 nnoremap ;x viwxi[]<esc>P
