@@ -99,11 +99,13 @@ def playText(fpath, sec_per_word):
     # 播放
     emptylines = int( (TERM_HEIGHT - lineCount) / 2 )
     if (TERM_HEIGHT - lineCount) % 2 == 0:
-        emptylines -= 2
+        emptylines -= 1
     else:
         emptylines -= 1
     sys.stdout.write((emptylines)*'\n')
     wordInterv = 0.7 / wordCount;  blit(txt, wi=wordInterv)
+    if (TERM_HEIGHT - lineCount) % 2 != 0:
+        sys.stdout.write('\n')
     sys.stdout.write(emptylines*'\n')
 
     info = " {} lines, {} words ".format(lineCount, wordCount).center(TERM_WIDTH, '~')

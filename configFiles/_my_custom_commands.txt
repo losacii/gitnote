@@ -1,0 +1,19 @@
+#!/bin/bash
+# prints the input
+
+function loban() {
+  # lolcat banner: display a stylish message!
+  echo -e '\n'
+  figlet -w 90 -c -f Bloody $1 | lolcat
+  #figlet -w 90 -c -f Bloody $1 | lolcat -a -d 1
+}
+
+function xloban() {
+  echo;
+  figlet -c -w 90 -f 3d $1 | lolcat
+  echo;
+}
+
+function pskill() {
+  ps aux | fzy | awk '{ print $2 }' | xargs kill
+}

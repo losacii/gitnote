@@ -1,0 +1,25 @@
+alias sbash='source ~/.bashrc'
+alias ebash='vi ~/.bashrc'
+alias xping='ping -s 16 -c 3 -i 0.3'
+
+alias godown='sudo /sbin/poweroff'
+alias reboot='sudo /sbin/reboot'
+alias py='python3'
+
+alias a='cd ..'
+alias s='cd -'
+alias c='clear'
+alias x='exit'
+
+alias appinstall='sudo apt install'
+alias allconfig='cd ~/Documents/docsite_mkdocs/docs/configFiles/ && vim'
+alias i3config='vim ~/.config/i3/config'
+alias aliconfig='vim ~/.bash_aliases'
+
+alias clock='tty-clock -x -c'
+alias playText='python ~/Documents/gitnote/Vocabulary/playTexts.py'
+
+alias lsfz='ls | fzy -l 25'
+alias cdfz='cd $(find . -type d | fzy)'
+alias vifz='vim $( find . -type f | fzf )'
+alias ctfz='cat $( find . -type f | fzf )'
