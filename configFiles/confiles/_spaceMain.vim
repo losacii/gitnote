@@ -30,8 +30,7 @@ if has('win16') || has('win32') || has('win64')
     " 2018/12/07 周五  下午 10:23    <SYMLINK>      vimfiles [C:\Users\Administrator\.SpaceVim]
     " ref: https://superuser.com/questions/524669/checking-where-a-symbolic-link-points-at-in-windows-7
     silent let rst = system(cmd)
-    if !v:shell_error
-      let dir = split(rst)[-1][1:-2]
+    if !v:shell_error let dir = split(rst)[-1][1:-2]
       return dir
     endif
     return a:path
@@ -65,15 +64,27 @@ call SpaceVim#end()
 
 "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 let mapleader=','
-
-nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim
 nnoremap <leader>rr :!clang % && ./a.out<cr>
+nnoremap <leader>x :%w !python3<cr>
 
+nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim<cr>
+
+" color themes
+colorscheme beauty256
+nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
+nnoremap <F4> jmxkddggP'xzz
+nnoremap <F5> jmxkddGP'xzz
+"   show | pick
+nnoremap ;cr :RANDOMCOLOR<space>
+"   random pick
+nnoremap ;cc :28vs ~/Documents/gitnote/configFiles/vim_color_themes/clrs<cr>
+
+"save file, exit file, exit vim
 nnoremap <leader>w :up<cr>
 nnoremap ;fw :up<cr>
 nnoremap ;fe :q!<cr>
 nnoremap ;ee :qa!<cr>
-nnoremap ;zz :xa<cr>
+nnoremap ;x :xa<cr>
 
 nnoremap <leader>o :e!<space>
 
@@ -81,6 +92,11 @@ inoremap è <Left>
 inoremap ê <Down>
 inoremap ë <Up>
 inoremap ì <Right>
+inoremap <m-h> <Left>
+inoremap <m-j> <Down>
+inoremap <m-k> <Up>
+inoremap <m-l> <Right>
+
 
 inoremap é <esc>Bi
 inoremap ï <esc>Wa
@@ -120,5 +136,11 @@ nnoremap ;x viwxi[]<esc>P
 vnoremap ;x xi[]<esc>P
 
 set ignorecase
-set nohlsearch
+"set nohlsearch
 nnoremap <leader>a yyp:.s/\d\+/\=submatch(0)+1/g<cr>
+
+" source this buffer!!!
+nnoremap <leader>vs ggVGy:@"<CR>
+
+nnoremap } }zz<c-e><c-e>
+nnoremap { {zz<c-y><c-y>

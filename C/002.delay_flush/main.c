@@ -5,10 +5,12 @@ void delay(int milli_seconds);
 
 int main(void)
 {
+  printf("CLOCKS_PER_SEC: %ld\n\n", CLOCKS_PER_SEC);
+
   for (int i = 0; i < 5; i++) {
-    printf("(Sleep 1 second...)"); fflush(stdout);
+    printf("...delay 1000 milli-seconds >> "); fflush(stdout);
     delay(1000);
-    printf("---> now time is: %ld\n", clock());
+    printf("now time is: %ld\n", clock());
   }
 }
 

@@ -6,8 +6,7 @@ floating_modifier $mod
 
 # Select area, image to clipboard
 bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
-# Screenshot,  image to clipboard
-bindsym Shift+Print exec "scrot /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym $mod+s --release exec "scrot -s /home/vi/Pictures/%H%M%S.jpg"
 
 # start a terminal
 bindsym $mod+Return exec "mlterm -w 28"
@@ -54,7 +53,6 @@ bindsym $mod+Shift+e layout toggle split
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 
 # toggle tiling / floating
@@ -93,8 +91,9 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
-bindsym $mod+m workspace prev
 bindsym $mod+comma workspace next
+bindsym $mod+Tab workspace next
+bindsym $mod+m   workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1;

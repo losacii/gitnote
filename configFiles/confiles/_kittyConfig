@@ -1,10 +1,10 @@
-font_family   monaco
+font_family   monaco.ttf
 font_size 12.0
 thicken_font -5
 adjust_line_height  2
 adjust_column_width 1
 
-window_padding_width 5
+window_padding_width 0
 
 cursor_blink_interval 1
 cursor_stop_blinking_after 10.0
