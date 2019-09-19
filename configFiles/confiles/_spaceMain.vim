@@ -70,12 +70,13 @@ nnoremap <leader>x :%w !python3<cr>
 nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim<cr>
 
 " color themes
-colorscheme beauty256
+colorscheme autumnleaf
 nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
 nnoremap <F4> jmxkddggP'xzz
 nnoremap <F5> jmxkddGP'xzz
 "   show | pick
-nnoremap ;cr :RANDOMCOLOR<space>
+nnoremap ;cd :RANDOMCOLORD<cr>
+nnoremap ;cl :RANDOMCOLORL<cr>
 "   random pick
 nnoremap ;cc :28vs ~/Documents/gitnote/configFiles/vim_color_themes/clrs<cr>
 

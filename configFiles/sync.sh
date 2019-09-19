@@ -7,6 +7,5 @@ ln  ~/.config/kitty/kitty.conf   confiles/_kittyConfig
 ln  ~/.SpaceVim.d/init.toml      confiles/_spaceFVD.vim
 ln  ~/.SpaceVim/config/main.vim  confiles/_spaceMain.vim
 ln  ~/.xinitrc                   confiles/_xinitrc
-
-
+sudo ln /etc/default/keyboard    confiles/_etc.default.keyboard
 
