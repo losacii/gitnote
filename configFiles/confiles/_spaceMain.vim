@@ -70,7 +70,7 @@ nnoremap <leader>x :%w !python3<cr>
 nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim<cr>
 
 " color themes
-colorscheme autumnleaf
+colorscheme anokha
 nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
 nnoremap <F4> jmxkddggP'xzz
 nnoremap <F5> jmxkddGP'xzz

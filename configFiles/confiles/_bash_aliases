@@ -12,7 +12,7 @@ alias c='clear'
 alias x='exit'
 
 alias appinstall='sudo apt install'
-alias allconfig='cd ~/Documents/docsite_mkdocs/docs/configFiles/ && vim'
+alias allconfig='cd ~/Documents/gitnote/configFiles/confiles/ && vim'
 alias i3config='vim ~/.config/i3/config'
 alias aliconfig='vim ~/.bash_aliases'
 
