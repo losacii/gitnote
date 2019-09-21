@@ -1,0 +1,3 @@
+/usr/share/nvim/runtime/plugin/
+
+write some codes ~~.vim files, it will take effect!

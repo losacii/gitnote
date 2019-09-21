@@ -1,0 +1,5 @@
+source ~~~.vim
+
+or copy color schemes into ~/.SpaceVim/colors/
+
+## random color scheme!
