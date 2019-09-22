@@ -1,0 +1,11 @@
+## registers
+
+  :reg
+
+  ctrl + r  <a_reg>
+
+
+## paste macro
+
+  "qp
+

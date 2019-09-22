@@ -70,15 +70,18 @@ nnoremap <leader>x :%w !python3<cr>
 nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim<cr>
 
 " color themes
-colorscheme anokha
-nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
+colorscheme atom
+nnoremap ;cc :28vs ~/.vim/colorlist<cr>
+nnoremap <F2> :execute "source "."~/.vim/colors/" . getline(".")<cr>
+
+" move this line TOP/BOTTOM
 nnoremap <F4> jmxkddggP'xzz
 nnoremap <F5> jmxkddGP'xzz
+
 "   show | pick
 nnoremap ;cd :RANDOMCOLORD<cr>
 nnoremap ;cl :RANDOMCOLORL<cr>
 "   random pick
-nnoremap ;cc :28vs ~/Documents/gitnote/configFiles/vim_color_themes/clrs<cr>
 
 "save file, exit file, exit vim
 nnoremap <leader>w :up<cr>
@@ -86,6 +89,8 @@ nnoremap ;fw :up<cr>
 nnoremap ;fe :q!<cr>
 nnoremap ;ee :qa!<cr>
 nnoremap ;x :xa<cr>
+
+nnoremap <c-a> ggVG
 
 nnoremap <leader>o :e!<space>
 

@@ -1,7 +1,7 @@
-#include <gtk/gtk.h>
+#include "main.h"
 
 int main(int argc, char* argv[])
 {
-  printf("GTK!");
+  logn("hello cpp!!!")
   return 0;
 }
