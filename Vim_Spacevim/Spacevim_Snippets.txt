@@ -1,18 +1,24 @@
-# ls~/.cache/neosnippet
-/home/losacii/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/_.snippets
-/home/losacii/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/_.snip
-/home/losacii/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/vim.snip
-/home/losacii/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/vim.snippets
-/home/losacii/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/vim/vital.snip
-/home/losacii/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/sh.snip
-/home/losacii/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/sh.snippets
+# Snippets
+~/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/_.snippets
+~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/_.snip
+~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/vim.snip
+~/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/vim.snippets
+~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/vim/vital.snip
+~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/sh.snip
+~/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/sh.snippets
 
-/home/losacii/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/cpp.snippets
-/home/losacii/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/c.snippets
-/home/losacii/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/markdown.snippets
-/home/losacii/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/python.snippets
-/home/losacii/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/cpp.snip
-/home/losacii/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/c.snip
-/home/losacii/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/markdown.snip
-/home/losacii/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/neosnippet.snip
-/home/losacii/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/python.snip
+~/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/cpp.snippets
+~/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/c.snippets
+~/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/markdown.snippets
+~/.cache/vimfiles/repos/github.com/honza/vim-snippets/snippets/python.snippets
+~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/cpp.snip
+~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/c.snip
+~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/markdown.snip
+~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/neosnippet.snip
+~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/python.snip
+
+# Recently edited files
+~/.zshrc
+~/.xinitrc
+
+# others

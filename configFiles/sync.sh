@@ -24,6 +24,7 @@ ln      confiles/_spaceFVD.vim  ~/.SpaceVim.d/init.toml
 ln  confiles/_spaceMain.vim  ~/.SpaceVim/config/main.vim
 ln                   confiles/_xinitrc  ~/.xinitrc
 ln        confiles/_vifmrc  ~/.config/vifm/vifmrc
+ln       ~/.zshrc   confiles/_zshrc
 sudo    ln confiles/_etc.default.keyboard /etc/default/keyboard
 
 echo "Done!"

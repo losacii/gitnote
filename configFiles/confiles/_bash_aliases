@@ -1,6 +1,9 @@
+alias c='clear'
+alias x='exit'
+
 alias sbash='source ~/.bashrc'
 alias ebash='vi ~/.bashrc'
-alias xping='ping -s 16 -c 3 -i 0.3'
+alias xping='ping -s 16 -c 5 -i 0.3'
 
 alias godown='sudo /sbin/poweroff'
 alias reboot='sudo /sbin/reboot'
@@ -8,8 +11,6 @@ alias py='python3'
 
 alias a='cd ..'
 alias s='cd -'
-alias c='clear'
-alias x='exit'
 
 alias appinstall='sudo apt install'
 alias allconfig='cd ~/Documents/gitnote/configFiles/confiles/ && vim'
@@ -22,7 +23,7 @@ alias playText='python ~/Documents/gitnote/Vocabulary/playTexts.py'
 alias fls='ls | fzy -l 25'
 alias fcd='cd $(find . -type d | fzy)'
 alias fvi='vim $( find . -type f | fzf )'
-alias v='vim.tiny'
+alias sv='sudo nvim'
 alias fcat='cat $( find . -type f | fzf )'
 
 alias ga='git add .'
