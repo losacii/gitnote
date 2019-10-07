@@ -1,0 +1,12 @@
+# screen blackout after 3600 seconds
+xset s 3600
+
+# feh --recursive --randomize --bg-fill ~/Pictures/Wallpapers/
+feh --bg-fill ~/Pictures/Wallpapers/9.jpg
+
+compton &
+
+# screenkey &
+
+# setxkbmap -option caps:swapescape
+exec i3
