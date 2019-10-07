@@ -1,0 +1,8 @@
+﻿python d:\shr\gitnote\Vocabulary\main.py
+(播放词汇)
+
+d:\shr\gitnote\Vocabulary\Words
+(编辑词汇)
+
+vim d:\shr\gitnote\Vocabulary\main.py
+(编辑程序)
