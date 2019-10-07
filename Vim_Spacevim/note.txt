@@ -1,0 +1,27 @@
+Command + Tab
+Command + Tab, mouse over app icon
+
+iterm2:
+  Command + n   : new window
+  font: monaco 18
+
+spacevim fonts Error: install nerd fonts
+  https://github.com/ryanoasis/nerd-fonts
+  https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts
+  iterm profile: font, use different font for no ascii chars
+
+Spacevim:
+  flygrep
+  fuzzy finder
+  iedit
+
+Spacevim Windows:
+    <space>ww
+    <space>w
+
+vim: 
+  @:
+  @@
+  gt gT
+
+
