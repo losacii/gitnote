@@ -1,12 +1,13 @@
 Swap Escape & Capslock
     make EscapeKey beside 'A-key'
 
-vim modes
 
-    jnormal
+vim modes
+    normal
     insert
     visual
     (substitute) r R
+
 
 Motion, Change, Delete
     C
@@ -29,7 +30,6 @@ Motion, Change, Delete
       cit  diw  ci"  ci)  ci{ 
 
 
-
 ** Split new
   :sp file
   :vs file
@@ -43,12 +43,10 @@ Motion, Change, Delete
   :5,+4w filename
   :q!
 
-
 ** open multiple
   vim -o a b c
   vim -O x y z
   vim -p a b c
-
 
 ** save as
   :saveas filename
@@ -59,6 +57,7 @@ Motion, Change, Delete
 
   :e!   :reload forcefully
   :e
+
 
 ** Read only open
   vim -M file     (absolutely)
