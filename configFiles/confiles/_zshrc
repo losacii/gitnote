@@ -98,3 +98,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.bash_aliases
+source /home/vi/.myScripts/*
+
+set -o vi
+xset s 10800
+

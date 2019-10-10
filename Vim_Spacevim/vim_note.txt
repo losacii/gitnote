@@ -1,0 +1,65 @@
+Swap Escape & Capslock
+    make EscapeKey beside 'A-key'
+
+vim modes
+
+    jnormal
+    insert
+    visual
+    (substitute) r R
+
+Motion, Change, Delete
+    C
+
+    cc
+
+    h j k l
+
+    w e b W E B
+
+    0 $ ^
+
+    gg  G  <number>gg
+
+    d<motion>
+        dd  dj  d4j  d4k  d}
+
+    text object
+      b  w  t  p  s
+      cit  diw  ci"  ci)  ci{ 
+
+
+
+** Split new
+  :sp file
+  :vs file
+  :Vex
+  :Sex
+
+** save, quit
+  :up
+  :w
+  :xa   :x
+  :5,+4w filename
+  :q!
+
+
+** open multiple
+  vim -o a b c
+  vim -O x y z
+  vim -p a b c
+
+
+** save as
+  :saveas filename
+
+** open new file, open another file
+  :e!  file   :forcefully
+  :e   file
+
+  :e!   :reload forcefully
+  :e
+
+** Read only open
+  vim -M file     (absolutely)
+  vim -R file     (forcefully save)

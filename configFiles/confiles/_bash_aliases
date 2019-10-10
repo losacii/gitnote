@@ -11,6 +11,7 @@ alias py='python3'
 
 alias a='cd ..'
 alias s='cd -'
+alias cdd='cd ~/Documents'
 
 alias appinstall='sudo apt install'
 alias allconfig='cd ~/Documents/gitnote/configFiles/confiles/ && vim'
