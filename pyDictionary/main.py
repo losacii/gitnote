@@ -33,12 +33,14 @@ def dict_vocabulary(word):
 
 
 def dict_youdao(word):
-    url1 = "https://www.youdao.com/example/blng/eng/thug/#keyfrom=dict.main.moreblng"
+    url0 = "http://youdao.com/example/blng/eng/{}/#keyfrom=dict.main.moreblng"
 
     # 根据 url 获取内容
-    result = requests.get(url1);
+    result = requests.get(url0.format(word));
     src = result.content
-    soup = BeautifulSoup(src, 'html.parser')
+
+    soup = BeautifulSoup(src, 'lxml')
+    #soup = BeautifulSoup(src, 'html.parser')
 
     tagsx = soup.find('div', {'id':'bilingual'}).find_all('p', {'class': None})
     example_count = 0
@@ -48,10 +50,10 @@ def dict_youdao(word):
         if contains_chinese(text):
             print()
             example_count += 1
-            if example_count >= 8: break
+            if example_count >= 7: break
 
 if __name__ == '__main__':
     word = sys.argv[1]
     dict_vocabulary(word)
-    #dict_youdao(word)
+    dict_youdao(word)
     
