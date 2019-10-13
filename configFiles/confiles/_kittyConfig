@@ -1,5 +1,5 @@
-font_family Anonymous Pro
-font_size 14.0
+font_family VictorMono NF
+font_size 13.0
 thicken_font -5
 adjust_line_height  2
 adjust_column_width 1
@@ -15,3 +15,5 @@ map f4 paste_from_clipboard
 map shift+insert paste_from_selection
 
 repaint_delay 60
+
+set_background_opacity 0.5

@@ -40,6 +40,11 @@ else
     return resolve(a:path)
   endfunction
 endif
+
+"let g:spacevim_custom_plugins = [
+"            \ ['itchyny/dictionary', {'merged' : 0}],
+"            \ ]
+
 let g:_spacevim_root_dir = fnamemodify(s:resolve(fnamemodify(expand('<sfile>'),
       \ ':p:h:h:gs?\\?'.((has('win16') || has('win32')
       \ || has('win64'))?'\':'/') . '?')), ':p:gs?[\\/]?/?')
@@ -65,23 +70,19 @@ call SpaceVim#end()
 "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 let mapleader=','
 nnoremap <leader>rr :!clang % && ./a.out<cr>
-nnoremap <leader>x :%w !python3<cr>
 
 nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim<cr>
 
 " color themes
-colorscheme atom
-nnoremap ;cc :28vs ~/.vim/colorlist<cr>
-nnoremap <F2> :execute "source "."~/.vim/colors/" . getline(".")<cr>
-
-" move this line TOP/BOTTOM
+colorscheme anokha
+nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
 nnoremap <F4> jmxkddggP'xzz
 nnoremap <F5> jmxkddGP'xzz
-
 "   show | pick
 nnoremap ;cd :RANDOMCOLORD<cr>
 nnoremap ;cl :RANDOMCOLORL<cr>
 "   random pick
+nnoremap ;cc :28vs ~/Documents/gitnote/configFiles/vim_color_themes/clrs<cr>
 
 "save file, exit file, exit vim
 nnoremap <leader>w :up<cr>
@@ -90,10 +91,9 @@ nnoremap ;fe :q!<cr>
 nnoremap ;ee :qa!<cr>
 nnoremap ;x :xa<cr>
 
-nnoremap <c-a> ggVG
-
 nnoremap <leader>o :e!<space>
 
+" Move cursors
 inoremap è <Left>
 inoremap ê <Down>
 inoremap ë <Up>
@@ -102,24 +102,34 @@ inoremap <m-h> <Left>
 inoremap <m-j> <Down>
 inoremap <m-k> <Up>
 inoremap <m-l> <Right>
-
+inoremap <m-i> <left><left><left><left><left>
+inoremap <m-o> <right><right><right><right><right>
+inoremap <m-u> <esc>0i
+inoremap <m-p> <esc>$a
 
 inoremap é <esc>Bi
 inoremap ï <esc>Wa
 inoremap õ <home>
 inoremap ð <end>
 
+nnoremap cw ciw
+nnoremap dw diw
+
+nnoremap <C-A> ggVG
 nnoremap Y y$$
 nnoremap yp yyP
 nnoremap yb mmvBy`mp
 
-nnoremap <leader>rp :!python3 %<cr>
+nnoremap <leader>rp :%w !python3<cr>
 nnoremap <leader>pr o'''<esc>yypk:r!python3 %<cr>
+nnoremap ;rr :%s///g<left><left>
 
-nnoremap ;r *:%s///g<left><left>
 nnoremap t, :tabNext<cr>
 nnoremap t. :tabnext<cr>
 nnoremap ;snp :tabnew ~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/_.snip
+
+" open file in new tab
+nnoremap ,to :execute "tabnew ".getline('.')
 
 " Current line as VIM Operation:  "oyy@o   yy@"
 " Current line as Ex Command:     :execute getline(".")
@@ -130,23 +140,46 @@ nnoremap ;snp :tabnew ~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snipp
 " Swap this line and 'x-line
 nnoremap <leader>rl ddmy'xPjdd'yP
 
+
 " Swap two Words: mm <leader>rw
 nnoremap <leader>rW mnviW"ny`mviW"myviW"np`nviW"mp
 nnoremap <leader>rw mnviw"ny`mviw"myviw"np`nviw"mp
-" move Word right
-nnoremap ;ml viWxEa<space><esc>pBB
-nnoremap ;mh EBhdEBhPWW
+
+" move Word / right left
+nnoremap <m-l> diWmaEviWp`aPE
 
 " Surround a word with []
 nnoremap ;x viwxi[]<esc>P
 vnoremap ;x xi[]<esc>P
 
 set ignorecase
-"set nohlsearch
+
+" auto number increment
 nnoremap <leader>a yyp:.s/\d\+/\=submatch(0)+1/g<cr>
 
 " source this buffer!!!
 nnoremap <leader>vs ggVGy:@"<CR>
 
-nnoremap } }zz<c-e><c-e>
-nnoremap { {zz<c-y><c-y>
+" { } behavior
+nnoremap } }zzj<c-e>
+nnoremap { {{jzz<c-y>
+
+" AUTO SAVE FOLDS
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
+" change window focus
+nnoremap <space><space> <c-w>w
+nnoremap <space>h <c-w>h
+nnoremap <space>j <c-w>j
+nnoremap <space>k <c-w>k
+nnoremap <space>l <c-w>l
+
+nnoremap gw viwy:Ici 0
+nnoremap z<space> za
+
+:set sessionoptions=blank,winsize,tabpages,resize
+

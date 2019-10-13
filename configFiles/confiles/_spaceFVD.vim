@@ -35,3 +35,9 @@ auto-completion-tab-key-behavior = "smart"
 name = 'shell'
 default_position = 'top'
 default_height = 30
+
+# custom plugins {{{
+[[custom_plugins]]
+name = 'flowerowl/ici.vim'
+merged = 0
+# }}}
