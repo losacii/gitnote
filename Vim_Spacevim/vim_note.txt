@@ -36,6 +36,7 @@ Motion, Change, Delete
   :Vex
   :Sex
 
+
 ** save, quit
   :up
   :w
@@ -43,13 +44,16 @@ Motion, Change, Delete
   :5,+4w filename
   :q!
 
+
 ** open multiple
   vim -o a b c
   vim -O x y z
   vim -p a b c
 
+
 ** save as
   :saveas filename
+
 
 ** open new file, open another file
   :e!  file   :forcefully
@@ -62,3 +66,26 @@ Motion, Change, Delete
 ** Read only open
   vim -M file     (absolutely)
   vim -R file     (forcefully save)
+
+
+** IRC (Internet relay chat)
+  sudo apt install irssi
+
+  irssi
+  /connect chat.freenode.net
+  /set nick losacii
+
+  /join #freenode
+  /names
+
+  /clear
+
+  /msg NickServ set password <passwd>
+  plumber
+  /help ignore
+  /ignore -except #foo,#bar * JOINS PARTS QUITS
+  /ignore * JOINS PARTS QUITS
+  /exit
+
+
+
