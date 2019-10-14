@@ -1,0 +1,12 @@
+
+Introduction of VIM's Dictionary Plugin:
+
+Text example:
+
+    "I have no special talent. I am only passionately curious. 
+                                               Albert Einstein"
+
+
+prodigy
+apple
+thug

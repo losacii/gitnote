@@ -1,5 +1,6 @@
 # screen blackout after 3600 seconds
-xset s 3600
+set -o vi
+xset s 10800
 
 # feh --recursive --randomize --bg-fill ~/Pictures/Wallpapers/
 feh --bg-fill ~/Pictures/Wallpapers/9.jpg

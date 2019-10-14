@@ -116,9 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-set -o vi
-xset s 10800
-
 source /home/vi/.myScripts/*
 
 

@@ -1,6 +1,37 @@
 import requests
 from bs4 import BeautifulSoup
+import os
 import sys
+
+# 获取当前终端的宽度和高度
+rows, columns = os.popen('stty size', 'r').read().split()
+
+TERM_WIDTH = int(columns) # 宽度
+TERM_HEIGHT = int(rows) # 高度
+
+def blit(s):
+    l = 0
+    words = s.split(' ')
+    for word in words:
+        if l + len(word) >= TERM_WIDTH:
+            sys.stdout.write('\n')
+            l = len(word) + 1
+        else:
+            l += len(word) + 1
+        sys.stdout.write(word + ' ')
+
+
+def blit1(s, padding):
+    l = padding
+    words = s.split(' ')
+    for word in words:
+        if l + len(word) >= TERM_WIDTH - padding:
+            sys.stdout.write('\n' + ' ' * padding)
+            l = len(word) + 1 + padding
+        else:
+            l += len(word) + 1
+        sys.stdout.write(word + ' ')
+
 
 #检验是否含有中文字符
 def contains_chinese(strs):
@@ -22,7 +53,7 @@ def dict_vocabulary(word):
     ptags = soup.find_all('p')
     for p in ptags:
         if p.attrs:
-            print(p.text, '\n')
+            blit1(p.text, 3); sys.stdout.write('\n')
     print(" ~" * 32)
 
     # print(soup.b)  # first bold tag
@@ -46,7 +77,7 @@ def dict_youdao(word):
     example_count = 0
     for t in tagsx:
         text = t.text.strip('\n')
-        print(text)
+        blit(text); sys.stdout.write('\n')
         if contains_chinese(text):
             print()
             example_count += 1

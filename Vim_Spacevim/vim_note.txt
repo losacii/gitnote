@@ -62,3 +62,35 @@ Motion, Change, Delete
 ** Read only open
   vim -M file     (absolutely)
   vim -R file     (forcefully save)
+
+** save layouts
+  :mksession <filepath>
+  vim -S <filepath>
+
+** folds ( :help fold )
+  zf<motion>   <visual>zf
+  zR  (Open all)
+  zM  (Close all)
+  zd   zD (recursively)   zE (Eliminate all folds)
+  za zA (recursively)   
+  zo   zc    (toggle, open, close)
+
+
+** surround
+
+** Resize split widnow
+  :vertical resize 52
+
+** registers
+  ":p    :paste register
+  @:     :play  register
+
+** EasyMotion
+  <leader><leader>w
+  <leader><leader>b
+  <leader><leader>f
+  <leader><leader>F
+
+** comments
+  vip <space>cv
+  SPC c v
