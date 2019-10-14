@@ -73,8 +73,8 @@ nnoremap <leader>rr :!clang % && ./a.out<cr>
 
 nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim<cr>
 
-" color themes
-colorscheme anokha
+" color themes: anokha, diablo3
+colorscheme diablo3
 nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
 nnoremap <F4> jmxkddggP'xzz
 nnoremap <F5> jmxkddGP'xzz
