@@ -106,15 +106,16 @@ Motion, Change, Delete
   irssi
   /connect chat.freenode.net
   /nick losacii
-  /msg NickServ set password <passwd>
   /msg NickServ identify <passwd>
 
   /join ##English
   /names
 
-  /clear
+  /msg NickServ set password <passwd>
 
-  plumber
+  /clear
+  /cl
+
   /help ignore
   /ignore -except #foo,#bar * JOINS PARTS QUITS
   /ignore * JOINS PARTS QUITS

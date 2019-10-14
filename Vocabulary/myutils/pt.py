@@ -1,0 +1,111 @@
+# coding:utf-8
+import os, sys
+import time
+import random
+import re
+import codecs
+
+# 获取当前终端的宽度和高度
+rows, columns = os.popen('stty size', 'r').read().split()
+# print("Window Size: {} x {}".format(columns, rows)); time.sleep(3)
+
+TERM_WIDTH = int(columns) # 宽度
+TERM_HEIGHT = int(rows) # 高度
+
+def convertline(s, width=TERM_WIDTH-4, indent=0):
+    ''' 把一长段文字，以 (宽度-4) 分割，单词不被切割换行 '''
+    ''' 用换行符 '\n' 插入进行分隔, 返回字符串列表 '''
+    linelist = []
+    txt = ' ' * indent + s
+    begin = 0
+    end = 0
+    while True:
+        if begin + width > len(txt):
+            linelist.append(txt[begin:])
+            break
+        end = txt.rfind(' ', begin, begin+width)
+        linelist.append(txt[begin:end])
+        begin = end + 1
+    return linelist
+
+def convertTxt(filePath):
+    initLines = []; reslines = []
+    wordCount = 0
+    lineCount = 0
+    with codecs.open(filePath, encoding='utf8') as fp:
+        for line in fp.readlines():
+            line = line.strip('\n');     wordCount += len(line.split())
+            line_s = convertline(line);  lineCount += len(line_s)
+            initLines.extend(line_s)
+    # 获取最长行的字符数
+    maxLen = 0
+    for line in initLines:
+        if len(line) > maxLen:
+            maxLen = len(line)
+    # 计算空格插入数量
+    x = int( (TERM_WIDTH - maxLen) / 2 )
+    # 生成新的 lines
+    for line in initLines:
+        reslines.append(' ' * x + line)
+    return ('\n'.join(reslines), lineCount, wordCount)
+
+def blit(s, wi=0.01, after=0.0):
+    ''' 打印上面转换的文字， 单词间停顿， 连续不可见字符只停顿1次 '''
+    # if empty_char after, wait is off
+    switch = 1
+    colorswitch = False
+
+    for c in s:
+
+        # color style starts with '['
+        if c == '[':
+            colorswitch = True
+            c = ''
+        # color style ends with ']'
+        if c == ']':
+            colorswitch = False
+            c = ''
+
+        if colorswitch:
+            sys.stdout.write('\x1b[0;32;48m' + c + '\x1b[0m')
+        else:
+            sys.stdout.write(c)
+        sys.stdout.flush()
+        if c == ' ' or c == '\n' or c == '\t':
+            if switch:
+                switch = 0
+                time.sleep(wi)
+        else:
+            switch = 1
+    sys.stdout.write('\n')
+    sys.stdout.flush()
+
+def playText(fpath, sec_per_word):
+    ''' 根据路径，播放文件 '''
+
+#    threading.Thread(target=playStrokeSound, args=()).start() # play sound
+
+    txt, lineCount, wordCount = convertTxt(fpath)
+
+    # 播放
+    emptylines = int( (TERM_HEIGHT - lineCount) / 2 )
+    if (TERM_HEIGHT - lineCount) % 2 == 0:
+        emptylines -= 2
+    else:
+        emptylines -= 1
+    sys.stdout.write((emptylines)*'\n')
+    wordInterv = 0.7 / wordCount;  blit(txt, wi=wordInterv)
+    sys.stdout.write(emptylines*'\n')
+
+    info = " {} lines, {} words ".format(lineCount, wordCount).center(TERM_WIDTH, '~')
+    space_pos = info.rfind(' ') + 1
+    sys.stdout.write(info[:space_pos])
+    restinfo = info[space_pos:]
+
+    wait_time = wordCount * float(sec_per_word) + 2.5
+    interv = wait_time / len(restinfo)
+    for _ in restinfo:
+        sys.stdout.write('~')
+        time.sleep(interv)
+        sys.stdout.flush()
+

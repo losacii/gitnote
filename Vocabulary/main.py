@@ -16,7 +16,7 @@ import codecs
 
 # 获取当前终端的宽度和高度
 rows, columns = os.popen('stty size', 'r').read().split()
-# print("Window Size: {} x {}".format(columns, rows)); time.sleep(3)
+print("Window Size: {} x {}".format(columns, rows)); time.sleep(3)
 
 TERM_WIDTH = int(columns) # 宽度
 TERM_HEIGHT = int(rows) # 高度

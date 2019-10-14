@@ -22,7 +22,8 @@ def blit(s):
 
 
 def blit1(s, padding):
-    l = padding
+    sys.stdout.write(' ' * (padding + 2))
+    l = padding + 2
     words = s.split(' ')
     for word in words:
         if l + len(word) >= TERM_WIDTH - padding:
@@ -77,7 +78,7 @@ def dict_youdao(word):
     example_count = 0
     for t in tagsx:
         text = t.text.strip('\n')
-        blit(text); sys.stdout.write('\n')
+        blit1(text, 3); sys.stdout.write('\n')
         if contains_chinese(text):
             print()
             example_count += 1
