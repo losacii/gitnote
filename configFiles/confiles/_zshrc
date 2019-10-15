@@ -100,6 +100,6 @@ source $ZSH/oh-my-zsh.sh
 source ~/.bash_aliases
 source /home/vi/.myScripts/*
 
+# screen blackout after 3600 seconds
 set -o vi
 xset s 10800
-
