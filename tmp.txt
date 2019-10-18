@@ -10,3 +10,7 @@ Text example:
 prodigy
 apple
 thug
+
+Linux WIFI:
+
+https://blog.csdn.net/xiao_jj_jj/article/details/84322593
