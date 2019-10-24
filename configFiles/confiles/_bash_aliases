@@ -20,7 +20,7 @@ alias i3config='vim ~/.config/i3/config'
 alias aliconfig='vim ~/.bash_aliases'
 
 alias clock='tty-clock -x -c'
-alias playText='python ~/Documents/gitnote/Vocabulary/playTexts.py'
+alias playText='python3 ~/Documents/gitnote/Vocabulary/playTexts.py'
 
 alias fls='ls | fzy -l 25'
 alias fcd='cd $(find . -type d | fzy)'

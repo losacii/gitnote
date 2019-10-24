@@ -23,6 +23,7 @@ if has('vim_starting')
     let g:python3_host_prog = $PYTHON3_HOST_PROG
   endif
 endif
+
 " Detect root directory of SpaceVim
 if has('win16') || has('win32') || has('win64')
   function! s:resolve(path) abort
@@ -41,9 +42,6 @@ else
   endfunction
 endif
 
-"let g:spacevim_custom_plugins = [
-"            \ ['itchyny/dictionary', {'merged' : 0}],
-"            \ ]
 
 let g:_spacevim_root_dir = fnamemodify(s:resolve(fnamemodify(expand('<sfile>'),
       \ ':p:h:h:gs?\\?'.((has('win16') || has('win32')
@@ -74,13 +72,17 @@ nnoremap <leader>rr :!clang % && ./a.out<cr>
 nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim<cr>
 
 " color themes: anokha, diablo3
-colorscheme diablo3
+colorscheme anokha
 nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
 nnoremap <F4> jmxkddggP'xzz
 nnoremap <F5> jmxkddGP'xzz
-"   show | pick
+
+
+" colorschemes:  show | pick  
 nnoremap ;cd :RANDOMCOLORD<cr>
 nnoremap ;cl :RANDOMCOLORL<cr>
+
+
 "   random pick
 nnoremap ;cc :28vs ~/Documents/gitnote/configFiles/vim_color_themes/clrs<cr>
 

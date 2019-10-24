@@ -36,6 +36,10 @@ name = 'shell'
 default_position = 'top'
 default_height = 30
 
+[[layers]]
+    name = "lang#python"
+    enable = true
+
 # custom plugins {{{
 [[custom_plugins]]
 name = 'flowerowl/ici.vim'
