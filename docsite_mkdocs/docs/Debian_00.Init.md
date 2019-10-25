@@ -1,4 +1,14 @@
-# Debian(0) Init
+# Debian(0) Initialization
+
+### Download debian 
+from [here](https://cdimage.debian.org/debian-cd/10.1.0-live/amd64/iso-hybrid/) standard iso <br>
+virutlbox > new > Debian10 <br>
+2048 > 25.48G <br>
+System > uncheck flopy <br>
+Display > 32M <br>
+Storage > Select ISO <br>
+Network > Bridged Adapter <br>
+US Estern
 
 ### sudoer add user
 (root login)  
