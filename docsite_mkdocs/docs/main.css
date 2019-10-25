@@ -1,0 +1,8 @@
+* { 
+    font-family: 'consolas'; 
+  }
+
+h1, h2, h3, h4 { 
+    color: blue;
+    font-family: "PT Mono"; 
+  }
