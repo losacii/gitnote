@@ -13,7 +13,7 @@ import sys
 put = sys.stdout.write
 
 WIDTH = 1280; HEIGHT = 720
-monitor = {"top":50, "left":50, "width":WIDTH, "height":HEIGHT}
+monitor = {"top":45, "left":0, "width":WIDTH, "height":HEIGHT}
 sct = mss.mss()
 cv.namedWindow("Video Stream Monitor")
 
@@ -34,6 +34,7 @@ def grabScreen():
     imgSet = None # x image
     img = None    # y image
     alarm = 0     # 动态定时器
+    nonzero = 0
     record_switch = False
 
     while True:
@@ -44,9 +45,9 @@ def grabScreen():
         if imgSet is not None:  # x image 获得了图像
             subimg = cv.subtract(img, imgSet)  # 相减
             gray = cv.cvtColor(subimg, cv.COLOR_BGR2GRAY) # 灰度
-            _ret, thresh = cv.threshold(gray, 127, 255, cv.THRESH_BINARY) # Threshold
+            _ret, thresh = cv.threshold(gray, 50, 255, cv.THRESH_BINARY) # Threshold
             nonzero = cv.countNonZero(thresh) # 统计非零数值 noZero
-            if nonzero > 90:   # 触发定时器
+            if nonzero > 32:   # 触发定时器
                 alarm = 18
 
         # 定时器逻辑
@@ -61,7 +62,12 @@ def grabScreen():
         # 显示缩小图和信息
         showImg = img.copy()
         resizedImg = cv.resize(showImg, (480, 270))
-        textInfo("Alarm Level: {}, Recording: {}".format(alarm, record_switch), resizedImg, 10, 20)
+        textInfo("NonZero: {}, Alarm Level: {}, Recording: {}".format(nonzero, alarm, record_switch), resizedImg, 10, 20)
+        if record_switch:
+            if alarm > 0:  # RED sign
+                cv.circle(resizedImg,(20,60), 15, (0,0,255), -1)
+            else:          # Yellow sign
+                cv.circle(resizedImg,(20, 60), 15, (0,255,255), -1)
         cv.imshow("Video Stream Monitor", resizedImg)
         #cv.moveWindow("Video Stream Monitor", 1350, 750)
 
