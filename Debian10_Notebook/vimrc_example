@@ -1,0 +1,124 @@
+let mapleader=','
+nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.local/share/nvim/plugged')
+    " Make sure you use single quotes
+    Plug 'scrooloose/nerdtree'
+    "Commenter <leader>c<cpace>
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'vim-scripts/nc.vim'
+    " Beautify Status Bar
+    Plug 'bling/vim-airline'
+    " Plugin outside ~/.vim/plugged with post-update hook
+    " https://github.com/junegunn/fzf.vim 
+    " In Terminal, Ctrl+t,  Esc > c
+    " --> Commands: Files Colors Ag
+    " Rg(alt-a alt-d)
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+    if executable('fzf')
+        nnoremap <c-p> :FZF<cr>
+    endif
+    " And, FlyGrep  :FlyGrep (instead of ark!)
+    " https://github.com/wsdjeg/FlyGrep.vim  c-a c-e c-j c-k
+    Plug 'wsdjeg/FlyGrep.vim'
+    nnoremap <leader>rg :FlyGrep<cr>
+    "Color Theme
+    Plug 'tomasr/molokai'
+    "Auto Pair
+    Plug 'jiangmiao/auto-pairs'
+    " vim-sneak:  s<char><char> ; 3; `` s<enter>
+    " https://github.com/justinmk/vim-sneak
+    Plug 'justinmk/vim-sneak'
+    " highlight yank
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'tpope/vim-surround'
+    " Plug 'tpope/fugitive'   " git utils......
+
+"Initialize plugin system
+call plug#end()
+colorscheme molokai
+
+"Yank!
+nnoremap yp yyp
+nnoremap Y y$$
+
+"Split Toggle
+nnoremap <space><space> <c-w>w
+
+"File Tree
+nnoremap <space>ft :NERDTreeToggle<cr>
+
+"Save & Quit
+nnoremap ,w :update<cr>
+nnoremap ;fe :q!<cr>
+nnoremap ;ee :qa!<cr>
+
+"Toggle Line Number
+nnoremap <space>nn :set nu! rnu!<cr>
+
+" show enter-char etc..
+set list
+set list listchars=tab:▸\ ,eol:¬
+
+" tab settings
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+
+set autoindent
+set smartindent
+set showcmd
+set ruler      " show cursor position all the time
+set cursorline " hignlight cursor-line
+
+set encoding=utf-8
+
+" Disable Anoying auto Visual mode Feature!!!
+set mouse-=a
+
+" backspace over everything in instert mode
+set backspace=indent,eol,start
+
+nnoremap j gj
+nnoremap k gk
+
+" os clipboard sharing
+set clipboard=unnamed
+
+" Undo file after reopening
+set undofile
+set undodir=/tmp
+
+nnoremap <left> :tabprevious<cr>
+nnoremap <right> :tabnext<cr>
+
+" Text width settings
+set textwidth=78
+set colorcolumn=78
+
+nnoremap <leader>cw :call ToggleColumnWidth()<cr>
+let g:wide_column = 1
+function! ToggleColumnWidth()
+    if g:wide_column
+        set textwidth=100
+        set colorcolumn=100
+        let g:wide_column = 0
+    else
+        set textwidth=80
+        set colorcolumn=80
+        let g:wide_column = 1
+    endif
+endfunction
+
+set formatoptions=qrnl
+
+" sort lines
+nnoremap <leader>st :'<,'>!sort -f<cr>
+
+nnoremap ;rr :%s///g<left>
+
