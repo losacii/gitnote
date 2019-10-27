@@ -118,6 +118,7 @@ set backspace=indent,eol,start
 
 nnoremap j gj
 nnoremap k gk
+nnoremap cw ciw
 
 " os clipboard sharing
 set clipboard=unnamed
