@@ -6,6 +6,8 @@ nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim
 call plug#begin('~/.local/share/nvim/plugged')
     " Make sure you use single quotes
     Plug 'scrooloose/nerdtree'
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
     "Commenter <leader>c<cpace>
     Plug 'scrooloose/nerdcommenter'
     Plug 'vim-scripts/nc.vim'
@@ -36,6 +38,36 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'machakann/vim-highlightedyank'
     Plug 'tpope/vim-surround'
     " Plug 'tpope/fugitive'   " git utils......
+    
+    " Language Server Protocal
+    " vim-lsp: https://github.com/prabirshrestha/vim-lsp 
+    " ncm2:  https://github.com/ncm2/ncm2
+    Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'roxma/nvim-yarp'
+    Plug 'ncm2/ncm2'
+    Plug 'ncm2/ncm2-vim-lsp'
+
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    set completeopt=noinsert,menuone,noselect
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-path'
+
+    if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python3', 'python'],
+        \ })
+    endif
+    let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
+    let g:lsp_signs_enabled = 0         " enable signs
+    let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+    let g:lsp_signs_error = {'text': '✗'}
+    " Use <TAB> to select the popup menu:
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "Initialize plugin system
 call plug#end()

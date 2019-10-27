@@ -37,6 +37,8 @@ def grabScreen():
     nonzero = 0
     record_switch = False
 
+    fastMode = False
+
     while True:
         imgSet = img  # y --> x
         im = np.array(sct.grab(monitor)) # BGRA 图片
@@ -62,7 +64,7 @@ def grabScreen():
         # 显示缩小图和信息
         showImg = img.copy()
         resizedImg = cv.resize(showImg, (480, 270))
-        textInfo("NonZero: {}, Alarm Level: {}, Recording: {}".format(nonzero, alarm, record_switch), resizedImg, 10, 20)
+        textInfo("FastMode: {}, NonZero: {}, Alarm Level: {}, Recording: {}".format(fastMode, nonzero, alarm, record_switch), resizedImg, 10, 20)
         if record_switch:
             if alarm > 0:  # RED sign
                 cv.circle(resizedImg,(20,60), 15, (0,0,255), -1)
@@ -72,9 +74,15 @@ def grabScreen():
         #cv.moveWindow("Video Stream Monitor", 1350, 750)
 
         # 按键设置
-        key = cv.waitKey(25)
+        if fastMode:
+            key = cv.waitKey(300)
+            nonzero = 0
+        else:
+            key = cv.waitKey(29)
         if key == ord('r'):
             record_switch = not record_switch
+        elif key == ord('f'):
+            fastMode = not fastMode
         elif key & 0xff == 27:
             break
         

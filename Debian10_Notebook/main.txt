@@ -93,3 +93,65 @@ alias sv='sudo -E nvim'
 
 
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    ¬
+    " Language Server Protocal¬
+    " vim-lsp: https://github.com/prabirshrestha/vim-lsp ¬
+    " ncm2:  https://github.com/ncm2/ncm2¬
+    Plug 'prabirshrestha/async.vim'¬
+    Plug 'prabirshrestha/vim-lsp'¬
+    Plug 'roxma/nvim-yarp'¬
+    Plug 'ncm2/ncm2'¬
+    Plug 'ncm2/ncm2-vim-lsp'¬
+¬
+    autocmd BufEnter * call ncm2#enable_for_buffer()¬
+    set completeopt=noinsert,menuone,noselect¬
+    Plug 'ncm2/ncm2-bufword'¬
+    Plug 'ncm2/ncm2-path'¬
+¬
+    if executable('pyls')¬
+    " pip install python-language-server¬
+    au User lsp_setup call lsp#register_server({¬
+        \ 'name': 'pyls',¬
+        \ 'cmd': {server_info->['pyls']},¬
+        \ 'whitelist': ['python3', 'python'],¬
+        \ })¬
+    endif¬
+
+" https://github.com/palantir/python-language-server<Paste>
+pip3 install 'python-language-server[pycodestyle]'
+
+
+" pipenv
+" https://pipenv-fork.readthedocs.io/en/latest/basics.html
+sudo apt install pipenv
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+" Specifying Versions of Python
+cd
+mkdir env_py3
+cd env_py3
+pipenv --python 3.7
+pipenv shell
+
+pip install pqi
+pqi use tuna
+
+pip install Django==2.2 Pillow
+pip install neovim pynvim
+
+mkdir djangoServer
+cd djangoServer/
+django-admin startproject aaServer .
+
+nvim .aaServer/settings.py
+runserver
+
+
+nerdtree usage
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+" https://sookocheff.com/post/vim/creating-a-new-file-or-directoryin-vim-using-nerdtree/
+
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
