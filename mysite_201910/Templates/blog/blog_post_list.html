@@ -1,0 +1,12 @@
+{% extends 'home/base.html' %}
+
+    {% block content %}
+
+    <a href="/blog-new/">Create a new blog</a>
+    <h2>post list</h2>
+
+    {% for post in posts %}
+        <li>{{ post.title }}</li>
+    {% endfor %}
+
+    {% endblock %}

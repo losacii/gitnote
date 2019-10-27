@@ -1,0 +1,36 @@
+{% extends 'home/base.html' %}
+
+
+    {% block content %}
+        <h2>home page!</h2>
+
+        <!-- Bread Crumb -->
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Library</a></li>
+            <li class="active">Data</li>
+        </ol>
+
+
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li>
+            <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+            <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+            </li>
+        </ul>
+        </nav>
+    {% endblock %}

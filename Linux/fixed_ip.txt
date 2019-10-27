@@ -1,0 +1,18 @@
+source /etc/network/interfaces.d/*
+  >>> ip_set_dynamic.txt  (Default)
+  >>> ip_set_static.txt
+
+ip addr show
+
+ip link set enp3s0 up
+ip link set enp3s0 down
+
+ip route show
+
+sudo mv /etc/network/interfaces /etc/network/interfaces.bak
+# https://linuxconfig.org/how-to-setup-a-static-ip-address-on-debian-linux
+# http://blog.biochen.com/archives/1190
+# https://danielmiessler.com/study/manually-set-ip-linux/
+# https://www.jianshu.com/p/33784a06c1a9
+# https://blog.csdn.net/u014026084/article/details/79305559
+

@@ -1,0 +1,27 @@
+" VIM-PLUG: Specify a directory for plugins.
+call plug#begin('~/.local/share/nvim/plugged')
+
+                " Declare the list of plugins.
+                Plug 'scrooloose/nerdtree'
+                nnoremap <space>ft :NERDTreeToggle<cr>
+                nnoremap <space><space> <c-w><c-w>
+
+                "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+                "Plug 'prabirshrestha/async.vim'
+                "Plug 'roxma/nvim-yarp'
+                "Plug 'ncm2/ncm2-vim-lsp'
+
+" List ends here. Plugins become visible to Vim after this call.
+call plug#end()
+
+
+
+
+
+set nu rnu
+
+let mapleader=","
+
+nnoremap <leader>w :up<cr>
+nnoremap ;fe :q!<cr>
+

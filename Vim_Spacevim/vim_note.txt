@@ -36,7 +36,6 @@ Motion, Change, Delete
   :Vex
   :Sex
 
-
 ** save, quit
   :up
   :w
@@ -48,6 +47,7 @@ Motion, Change, Delete
 ** open multiple
   vim -o a b c
   vim -O x y z
+
   vim -p a b c
 
 
@@ -61,6 +61,13 @@ Motion, Change, Delete
 
   :e!   :reload forcefully
   :e
+
+
+** Run this buffer as Python | Bash | Ex-command
+  :%w !python
+  :.w !bash
+  Y:@"<cr>
+  tabnew newfilex
 
 
 ** Read only open

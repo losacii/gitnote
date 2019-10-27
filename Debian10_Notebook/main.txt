@@ -1,0 +1,170 @@
+sudoers
+001 Snapshot
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+sudo vi /etc/sudoers
+(add two lines below)
+losacii ALL=(ALL:ALL) ALL
+losacii ALL=(ALL) NOPASSWD: ALL
+
+source.list
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+sudo mv /etc/apt/source.list /etc/apt/source.list.back
+sudo wget https://raw.githubusercontent.com/losacii/gitnote/master/debsource.txt -O /etc/apt/source.list
+sudo apt update
+sudo apt upgrade
+
+openssh-server
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+sudo apt install openssh-server
+    sudo systemctl enable ssh
+    sudo systemctl start ssh
+
+ssh-copy-id
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+ssh-keygen -R IP
+ssh-copy-id user@IP
+ssh user@IP
+
+gitnote
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+sudo apt install git-core
+git clone https://github.com/losacii/gitnote.git
+
+.bashrc
+  PS1
+  source .bash_aliases
+  source .myscripts
+
+neovim with python support
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+sudo apt install python-pip python3-pip
+
+pip3 install pqi
+.local/bin/pqi use tuna
+
+pip install pynvim neovim
+
+pip3 install pynvim neovim
+
+sudo apt install make cmake curl ninja-build gettext libtool \
+  libtool-bin autoconf automake g++ pkg-config unzip
+
+sudo apt install neovim
+
+rsync
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+appinstall rsync
+
+locale gen
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+sudo nvim /etc/default/locale
+	LANG="en_US.UTF-8"
+	LANGUAGE="en_US:en"
+
+sudo nvim /etc/locale.gen
+	( uncomment this line )
+	en_US.UTF-8 UTF-8
+
+sudo locale-gen
+
+
+003 Snapshot: vim-plug
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+vim-plug
+https://github.com/junegunn/vim-plug
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+vimrc_example  ( gf  ctrl-6 :bfirst :blast :bnext :bprevious)
+~/.config/nvim/init.vim
+(paste this:)
+
+cd /usr/share/nvim/runtime/colors
+sudo wget \
+     https://raw.githubusercontent.com/vim-scripts/Diablo3/master/colors/diablo3.vim       \
+     https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim            \
+     https://raw.githubusercontent.com/vim-scripts/AutumnLeaf/master/colors/autumnleaf.vim \
+     -P /usr/share/nvim/runtime/colors/
+
+
+003B vim LSP --> coc.nvim
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+" sudo with user Config
+alias sv='sudo -E nvim'
+
+
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    ¬
+    " Language Server Protocal¬
+    " vim-lsp: https://github.com/prabirshrestha/vim-lsp ¬
+    " ncm2:  https://github.com/ncm2/ncm2¬
+    Plug 'prabirshrestha/async.vim'¬
+    Plug 'prabirshrestha/vim-lsp'¬
+    Plug 'roxma/nvim-yarp'¬
+    Plug 'ncm2/ncm2'¬
+    Plug 'ncm2/ncm2-vim-lsp'¬
+¬
+    autocmd BufEnter * call ncm2#enable_for_buffer()¬
+    set completeopt=noinsert,menuone,noselect¬
+    Plug 'ncm2/ncm2-bufword'¬
+    Plug 'ncm2/ncm2-path'¬
+¬
+    if executable('pyls')¬
+    " pip install python-language-server¬
+    au User lsp_setup call lsp#register_server({¬
+        \ 'name': 'pyls',¬
+        \ 'cmd': {server_info->['pyls']},¬
+        \ 'whitelist': ['python3', 'python'],¬
+        \ })¬
+    endif¬
+
+" https://github.com/palantir/python-language-server<Paste>
+pip3 install 'python-language-server[pycodestyle]'
+
+
+" pipenv
+" https://pipenv-fork.readthedocs.io/en/latest/basics.html
+sudo apt install pipenv
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+" Specifying Versions of Python
+cd
+mkdir env_py3
+cd env_py3
+pipenv --python 3.7
+pipenv shell
+
+pip install pqi
+pqi use tuna
+
+pip install Django==2.2 Pillow
+pip install neovim pynvim
+
+mkdir djangoServer
+cd djangoServer/
+django-admin startproject aaServer .
+
+nvim .aaServer/settings.py
+runserver
+
+set static ip address
+https://linuxconfig.org/how-to-setup-a-static-ip-address-on-debian-linux
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+sudo mv /etc/network/interfaces /etc/network/interfaces.bak
+sudo nvim /etc/network/interfaces
+
+/etc/resolv.conf
+sudo service networking restart
+
+
+
+nerdtree usage
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+" https://sookocheff.com/post/vim/creating-a-new-file-or-directoryin-vim-using-nerdtree/
+
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~

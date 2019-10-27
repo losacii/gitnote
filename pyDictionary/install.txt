@@ -1,1 +1,1 @@
-pip3 install requests bs4 python3-lxml
+pip3 install requests bs4 python3-lxml(or lxml)

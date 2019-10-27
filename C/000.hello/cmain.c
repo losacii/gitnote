@@ -6,6 +6,5 @@ int main()
   return 0;
 }
 
-
 // gcc main.c -o cfloat.out
 // make main
