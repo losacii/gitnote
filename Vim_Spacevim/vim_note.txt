@@ -67,7 +67,7 @@ Motion, Change, Delete
   vim -M file     (absolutely)
   vim -R file     (forcefully save)
 
-<<<<<<< HEAD
+
 ** save layouts
   :mksession <filepath>
   vim -S <filepath>
