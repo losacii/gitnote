@@ -107,7 +107,7 @@ inoremap <m-l> <Right>
 inoremap <m-i> <left><left><left><left><left>
 inoremap <m-o> <right><right><right><right><right>
 inoremap <m-u> <esc>0i
-inoremap <m-p> <esc>$a
+inoremap <m-.> <esc>$a
 
 inoremap é <esc>Bi
 inoremap ï <esc>Wa

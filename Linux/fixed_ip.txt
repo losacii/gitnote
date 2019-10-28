@@ -1,6 +1,7 @@
 source /etc/network/interfaces.d/*
+  >>> ip_set_static.txt   (Lan)
   >>> ip_set_dynamic.txt  (Default)
-  >>> ip_set_static.txt
+  >>> ip_set_dynamic_wifi.txt  (Default)
 
 ip addr show
 

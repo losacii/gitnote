@@ -1,0 +1,194 @@
+let mapleader=','
+nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.local/share/nvim/plugged')
+    " Make sure you use single quotes
+    Plug 'scrooloose/nerdtree'
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    "Commenter <leader>c<cpace>
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'vim-scripts/nc.vim'
+    " Beautify Status Bar
+    Plug 'bling/vim-airline'
+    " Plugin outside ~/.vim/plugged with post-update hook
+    " https://github.com/junegunn/fzf.vim 
+    " In Terminal, Ctrl+t,  Esc > c
+    " --> Commands: Files Colors Ag
+    " Rg(alt-a alt-d)
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+    if executable('fzf')
+        nnoremap <c-p> :FZF -e<cr>
+    endif
+    " And, FlyGrep  :FlyGrep (instead of ark!)
+    " https://github.com/wsdjeg/FlyGrep.vim  c-a c-e c-j c-k
+    Plug 'wsdjeg/FlyGrep.vim'
+    nnoremap <leader>rg :FlyGrep<cr>
+    "Color Theme
+    Plug 'tomasr/molokai'
+    "Auto Pair
+    Plug 'jiangmiao/auto-pairs'
+    " vim-sneak:  s<char><char> ; 3; `` s<enter>
+    " https://github.com/justinmk/vim-sneak
+    Plug 'justinmk/vim-sneak'
+    " highlight yank
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'tpope/vim-surround'
+    " Plug 'tpope/fugitive'   " git utils......
+    
+    " Language Server Protocal
+    " vim-lsp: https://github.com/prabirshrestha/vim-lsp 
+    " ncm2:  https://github.com/ncm2/ncm2
+    Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'roxma/nvim-yarp'
+    Plug 'ncm2/ncm2'
+    Plug 'ncm2/ncm2-vim-lsp'
+
+    autocmd BufEnter * call ncm2#enable_for_buffer()
+    set completeopt=noinsert,menuone,noselect
+    Plug 'ncm2/ncm2-bufword'
+    Plug 'ncm2/ncm2-path'
+
+    if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python3', 'python'],
+        \ })
+    endif
+    let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
+    let g:lsp_signs_enabled = 0         " enable signs
+    let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+    let g:lsp_signs_error = {'text': '✗'}
+    " Use <TAB> to select the popup menu:
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+"Initialize plugin system
+call plug#end()
+colorscheme molokai
+
+"Yank!
+nnoremap yp yyp
+nnoremap Y y$$
+
+nnoremap cw ciw
+nnoremap dw diw
+
+nnoremap <C-A> ggVG
+
+" Move cursors
+inoremap è <Left>
+inoremap ê <Down>
+inoremap ë <Up>
+inoremap ì <Right>
+inoremap <m-h> <Left>
+inoremap <m-j> <Down>
+inoremap <m-k> <Up>
+inoremap <m-l> <Right>
+inoremap <m-i> <left><left><left><left><left>
+inoremap <m-o> <right><right><right><right><right>
+inoremap <m-,> <esc>0i
+inoremap <m-.> <esc>$a
+
+inoremap é <esc>Bi
+inoremap ï <esc>Wa
+inoremap õ <home>
+inoremap ð <end>
+
+
+
+"Split Toggle
+nnoremap <space><space> <c-w>w
+
+"File Tree
+nnoremap <space>ft :NERDTreeToggle<cr>
+
+"Save & Quit
+nnoremap ,w :update<cr>
+nnoremap <leader>fe :q!<cr>
+nnoremap <leader>ee :qa!<cr>
+
+"Toggle Line Number
+nnoremap <space>nn :set nu! rnu!<cr>
+
+" show enter-char etc..
+set list
+set list listchars=tab:▸\ ,eol:¬
+
+" tab settings
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+
+set autoindent
+set smartindent
+set showcmd
+set ruler      " show cursor position all the time
+set cursorline " hignlight cursor-line
+
+set encoding=utf-8
+
+" Disable Anoying auto Visual mode Feature!!!
+set mouse-=a
+
+" backspace over everything in instert mode
+set backspace=indent,eol,start
+
+nnoremap j gj
+nnoremap k gk
+nnoremap cw ciw
+
+" os clipboard sharing
+set clipboard=unnamed
+
+" Undo file after reopening
+set undofile
+set undodir=/tmp
+
+nnoremap <left> :tabprevious<cr>
+nnoremap <right> :tabnext<cr>
+
+" Text width settings
+set textwidth=78
+set colorcolumn=78
+
+nnoremap <leader>cw :call ToggleColumnWidth()<cr>
+let g:wide_column = 1
+function! ToggleColumnWidth()
+    if g:wide_column
+        set textwidth=100
+        set colorcolumn=100
+        let g:wide_column = 0
+    else
+        set textwidth=80
+        set colorcolumn=80
+        let g:wide_column = 1
+    endif
+endfunction
+
+set formatoptions=qrnl
+
+" sort lines
+nnoremap <leader>st :'<,'>!sort -f<cr>
+
+nnoremap <leader>rr :%s///g<left>
+
+
+" Current line as url, Open it with Chromium!
+nnoremap gx :exe ':silent !chromium '.getline('.')<CR>
+
+" Visual-selection! Google Search it
+function! GoogleSearch()
+     let searchterm = getreg("g")
+     silent! exec "silent! !chromium \"http://google.com/search?q=" . searchterm . "\" &"
+endfunction
+vnoremap gs "gy<Esc>:call GoogleSearch()<CR>
+
