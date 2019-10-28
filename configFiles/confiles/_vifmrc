@@ -493,3 +493,4 @@ fileviewer *.docx, docx2txt.pl %f -
 filextype *.doc,*.docx wps %f &
 filextype *.xls,*.xlsx et %f &<Paste>
 
+nnoremap ,e :q<cr>

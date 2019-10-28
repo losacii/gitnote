@@ -8,8 +8,10 @@ import numpy as np
 2. 屏幕没有变化，则暂停录像，屏幕有变动则录像
 '''
 
-WIDTH = 1280; HEIGHT = 720
-monitor = {"top":45, "left":0, "width":WIDTH, "height":HEIGHT}
+TOP = 0; LEFT = 0; WIDTH = 1920; HEIGHT = 1080
+# TOP = 17; LEFT = 1; WIDTH = 958; HEIGHT = 512
+
+monitor = {"top":TOP, "left":LEFT, "width":WIDTH, "height":HEIGHT}
 sct = mss.mss()
 cv.namedWindow("Video Stream Monitor")
 
@@ -107,7 +109,7 @@ def grabScreen():
             key = cv.waitKey(300)
             nonzero = 0
         else:
-            key = cv.waitKey(29)
+            key = cv.waitKey(25)
 
         if key == ord('p'): # Recording / Pause Toggle
             record_switch = not record_switch

@@ -185,3 +185,12 @@ nnoremap z<space> za
 
 :set sessionoptions=blank,winsize,tabpages,resize
 
+" Current line as url, Open it with Chromium!
+nnoremap gx :exe ':silent !chromium '.getline('.')<CR>
+
+" Visual-selection! Google Search it
+function! GoogleSearch()
+     let searchterm = getreg("g")
+     silent! exec "silent! !chromium \"http://google.com/search?q=" . searchterm . "\" &"
+endfunction
+vnoremap gs "gy<Esc>:call GoogleSearch()<CR>
