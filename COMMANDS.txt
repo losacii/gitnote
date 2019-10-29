@@ -4,3 +4,7 @@ sudo nmap -sP 192.168.1.0/24 | nvim
 sudo ssh-keygen -R 192.168.1.x
 ssh-copy-id user@192.168.1.x
 ssh user@192.168.1.x
+
+(Jump git passwd) (https://github.com/losacii/ubuntuMemo/blob/master/ubuntu_note_book.md)
+cd /
+git config --global credential.helper store
