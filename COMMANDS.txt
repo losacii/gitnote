@@ -1,0 +1,6 @@
+ln ROOT/mysettings/files/_vimrc.for.vimplug ~/.config/nvim/init.vim
+sudo nmap -sP 192.168.1.0/24 | nvim
+
+sudo ssh-keygen -R 192.168.1.x
+ssh-copy-id user@192.168.1.x
+ssh user@192.168.1.x

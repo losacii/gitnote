@@ -1,5 +1,5 @@
 let mapleader=','
-nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim<<CR>
+nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim<CR>
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -193,21 +193,17 @@ nnoremap <space>l <c-w>l
 nnoremap gw viwy:Ici 0
 nnoremap z<space> za
 
-:set sessionoptions=blank,winsize,tabpages,resize
-
+set sessionoptions=blank,winsize,tabpages,resize
 
 ""~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+" Clang run program!
 "nnoremap <leader>rr :!clang % && ./a.out<cr>
-"
-"nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim<cr>
-"
 "" color themes: anokha, diablo3
-"colorscheme anokha
 "nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
+
 "nnoremap <F4> jmxkddggP'xzz
 "nnoremap <F5> jmxkddGP'xzz
-"
-"
+
 "" colorschemes:  show | pick  
 "nnoremap ;cd :RANDOMCOLORD<cr>
 "nnoremap ;cl :RANDOMCOLORL<cr>
