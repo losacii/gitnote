@@ -102,3 +102,5 @@ source /home/vi/.myScripts/*
 
 # screen blackout after 3600 seconds
 set -o vi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

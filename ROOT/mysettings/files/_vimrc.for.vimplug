@@ -1,5 +1,5 @@
 let mapleader=','
-nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim
+nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim<<CR>
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -85,15 +85,15 @@ nnoremap <space>ft :NERDTreeToggle<cr>
 
 "Save & Quit
 nnoremap ,w :update<cr>
-nnoremap ;fe :q!<cr>
-nnoremap ;ee :qa!<cr>
+nnoremap <leader>fe :q!<cr>
+nnoremap <leader>ee :qa!<cr>
 
 "Toggle Line Number
 nnoremap <space>nn :set nu! rnu!<cr>
 
 " show enter-char etc..
-set list
-set list listchars=tab:▸\ ,eol:¬
+" set list
+" set list listchars=tab:▸\ ,eol:¬
 
 " tab settings
 set shiftwidth=4
@@ -119,6 +119,10 @@ set backspace=indent,eol,start
 nnoremap j gj
 nnoremap k gk
 nnoremap cw ciw
+nnoremap dw diw
+nnoremap vw viw
+nnoremap vl 0v$
+nnoremap vs vis
 
 " os clipboard sharing
 set clipboard=unnamed
@@ -153,5 +157,124 @@ set formatoptions=qrnl
 " sort lines
 nnoremap <leader>st :'<,'>!sort -f<cr>
 
-nnoremap ;rr :%s///g<left>
+nnoremap <leader>rr :%s///g<left>
 
+
+" Current line as url, Open it with Chromium!
+nnoremap gx :exe ':silent !chromium '.getline('.')<CR>
+
+" Visual-selection! Google Search it
+function! GoogleSearch()
+     let searchterm = getreg("g")
+     silent! exec "silent! !chromium \"http://google.com/search?q=" . searchterm . "\" &"
+endfunction
+vnoremap gs "gy<Esc>:call GoogleSearch()<CR>
+
+" { } behavior
+nnoremap } }zzj<c-e>
+nnoremap { {{jzz<c-y>
+
+set ignorecase
+
+" AUTO SAVE FOLDS
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
+" change window focus
+nnoremap <space><space> <c-w>w
+nnoremap <space>h <c-w>h
+nnoremap <space>j <c-w>j
+nnoremap <space>k <c-w>k
+nnoremap <space>l <c-w>l
+
+nnoremap gw viwy:Ici 0
+nnoremap z<space> za
+
+:set sessionoptions=blank,winsize,tabpages,resize
+
+
+""~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+"nnoremap <leader>rr :!clang % && ./a.out<cr>
+"
+"nnoremap <leader>rc :tabnew ~/.SpaceVim/config/main.vim<cr>
+"
+"" color themes: anokha, diablo3
+"colorscheme anokha
+"nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
+"nnoremap <F4> jmxkddggP'xzz
+"nnoremap <F5> jmxkddGP'xzz
+"
+"
+"" colorschemes:  show | pick  
+"nnoremap ;cd :RANDOMCOLORD<cr>
+"nnoremap ;cl :RANDOMCOLORL<cr>
+"
+"
+""   random pick
+"nnoremap ;cc :28vs ~/Documents/gitnote/configFiles/vim_color_themes/clrs<cr>
+"
+""save file, exit file, exit vim
+"nnoremap <leader>w :up<cr>
+"nnoremap ;fw :up<cr>
+"nnoremap ;fe :q!<cr>
+"nnoremap ;ee :qa!<cr>
+"nnoremap ;x :xa<cr>
+"
+"nnoremap <leader>o :tabnew <space>
+"
+" Move cursors
+inoremap è <Left>
+inoremap ê <Down>
+inoremap ë <Up>
+inoremap ì <Right>
+inoremap <m-h> <Left>
+inoremap <m-j> <Down>
+inoremap <m-k> <Up>
+inoremap <m-l> <Right>
+inoremap <m-i> <left><left><left><left><left>
+inoremap <m-o> <right><right><right><right><right>
+inoremap <m-,> <esc>0i
+inoremap <m-.> <esc>$a
+"
+"nnoremap <C-A> ggVG
+"nnoremap Y y$$
+"nnoremap yp yyP
+"nnoremap yb mmvBy`mp
+"
+"nnoremap <leader>rp :%w !python3<cr>
+"nnoremap <leader>pr o'''<esc>yypk:r!python3 %<cr>
+"nnoremap ;rr :%s///g<left><left>
+"
+"nnoremap t, :tabNext<cr>
+"nnoremap t. :tabnext<cr>
+"nnoremap ;snp :tabnew ~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/_.snip
+"
+"" open file in new tab
+"nnoremap ,to :execute "tabnew ".getline('.')
+"
+"" Current line as VIM Operation:  "oyy@o   yy@"
+"" Current line as Ex Command:     :execute getline(".")
+"
+"" Current
+":vnoremap <f2> :<c-u>exe join(getline("'<","'>"),'<bar>')<cr>
+"
+"" Swap this line and 'x-line
+"nnoremap <leader>rl ddmy'xPjdd'yP
+"
+"
+"" Swap two Words: mm <leader>rw
+"nnoremap <leader>rW mnviW"ny`mviW"myviW"np`nviW"mp
+"nnoremap <leader>rw mnviw"ny`mviw"myviw"np`nviw"mp
+"
+"" move Word / right left
+"nnoremap <m-l> diWmaEviWp`aPE
+"
+"" Surround a word with []
+"nnoremap ;x viwxi[]<esc>P
+"vnoremap ;x xi[]<esc>P
+"
+"
+"
