@@ -193,6 +193,26 @@ nnoremap <space>l <c-w>l
 nnoremap gw viwy:Ici 0
 nnoremap z<space> za
 
+" Move cursors
+inoremap ˙ <Left>
+inoremap ∆ <Down>
+inoremap ˚ <Up>
+inoremap ¬ <Right>
+inoremap <m-h> <Left>
+inoremap <m-j> <Down>
+inoremap <m-k> <Up>
+inoremap <m-l> <Right>
+
+inoremap <m-i> <left><left><left><left><left>
+inoremap <m-o> <right><right><right><right><right>
+inoremap ˆ <left><left><left><left><left>
+inoremap ø <right><right><right><right><right>
+
+inoremap <m-,> <esc>0i
+inoremap <m-.> <esc>$a
+inoremap ≤ <esc>0i
+inoremap ≥ <esc>$a
+
 set sessionoptions=blank,winsize,tabpages,resize
 
 ""~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
@@ -221,19 +241,6 @@ set sessionoptions=blank,winsize,tabpages,resize
 "
 "nnoremap <leader>o :tabnew <space>
 "
-" Move cursors
-inoremap è <Left>
-inoremap ê <Down>
-inoremap ë <Up>
-inoremap ì <Right>
-inoremap <m-h> <Left>
-inoremap <m-j> <Down>
-inoremap <m-k> <Up>
-inoremap <m-l> <Right>
-inoremap <m-i> <left><left><left><left><left>
-inoremap <m-o> <right><right><right><right><right>
-inoremap <m-,> <esc>0i
-inoremap <m-.> <esc>$a
 "
 "nnoremap <C-A> ggVG
 "nnoremap Y y$$
