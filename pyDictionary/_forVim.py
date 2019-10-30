@@ -3,10 +3,7 @@ from bs4 import BeautifulSoup
 import os
 import sys
 
-# 获取当前终端的宽度和高度
-rows, columns = os.popen('stty size', 'r').read().split()
-
-TERM_WIDTH = int(columns) # 宽度
+TERM_WIDTH = 80
 
 def blit(s):
     l = 0
@@ -49,12 +46,12 @@ def dict_vocabulary(word):
     soup = BeautifulSoup(src, 'html.parser')
 
     # 获取标签列表
-    print(" ~" * 32)
+    print(" ~" * 39)
     ptags = soup.find_all('p')
     for p in ptags:
         if p.attrs:
             blit1(p.text, 3); sys.stdout.write('\n')
-    print(" ~" * 32)
+    print(" ~" * 39)
 
     # print(soup.b)  # first bold tag
     # print(soup.p)  # first p tag
@@ -81,7 +78,7 @@ def dict_youdao(word):
         if contains_chinese(text):
             print()
             example_count += 1
-            if example_count >= 7: break
+            if example_count >= 3: break
 
 if __name__ == '__main__':
     word = sys.argv[1]
