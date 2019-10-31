@@ -11,16 +11,18 @@ alias py='python3'
 
 alias a='cd ..'
 alias s='cd -'
+alias o='pcmanfm .'
 alias cdd='cd ~/Documents'
+alias cdg='cd ~/gitnote'
 
 alias appinstall='sudo apt install'
 alias appsearch='sudo apt search'
-alias allconfig='cd ~/Documents/gitnote/configFiles/confiles/ && vim'
+alias allconfig='cd ~/gitnote/configFiles/confiles/ && vim'
 alias i3config='vim ~/.config/i3/config'
 alias aliconfig='vim ~/.bash_aliases'
 
 alias clock='tty-clock -x -c'
-alias playText='python3 ~/Documents/gitnote/Vocabulary/playTexts.py'
+alias playText='python3 ~/gitnote/Vocabulary/playTexts.py'
 
 alias fzf='fzf -e'
 alias fls='ls | fzf -l 25 -e'
@@ -36,3 +38,5 @@ alias gc='git commit -m \"update\"'
 alias gp='git push'
 alias py3='python3'
 alias gitlog='gitlog | less'
+
+alias env='cd ~/Documents/env_py3; pipenv shell'

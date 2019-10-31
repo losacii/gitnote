@@ -58,6 +58,7 @@ def grabScreen():
         imgSet = img  # y --> x
         grabImgTmp = np.array(sct.grab(monitor)) # BGRA 图片
         img = cv.cvtColor(grabImgTmp, cv.COLOR_BGRA2BGR)  # 格式转化
+        #img = cv.resize(img, (1280, 720))
 
         # 动态触发逻辑  nonzero 的数值触发 alarm
         if imgSet is not None:  # x image 获得了图像
