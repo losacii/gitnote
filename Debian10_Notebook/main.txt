@@ -1,8 +1,5 @@
 sudoers
-001 Snapshot
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-sudo vi /etc/sudoers
-(add two lines below)
 sudo echo -e "\"losacii ALL=(ALL:ALL) ALL" >> /etc/sudoers
 sudo echo -e "\"losacii ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
@@ -38,12 +35,10 @@ git clone https://github.com/losacii/gitnote.git
 neovim with python support
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 sudo apt install python-pip python3-pip
-
 pip3 install pqi
 .local/bin/pqi use tuna
 
 pip install pynvim neovim
-
 pip3 install pynvim neovim
 
 sudo apt install make cmake curl ninja-build gettext libtool \
@@ -67,68 +62,37 @@ sudo nvim /etc/locale.gen
 
 sudo locale-gen
 
-
-003 Snapshot: vim-plug
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 vim-plug
-https://github.com/junegunn/vim-plug
+~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+( https://github.com/junegunn/vim-plug )
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+sudo wget \
+    https://raw.githubusercontent.com/vim-scripts/Diablo3/master/colors/diablo3.vim \
+    https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim \
+    https://raw.githubusercontent.com/vim-scripts/AutumnLeaf/master/colors/autumnleaf.vim \
+    -P /usr/share/nvim/runtime/colors/
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim  
 
-files/vimrc_example  ( gf  ctrl-6 :bfirst :blast :bnext :bprevious)
-~/.config/nvim/init.vim
-(paste this:)
+(pwd)
+mkdir -p ~/.config/nvim
+cp init.vim ~/.config/nvim/
 
-cd /usr/share/nvim/runtime/colors
-sudo wget \
-     https://raw.githubusercontent.com/vim-scripts/Diablo3/master/colors/diablo3.vim       \
-     https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim            \
-     https://raw.githubusercontent.com/vim-scripts/AutumnLeaf/master/colors/autumnleaf.vim \
-     -P /usr/share/nvim/runtime/colors/
+nvim > PlugInstall
 
-
-003B vim LSP --> coc.nvim
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-" sudo with user Config
-alias sv='sudo -E nvim'
-
-
-
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-    ¬
-    " Language Server Protocal¬
-    " vim-lsp: https://github.com/prabirshrestha/vim-lsp ¬
-    " ncm2:  https://github.com/ncm2/ncm2¬
-    Plug 'prabirshrestha/async.vim'¬
-    Plug 'prabirshrestha/vim-lsp'¬
-    Plug 'roxma/nvim-yarp'¬
-    Plug 'ncm2/ncm2'¬
-    Plug 'ncm2/ncm2-vim-lsp'¬
-¬
-    autocmd BufEnter * call ncm2#enable_for_buffer()¬
-    set completeopt=noinsert,menuone,noselect¬
-    Plug 'ncm2/ncm2-bufword'¬
-    Plug 'ncm2/ncm2-path'¬
-¬
-    if executable('pyls')¬
-    " pip install python-language-server¬
-    au User lsp_setup call lsp#register_server({¬
-        \ 'name': 'pyls',¬
-        \ 'cmd': {server_info->['pyls']},¬
-        \ 'whitelist': ['python3', 'python'],¬
-        \ })¬
-    endif¬
-
-" https://github.com/palantir/python-language-server<Paste>
+# https://github.com/palantir/python-language-server<Paste>
+pip3 install python-language-server
+OR
 pip3 install 'python-language-server[pycodestyle]'
 
-
-" pipenv
-" https://pipenv-fork.readthedocs.io/en/latest/basics.html
-sudo apt install pipenv
+pipenv
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-" Specifying Versions of Python
+( https://pipenv-fork.readthedocs.io/en/latest/basics.html )
+sudo apt install pipenv
 cd
 mkdir env_py3
 cd env_py3
@@ -147,17 +111,6 @@ django-admin startproject aaServer .
 
 nvim .aaServer/settings.py
 runserver
-
-set static ip address
-https://linuxconfig.org/how-to-setup-a-static-ip-address-on-debian-linux
-~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-sudo mv /etc/network/interfaces /etc/network/interfaces.bak
-sudo nvim /etc/network/interfaces
-
-/etc/resolv.conf
-sudo service networking restart
-
-
 
 nerdtree usage
 ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~

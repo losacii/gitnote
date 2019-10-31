@@ -93,7 +93,7 @@ nnoremap ;fe :q!<cr>
 nnoremap ;ee :qa!<cr>
 nnoremap ;x :xa<cr>
 
-nnoremap <leader>o :e!<space>
+nnoremap <leader>o :tabnew <space>
 
 " Move cursors
 inoremap è <Left>
@@ -116,6 +116,9 @@ inoremap ð <end>
 
 nnoremap cw ciw
 nnoremap dw diw
+nnoremap vw viw
+nnoremap vl 0v$
+nnoremap vs vis
 
 nnoremap <C-A> ggVG
 nnoremap Y y$$

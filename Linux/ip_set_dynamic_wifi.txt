@@ -1,0 +1,10 @@
+auto wlp2s0
+iface wlp2s0 inet dhcp
+pre-up ip link set wlp2s0 up
+pre-up iwconfig wlp2s0 essid ssid
+
+wpa-ssid vi
+wpa-psk nckubh6qmttrn
+
+# wpa-ssid CMCC-qCHP
+# wpa-psk ih@hrquz

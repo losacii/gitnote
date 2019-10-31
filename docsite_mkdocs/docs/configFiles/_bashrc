@@ -124,3 +124,5 @@ source /home/vi/.myScripts/*
 # #figlet -c -f Bloody "hola world" | lolcat
 # figlet -c -w 80 -f 3d "HOLA !" | lolcat
 # echo -e "\n\n"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
