@@ -8,7 +8,8 @@ import numpy as np
 2. 屏幕没有变化，则暂停录像，屏幕有变动则录像
 '''
 
-TOP = 0; LEFT = 0; WIDTH = 1920; HEIGHT = 1080
+TOP = 0; LEFT = 0; WIDTH = 1366; HEIGHT = 768
+# TOP = 0; LEFT = 0; WIDTH = 1920; HEIGHT = 1080
 # TOP = 17; LEFT = 1; WIDTH = 958; HEIGHT = 512
 
 monitor = {"top":TOP, "left":LEFT, "width":WIDTH, "height":HEIGHT}
@@ -119,6 +120,10 @@ def grabScreen():
             fastMode = not fastMode
 
         elif key == ord('s'): # Start
+            for i in range(3):
+                print(3 - i)
+                time.sleep(1)
+            print("Recording start!")
             vrecorder.start()
             record_switch = True
             btmLife = 4.5
@@ -126,6 +131,7 @@ def grabScreen():
             print("===> Start Recording!")
 
         elif key == ord('x'): # Stop
+            record_switch = False
             vrecorder.release()
             btmLife = 4.5
             btmInfo = "Recording Stopped, video file saved!"
