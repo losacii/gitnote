@@ -54,6 +54,7 @@ def grabScreen():
     btmLife = 4.5
     tmset = time.time()
     tmnow = time.time()
+    interv = tmnow - tmset
 
     while True:
         imgSet = img  # y --> x
@@ -68,7 +69,7 @@ def grabScreen():
             _ret, thresh = cv.threshold(gray, 50, 255, cv.THRESH_BINARY) # Threshold
             nonzero = cv.countNonZero(thresh) # 统计非零数值 noZero
             if nonzero > 32:   # 触发定时器
-                alarm = 18
+                alarm = 120
 
         # 定时器逻辑
         alarm -= 1
@@ -92,17 +93,8 @@ def grabScreen():
                 cv.circle(resizedImg,(20, 80), 12, (0,255,255), -1)
             if fastMode:
                 textInfo("F".format(nonzero, alarm), resizedImg, 16, 86)
-        # bottom information
-        tmset = tmnow
-        tmnow = time.time()
-        interv = tmnow - tmset
 
-        btmLife -= interv
-        if btmLife < 0:
-            btmLife = 0
-        else:
-            textInfo(btmInfo, resizedImg, 20, 250)
-
+        textInfo(str(int(interv * 1000)), resizedImg, 20, 106)
         cv.imshow("Video Stream Monitor", resizedImg)
         #cv.moveWindow("Video Stream Monitor", 1350, 750)
 
@@ -111,7 +103,7 @@ def grabScreen():
             key = cv.waitKey(300)
             nonzero = 0
         else:
-            key = cv.waitKey(25)
+            key = cv.waitKey(1)
 
         if key == ord('p'): # Recording / Pause Toggle
             record_switch = not record_switch
@@ -139,6 +131,17 @@ def grabScreen():
 
         elif key & 0xff == 27:
             break
+
+        # bottom information
+        tmset = tmnow
+        tmnow = time.time()
+        interv = tmnow - tmset
+
+        btmLife -= interv
+        if btmLife < 0:
+            btmLife = 0
+        else:
+            textInfo(btmInfo, resizedImg, 20, 250)
         
     #  关闭所有窗口
     cv.destroyAllWindows()
