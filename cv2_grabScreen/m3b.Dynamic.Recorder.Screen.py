@@ -21,7 +21,7 @@ class VideoRecorder(object):
         pass
 
     def start(self):
-        fourcc = cv.VideoWriter_fourcc(*'MP4V')
+        fourcc = cv.VideoWriter_fourcc(*'MP4V') # mp4v-mp4 xvid-mp4 
         gettime = time.strftime("%Y%m%d_%H%M%S")
         self.name = 'RECORD_{}.mp4'.format(gettime)
         # Recorder-1: Define the codec and create VideoWriter object
@@ -103,7 +103,10 @@ def grabScreen():
             key = cv.waitKey(300)
             nonzero = 0
         else:
-            key = cv.waitKey(1)
+            w = int(33 - interv * 1000)
+            if w <= 0:
+                w = 1
+            key = cv.waitKey(w)
 
         if key == ord('p'): # Recording / Pause Toggle
             record_switch = not record_switch
@@ -136,6 +139,7 @@ def grabScreen():
         tmset = tmnow
         tmnow = time.time()
         interv = tmnow - tmset
+        xfps = int(1.0 / interv)
 
         btmLife -= interv
         if btmLife < 0:
