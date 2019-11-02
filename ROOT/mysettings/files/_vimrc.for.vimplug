@@ -9,6 +9,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
     "Commenter <leader>c<cpace>
+    Plug 'mattn/emmet-vim'
     Plug 'scrooloose/nerdcommenter'
     Plug 'vim-scripts/nc.vim'
     " Beautify Status Bar
@@ -227,6 +228,11 @@ set sessionoptions=blank,winsize,tabpages,resize
 " Absolute direction for n and N...
 nnoremap  <silent><expr> n  'Nn'[v:searchforward] . ":call HLNext()\<CR>"
 nnoremap  <silent><expr> N  'nN'[v:searchforward] . ":call HLNext()\<CR>"
+
+" for html
+nnoremap {% i{%<space><space>%}<left><left><left>
+nnoremap yt yat
+
 
 ""~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 " Clang run program!
