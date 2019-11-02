@@ -1,5 +1,9 @@
+"mapleader
 let mapleader=','
+
+" open rc file
 nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim<CR>
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -21,7 +25,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     if executable('fzf')
-        nnoremap <c-p> :FZF<cr>
+        nnoremap <c-p> :FZF -e<cr>
     endif
     " And, FlyGrep  :FlyGrep (instead of ark!)
     " https://github.com/wsdjeg/FlyGrep.vim  c-a c-e c-j c-k
@@ -42,11 +46,14 @@ call plug#begin('~/.local/share/nvim/plugged')
     " Language Server Protocal
     " vim-lsp: https://github.com/prabirshrestha/vim-lsp 
     " ncm2:  https://github.com/ncm2/ncm2
+    Plug 'Flowerowl/ici.vim'
     Plug 'prabirshrestha/async.vim'
     Plug 'prabirshrestha/vim-lsp'
     Plug 'roxma/nvim-yarp'
     Plug 'ncm2/ncm2'
     Plug 'ncm2/ncm2-vim-lsp'
+    Plug 'filipekiss/ncm2-look.vim'
+    let g:ncm2_look_enabled = 1
 
     autocmd BufEnter * call ncm2#enable_for_buffer()
     set completeopt=noinsert,menuone,noselect
@@ -95,13 +102,7 @@ nnoremap <space>nn :set nu! rnu!<cr>
 " set list
 " set list listchars=tab:▸\ ,eol:¬
 
-" tab settings
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set expandtab
-set smarttab
-
+" Basic
 set autoindent
 set smartindent
 set showcmd
@@ -110,18 +111,25 @@ set cursorline " hignlight cursor-line
 
 set encoding=utf-8
 
+" tab settings
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+
 " Disable Anoying auto Visual mode Feature!!!
 set mouse-=a
 
 " backspace over everything in instert mode
 set backspace=indent,eol,start
 
+" keys modify
 nnoremap j gj
 nnoremap k gk
 nnoremap cw ciw
 nnoremap dw diw
 nnoremap vw viw
-nnoremap vl 0v$
 nnoremap vs vis
 
 " os clipboard sharing
@@ -131,26 +139,30 @@ set clipboard=unnamed
 set undofile
 set undodir=/tmp
 
+" navigate tabs
 nnoremap <left> :tabprevious<cr>
 nnoremap <right> :tabnext<cr>
 
-" Text width settings
-set textwidth=78
-set colorcolumn=78
-
-nnoremap <leader>cw :call ToggleColumnWidth()<cr>
-let g:wide_column = 1
-function! ToggleColumnWidth()
-    if g:wide_column
-        set textwidth=100
-        set colorcolumn=100
-        let g:wide_column = 0
-    else
-        set textwidth=80
-        set colorcolumn=80
-        let g:wide_column = 1
-    endif
-endfunction
+"  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ set color for text width ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+"  " Text width settings
+"  set textwidth=78
+"  set colorcolumn=78
+"  
+"  nnoremap <leader>cw :call ToggleColumnWidth()<cr>
+"  let g:wide_column = 1
+"  function! ToggleColumnWidth()
+"      if g:wide_column
+"          set textwidth=100
+"          set colorcolumn=100
+"          let g:wide_column = 0
+"      else
+"          set textwidth=80
+"          set colorcolumn=80
+"          let g:wide_column = 1
+"      endif
+"  endfunction
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 81)
 
 set formatoptions=qrnl
 
@@ -169,6 +181,10 @@ function! GoogleSearch()
      silent! exec "silent! !chromium \"http://google.com/search?q=" . searchterm . "\" &"
 endfunction
 vnoremap gs "gy<Esc>:call GoogleSearch()<CR>
+
+" English Definition of this word!!
+nnoremap gw viw"gy<Esc>:execute "Ici ".getreg("g")<CR>
+nnoremap gW viw"gy<Esc>:!python3 ~/gitnote/pyDictionary/_forVim.py <c-r>g<CR>
 
 " { } behavior
 nnoremap } }zzj<c-e>
@@ -212,6 +228,7 @@ inoremap <m-,> <esc>0i
 inoremap <m-.> <esc>$a
 inoremap ≤ <esc>0i
 inoremap ≥ <esc>$a
+
 
 set sessionoptions=blank,winsize,tabpages,resize
 

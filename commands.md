@@ -9,7 +9,7 @@
     ssh-copy-id user@192.168.1.x
     ssh user@192.168.1.x
 
-## Jump Git password
+## Jump Git password (without)
     (https://github.com/losacii/ubuntuMemo/blob/master/ubuntu_note_book.md)
     cd /
     git config --global credential.helper store
