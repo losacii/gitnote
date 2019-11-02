@@ -1,5 +1,9 @@
+"mapleader
 let mapleader=','
+
+" open rc file
 nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim<CR>
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -99,13 +103,7 @@ nnoremap <space>nn :set nu! rnu!<cr>
 " set list
 " set list listchars=tab:▸\ ,eol:¬
 
-" tab settings
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set expandtab
-set smarttab
-
+" Basic
 set autoindent
 set smartindent
 set showcmd
@@ -114,12 +112,20 @@ set cursorline " hignlight cursor-line
 
 set encoding=utf-8
 
+" tab settings
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+
 " Disable Anoying auto Visual mode Feature!!!
 set mouse-=a
 
 " backspace over everything in instert mode
 set backspace=indent,eol,start
 
+" keys modify
 nnoremap j gj
 nnoremap k gk
 nnoremap cw ciw
@@ -134,6 +140,7 @@ set clipboard=unnamed
 set undofile
 set undodir=/tmp
 
+" navigate tabs
 nnoremap <left> :tabprevious<cr>
 nnoremap <right> :tabnext<cr>
 
@@ -223,11 +230,8 @@ inoremap <m-.> <esc>$a
 inoremap ≤ <esc>0i
 inoremap ≥ <esc>$a
 
-set sessionoptions=blank,winsize,tabpages,resize
 
-" Absolute direction for n and N...
-nnoremap  <silent><expr> n  'Nn'[v:searchforward] . ":call HLNext()\<CR>"
-nnoremap  <silent><expr> N  'nN'[v:searchforward] . ":call HLNext()\<CR>"
+set sessionoptions=blank,winsize,tabpages,resize
 
 " for html
 nnoremap {% i{%<space><space>%}<left><left><left>

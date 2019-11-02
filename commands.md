@@ -9,17 +9,17 @@
     ssh-copy-id user@192.168.1.x
     ssh user@192.168.1.x
 
-## Jump Git password
+## Jump Git password (without)
     (https://github.com/losacii/ubuntuMemo/blob/master/ubuntu_note_book.md)
     cd /
     git config --global credential.helper store
 
-## VirtualBox headless running (in background)
-    VBoxManage startvm Debian10 --type headless
-
-
 =============================================
     http://vim-latex.sourceforge.net/
     https://github.com/vim-latex/vim-latex
-    fzf
-    https://danielmiessler.com/study/manually-set-ip-linux/
+    https://danielmiessler.com/study/manually-set-ip-linux
+
+## VirtualBox headless running (in background)
+    VBoxManage startvm Debian10 --type headless
+    ping 192.168.1.9
+    ssh losacii@192.168.1.9
