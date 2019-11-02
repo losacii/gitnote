@@ -8,9 +8,9 @@ import numpy as np
 2. 屏幕没有变化，则暂停录像，屏幕有变动则录像
 '''
 
-TOP = 0; LEFT = 0; WIDTH = 1366; HEIGHT = 768
+TOP = 77; LEFT = 0; WIDTH = 1280; HEIGHT = 720
+# TOP = 0; LEFT = 0; WIDTH = 1366; HEIGHT = 768
 # TOP = 0; LEFT = 0; WIDTH = 1920; HEIGHT = 1080
-# TOP = 17; LEFT = 1; WIDTH = 958; HEIGHT = 512
 
 monitor = {"top":TOP, "left":LEFT, "width":WIDTH, "height":HEIGHT}
 sct = mss.mss()
@@ -69,7 +69,7 @@ def grabScreen():
             _ret, thresh = cv.threshold(gray, 50, 255, cv.THRESH_BINARY) # Threshold
             nonzero = cv.countNonZero(thresh) # 统计非零数值 noZero
             if nonzero > 32:   # 触发定时器
-                alarm = 120
+                alarm = 16
 
         # 定时器逻辑
         alarm -= 1
@@ -100,13 +100,13 @@ def grabScreen():
 
         # 按键设置
         if fastMode:
-            key = cv.waitKey(300)
+            key = cv.waitKey(300)   # speed Fast! big interv jump.
             nonzero = 0
         else:
-            w = int(33 - interv * 1000)
-            if w <= 0:
-                w = 1
-            key = cv.waitKey(w)
+            #w = int(33 - interv * 1000)   # speed normal
+            #if w <= 0:
+                #w = 1
+            key = cv.waitKey(35)
 
         if key == ord('p'): # Recording / Pause Toggle
             record_switch = not record_switch
