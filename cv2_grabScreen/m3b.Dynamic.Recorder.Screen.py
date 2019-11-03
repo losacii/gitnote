@@ -51,7 +51,7 @@ def grabScreen():
     fastMode = False
 
     btmInfo = "Initializ...."
-    btmLife = 4.5
+    btmLife = 4.5  # Bottom Message Life
     tmset = time.time()
     tmnow = time.time()
     interv = tmnow - tmset
