@@ -13,6 +13,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
     "Commenter <leader>c<cpace>
+    Plug 'mattn/emmet-vim'
     Plug 'scrooloose/nerdcommenter'
     Plug 'vim-scripts/nc.vim'
     " Beautify Status Bar
@@ -88,7 +89,7 @@ nnoremap Y y$$
 nnoremap <space><space> <c-w>w
 
 "File Tree
-nnoremap <space>ft :NERDTreeToggle<cr>
+nnoremap <space>/ :NERDTreeToggle<cr>
 
 "Save & Quit
 nnoremap ,w :update<cr>
@@ -127,10 +128,14 @@ set backspace=indent,eol,start
 " keys modify
 nnoremap j gj
 nnoremap k gk
+
 nnoremap cw ciw
 nnoremap dw diw
 nnoremap vw viw
 nnoremap vs vis
+
+nnoremap H Hjj
+nnoremap L Lkk
 
 " os clipboard sharing
 set clipboard=unnamed
@@ -232,6 +237,15 @@ inoremap ≥ <esc>$a
 
 set sessionoptions=blank,winsize,tabpages,resize
 
+" Absolute direction for n and N...
+nnoremap  <silent><expr> n  'Nn'[v:searchforward] . ":call HLNext()\<CR>"
+nnoremap  <silent><expr> N  'nN'[v:searchforward] . ":call HLNext()\<CR>"
+
+" for html
+nnoremap {% i{%<space><space>%}<left><left><left>
+nnoremap yt yat
+
+
 ""~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 " Clang run program!
 "nnoremap <leader>rr :!clang % && ./a.out<cr>
@@ -265,6 +279,9 @@ set sessionoptions=blank,winsize,tabpages,resize
 "nnoremap yb mmvBy`mp
 "
 "nnoremap <leader>rp :%w !python3<cr>
+" Python print this line value
+nnoremap <leader>vp :execute "!python3 -c 'print(" .getline('.') . ")'"<CR>
+
 "nnoremap <leader>pr o'''<esc>yypk:r!python3 %<cr>
 "nnoremap ;rr :%s///g<left><left>
 "
