@@ -1,8 +1,10 @@
 alias c='clear'
 alias x='exit'
 
-alias sbash='source ~/.zshrc'
-alias ebash='vi ~/.zshrc'
+alias sbash='source ~/.bashrc'
+alias ebash='vi ~/.bashrc'
+alias szsh='source ~/.zshrc'
+alias ezsh='vi ~/.zshrc'
 alias xping='ping -s 16 -c 5 -i 0.3'
 
 alias godown='sudo /sbin/poweroff'
@@ -11,26 +13,30 @@ alias py='python3'
 
 alias a='cd ..'
 alias s='cd -'
-alias o='pcmanfm .'
 alias cdd='cd ~/Documents'
+<<<<<<< HEAD
 alias cdg='cd ~/gitnote'
 alias note='nvim gitnote/notebook.md'
+=======
+alias cdg='cd ~/gitnote/'
+>>>>>>> refs/remotes/origin/master
 
 alias appinstall='sudo apt install'
 alias appsearch='sudo apt search'
-alias allconfig='cd ~/gitnote/configFiles/confiles/ && vim'
+alias allconfig='cd ~/Documents/gitnote/configFiles/confiles/ && vim'
 alias i3config='vim ~/.config/i3/config'
 alias aliconfig='vim ~/.bash_aliases'
 
 alias clock='tty-clock -x -c'
-alias playText='python3 ~/gitnote/Vocabulary/playTexts.py'
+alias playText='python3 ~/Documents/gitnote/Vocabulary/playTexts.py'
+alias env='cd dev/env_django; pipenv shell'
 
 alias fzf='fzf -e'
 alias fls='ls | fzf -l 25 -e'
 alias fcd='cd $(find . -type d | fzf -e)'
 alias fvi='vim $( find . -type f | fzf -e)'
 
-alias nv='nvim'
+alias v='nvim'
 alias sv='sudo -E nvim'
 alias fcat='cat $( find . -type f | fzf )'
 
@@ -39,5 +45,3 @@ alias gc='git commit -m \"update\"'
 alias gp='git push'
 alias py3='python3'
 alias gitlog='gitlog | less'
-
-alias env='cd ~/Documents/env_py3; pipenv shell'
