@@ -136,6 +136,9 @@ nnoremap vs vis
 
 nnoremap H Hjj
 nnoremap L Lkk
+nnoremap <m-j> }
+nnoremap <m-k> {
+
 
 " os clipboard sharing
 set clipboard=unnamed

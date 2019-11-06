@@ -119,7 +119,6 @@ fi
 
 source ~/.myScripts/*
 
-
 # clear
 # echo -e "\n\n"
 # #figlet -c -f Bloody "hola world" | lolcat

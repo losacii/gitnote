@@ -8,9 +8,10 @@ import numpy as np
 2. 屏幕没有变化，则暂停录像，屏幕有变动则录像
 '''
 
-TOP = 77; LEFT = 0; WIDTH = 1280; HEIGHT = 720
+# TOP = 77; LEFT = 0; WIDTH = 1280; HEIGHT = 720
 # TOP = 0; LEFT = 0; WIDTH = 1366; HEIGHT = 768
 # TOP = 0; LEFT = 0; WIDTH = 1920; HEIGHT = 1080
+TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
 
 monitor = {"top":TOP, "left":LEFT, "width":WIDTH, "height":HEIGHT}
 sct = mss.mss()
