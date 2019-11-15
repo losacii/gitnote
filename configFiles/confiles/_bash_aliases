@@ -26,7 +26,7 @@ alias aliconfig='vim ~/.bash_aliases'
 
 alias clock='tty-clock -x -c'
 alias playText='python3 ~/gitnote/Vocabulary/playTexts.py'
-# alias env='cd dev/env_django; pipenv shell'
+alias env='cd dev/env_django; pipenv shell'
 
 alias fzf='fzf -e'
 alias fls='ls | fzf -l 25 -e'

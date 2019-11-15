@@ -8,10 +8,10 @@ import numpy as np
 2. 屏幕没有变化，则暂停录像，屏幕有变动则录像
 '''
 
+# TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
 # TOP = 77; LEFT = 0; WIDTH = 1280; HEIGHT = 720
 # TOP = 0; LEFT = 0; WIDTH = 1366; HEIGHT = 768
 # TOP = 0; LEFT = 0; WIDTH = 1920; HEIGHT = 1080
-TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
 
 monitor = {"top":TOP, "left":LEFT, "width":WIDTH, "height":HEIGHT}
 sct = mss.mss()
@@ -95,7 +95,7 @@ def grabScreen():
             if fastMode:
                 textInfo("F".format(nonzero, alarm), resizedImg, 16, 86)
 
-        textInfo(str(int(interv * 1000)), resizedImg, 20, 106)
+        textInfo("INTERV"+str(int(interv * 1000)), resizedImg, 20, 106)
         cv.imshow("Video Stream Monitor", resizedImg)
         #cv.moveWindow("Video Stream Monitor", 1350, 750)
 
