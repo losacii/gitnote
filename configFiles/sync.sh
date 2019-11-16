@@ -15,7 +15,6 @@ rm ~/.config/nvim/init.vim
 
 sudo rm /etc/default/keyboard
 
-
 echo "linking..."
 
 ln  confiles/_bash_aliases      ~/.bash_aliases              
@@ -38,8 +37,7 @@ ln  confiles/_vimrc             ~/.config/nvim/init.vim
 #sudo ln confiles/_etc.default.keyboard /etc/default/keyboard
 echo "Done!"
 
-
-
+cp   ~/gitnote/configFiles/confiles/us.kmap.gz   /usr/share/keymaps/i386/qwerty/us.kmap.gz
 
 
 

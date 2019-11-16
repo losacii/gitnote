@@ -133,6 +133,7 @@ nnoremap cw ciw
 nnoremap dw diw
 nnoremap vw viw
 nnoremap vs vis
+nnoremap dl 0d$
 
 nnoremap H Hjj
 nnoremap L Lkk
