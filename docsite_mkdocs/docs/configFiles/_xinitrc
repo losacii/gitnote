@@ -5,5 +5,7 @@ compton &
 
 # screenkey &
 
-# setxkbmap -option caps:swapescape
 exec i3
+
+# setxkbmap -option caps:swapescape
+# no longer needed, us.kmap is set
