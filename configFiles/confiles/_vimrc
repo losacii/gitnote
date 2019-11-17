@@ -4,6 +4,9 @@ let mapleader=','
 " open rc file
 nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim<CR>
 
+" line number
+set nu rnu
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
