@@ -13,8 +13,8 @@ bindsym $mod+Return exec "mlterm -w 28"
 bindsym $mod+Shift+Return exec kitty
 
 # File manager
-bindsym $mod+e exec "kitty vifm"
-bindsym $mod+Shift+e exec pcmanfm
+bindsym $mod+e exec "pcmanfm ~/ &"
+bindsym $mod+Shift+e exec "kitty vifm"
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+F10 exec "i3lock -i /home/vi/Pictures/Wallpapers/mountain.png"
