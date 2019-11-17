@@ -1,0 +1,92 @@
+## SSH
+    root login
+
+    sftp vi@192.168.20.89
+    get /etc/apt/sources.list
+    exit
+
+    cp source.list /etc/apt/sources.list
+    apt update
+    apt install openssh-server
+    systemctl enable ssh
+    systemctl start ssh
+
+    ssh-copy-id vi@192.168.20.9
+    ssh vi@192.168.20.9
+
+## sudoers
+    echo  "vi ALL=(ALL:ALL) ALL" >> /etc/sudoers
+    echo  "vi ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+## Wifi configuration
+    sudo apt-get install firmware-iwlwifi wireless-tools net-tools
+    modprobe iwl4965
+    reboot
+
+## neovim with python support
+apt-get install make cmake curl ninja-build \
+    gettext libtool libtool-bin autoconf \
+    automake g++ pkg-config \
+    unzip git-core
+
+    apt install python3-pip
+    pip3 install pqi
+    pqi use tuna
+    pip --version
+    pip3 install pynvim neovim
+    apt install neovim
+
+    apt install rsync
+
+## locale-gen
+    vi /etc/default/locale
+        LANG="en_US.UTF-8"
+        LANGUAGE="en_US:en"
+
+    /etc/locale.gen  
+        uncomment this line
+        en_US.UTF-8 UTF-8
+
+    locale-gen
+
+apt install aptitude
+apt install xorg i3 compton compton-conf
+
+exit
+    echo "exec i3" > ~/.xinitrc
+
+## Swap Escape & CapsLock
+    apt install console-data
+
+    cd /usr/share/keymaps/i386/qwerty/
+    gunzip us.kmap.gz
+    nvim us.kmap
+        (swap 1 & 58)
+    gzip us.kmap.gz
+    loadkeys us.kmap.gz
+
+    ------------ or this option ------------------
+        sudo -i
+        cat >> /etc/default/keyboard
+        XKBOPTIONS="caps:swapescape"
+
+    rsync -arP ~/gitnote/ vi@192.168.20.9:~/gitnote/
+    apt install fzf
+    rsync -arP ~/.fzf/ vi@192.168.20.9:~/.fzf/
+
+    apt install -y vlc chromium
+
+    sudo cp ~/gitnote/configFiles/fonts/* /usr/share/fonts/truetype/
+
+    sudo apt install -y kitty vifm
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim 
+PlugInstall
+
+pip3 install python-language-server 
+
+LibreOffice:
+    { ~/Downloads/LibreOffice_6.3.3.2_Linux_x86-64_deb/DEBS | vi@Deb64 }
+    -> sudo dpkg -i *.deb
+
+    sudo apt install alsa-utils pcmafm
