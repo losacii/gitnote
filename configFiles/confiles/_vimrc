@@ -143,6 +143,14 @@ nnoremap L Lkk
 nnoremap <m-j> }
 nnoremap <m-k> {
 
+" Buffers
+nnoremap <space>bn :bnext<cr>
+nnoremap <space>bp :bprevious<cr>
+
+" git commands
+nnoremap ,ga :!git add .<cr>
+nnoremap ,gc :!git commit -m ""<left>
+nnoremap ,gp :!git push
 
 " os clipboard sharing
 set clipboard=unnamed
