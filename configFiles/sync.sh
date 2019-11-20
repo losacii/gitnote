@@ -34,10 +34,10 @@ ln  confiles/_vifmrc            ~/.config/vifm/vifmrc
 #ln  confiles/_spaceFVD.vim      ~/.Spacevim.dBack/init.toml
 #ln  confiles/_spaceMain.vim     ~/.SpacevimBack/config/main.vim
 
-#sudo ln confiles/_etc.default.keyboard /etc/default/keyboard
+sudo cp confiles/_etc.default.keyboard /etc/default/keyboard
 echo "Done!"
 
-cp   ~/gitnote/configFiles/confiles/us.kmap.gz   /usr/share/keymaps/i386/qwerty/us.kmap.gz
+sudo cp   ~/gitnote/configFiles/confiles/us.kmap.gz   /usr/share/keymaps/i386/qwerty/us.kmap.gz
 
 
 

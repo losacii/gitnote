@@ -42,3 +42,6 @@ alias gc='git commit -m \"update\"'
 alias gp='git push'
 alias py3='python3'
 alias gitlog='gitlog | less'
+
+alias wifidown='sudo ifdown wlp3s0'
+alias wifiup='sudo ifup wlp3s0'
