@@ -1,7 +1,13 @@
 import os
+import sys
+import time
 
-os.listdir('.')
-os.system()
-
-print(os.listdir("."))
+# sys.stdout.write("Work Directory: ")
+# os.system("pwd")
+# time.sleep(0.2)
+# 
+# print(os.listdir("."))
+# 
+# print("Dir Name:")
 print(os.path.dirname(__file__))
+print('\n' * 16)
