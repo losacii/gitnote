@@ -4,6 +4,9 @@ let mapleader=','
 " open rc file
 nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim<CR>
 
+" line number
+set nu rnu
+
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
@@ -133,9 +136,21 @@ nnoremap cw ciw
 nnoremap dw diw
 nnoremap vw viw
 nnoremap vs vis
+nnoremap dl 0d$
 
 nnoremap H Hjj
 nnoremap L Lkk
+nnoremap <m-j> }
+nnoremap <m-k> {
+
+" Buffers
+nnoremap <space>bn :bnext<cr>
+nnoremap <space>bp :bprevious<cr>
+
+" git commands
+nnoremap ,ga :!git add .<cr>
+nnoremap ,gc :!git commit -m ""<left>
+nnoremap ,gp :!git push
 
 " os clipboard sharing
 set clipboard=unnamed

@@ -1,0 +1,7 @@
+install tmate
+
+tmate
+tmate show-messages
+
+(use ssh)
+(use webpage to access)
