@@ -8,7 +8,7 @@ font_family VictorMono NF
 font_size 10
 thicken_font -2
 adjust_line_height  2
-adjust_column_width 0
+adjust_column_width -1
 
 window_padding_width 0
 

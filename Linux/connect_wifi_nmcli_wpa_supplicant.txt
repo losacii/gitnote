@@ -1,0 +1,27 @@
+connect_wifi_nmcli_wpa_supplicant
+
+#sudo wpa_supplicant -B -i wlp3s0 -c < (wpa_passphrase "Your_SSID" Your_passphrase) && dhclient wlp3s0
+sudo wpa_supplicant -B -i wlp3s0 -c <(wpa_passphrase vi nckubh6qmttrn) && dhclient wlp3s0
+
+
+
+🦑 sudo iwlist wlp3s0 scan | grep -i ssid
+                    ESSID:"vi"
+                    ESSID:"STF-AL00"
+
+# ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+sudo apt install network-manager
+
+sudo systemctl start network-manager
+sudo systemctl enable network-manager
+
+nmcli d
+nmcli r wifi on
+nmcli d wifi list
+nmcli d wifi connect my_wifi password <password>
+nmcli device show
+
+sudo nmcli d wifi connect vi       password  nckubh6qmttrn
+sudo nmcli d wifi connect my_wifi  password  <password>
+
+

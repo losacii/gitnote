@@ -143,15 +143,18 @@ nnoremap L Lkk
 nnoremap <m-j> }
 nnoremap <m-k> {
 
+
 " Buffers
 nnoremap <space>bn :bnext<cr>
 nnoremap <space>bp :bprevious<cr>
+nnoremap <space>tp :tabnext<cr>
+nnoremap <space>tp :tabNext<cr>
+nnoremap <space>w <c-w>
 
 " git commands
 nnoremap ,ga :!git add .<cr>
 nnoremap ,gc :!git commit -m ""<left>
 nnoremap ,gp :!git push
-
 " os clipboard sharing
 set clipboard=unnamed
 
@@ -189,7 +192,7 @@ set formatoptions=qrnl
 " sort lines
 nnoremap <leader>st :'<,'>!sort -f<cr>
 
-nnoremap <leader>rr :%s///g<left>
+nnoremap <leader>rr :%s///g<left><left>
 
 
 " Current line as url, Open it with Chromium!
@@ -259,7 +262,6 @@ nnoremap  <silent><expr> N  'nN'[v:searchforward] . ":call HLNext()\<CR>"
 " for html
 nnoremap {% i{%<space><space>%}<left><left><left>
 nnoremap yt yat
-
 
 ""~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 " Clang run program!

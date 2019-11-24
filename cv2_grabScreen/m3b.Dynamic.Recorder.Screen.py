@@ -9,10 +9,12 @@ import pyautogui as pag
 2. 屏幕没有变化，则暂停录像，屏幕有变动则录像
 '''
 
-TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
+screen_width = 1366
+screen_height= 768
+
+# TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
 # TOP = 77; LEFT = 0; WIDTH = 1280; HEIGHT = 720
-# TOP = 0; LEFT = 0; WIDTH = 1366; HEIGHT = 768
-# TOP = 0; LEFT = 0; WIDTH = 1920; HEIGHT = 1080
+TOP = 0; LEFT = 0; WIDTH = screen_width; HEIGHT = screen_height
 
 monitor = {"top":TOP, "left":LEFT, "width":WIDTH, "height":HEIGHT}
 sct = mss.mss()
@@ -110,11 +112,12 @@ def grabScreen():
                 #w = 1
             key = cv.waitKey(35)
 
-        if key == ord('p') or pag.position().x == 0: #  _ _ _ Recording / Pause Toggle
+        if key == ord('p') or pag.position() == (0, screen_height-1): #  _ _ _ Recording / Pause Toggle
             record_switch = not record_switch
             time.sleep(3)
 
-        elif key == ord('f'): # _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  Fast mode Toggle
+        elif key == ord('f') or pag.position().x > 1300: # _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  Fast mode Toggle
+            time.sleep(2)
             fastMode = not fastMode
 
         elif key == ord('s'): # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Start
@@ -128,10 +131,10 @@ def grabScreen():
             btmInfo = "Start Recording!"
             print("===> Start Recording!")
 
-        elif key == ord('x') or pag.position().x == 1919: #  ~ ~ ~ ~ ~ ~ ~ Stop
+        elif key == ord('x') or pag.position() == (0, 0): #  ~ ~ ~ ~ ~ ~ ~ Stop
             record_switch = False
             vrecorder.release()
-            btmLife = 4.5
+            btmLife = 3.5
             btmInfo = "Recording Stopped, video file saved!"
             print("===> saved...\n")
 
