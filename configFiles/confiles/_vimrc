@@ -5,7 +5,7 @@ let mapleader=','
 nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim<CR>
 
 " line number
-set nu rnu
+" set nu rnu
 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
@@ -80,6 +80,20 @@ call plug#begin('~/.local/share/nvim/plugged')
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+    " Track the engine.
+    Plug 'SirVer/ultisnips'
+
+    " Snippets are separated from the engine. Add this if you want them:
+    Plug 'honza/vim-snippets'
+
+    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<m-f>"
+    let g:UltiSnipsJumpBackwardTrigger="<m-b>"
+
+    " If you want :UltiSnipsEdit to split your window.
+    let g:UltiSnipsEditSplit="vertical"
+
 "Initialize plugin system
 call plug#end()
 colorscheme molokai
@@ -152,7 +166,7 @@ nnoremap <space>tp :tabNext<cr>
 nnoremap <space>w <c-w>
 
 " git commands
-nnoremap ,ga :!git add .<cr>
+nnoremap ,ga :!git add .
 nnoremap ,gc :!git commit -m ""<left>
 nnoremap ,gp :!git push
 " os clipboard sharing
@@ -267,7 +281,7 @@ nnoremap yt yat
 " Clang run program!
 "nnoremap <leader>rr :!clang % && ./a.out<cr>
 "" color themes: anokha, diablo3
-"nnoremap <F2> :execute "colorscheme ".getline('.')<cr>
+vnoremap <F2> "+y
 
 "nnoremap <F4> jmxkddggP'xzz
 "nnoremap <F5> jmxkddGP'xzz
