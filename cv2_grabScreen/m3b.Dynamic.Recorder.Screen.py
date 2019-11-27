@@ -7,7 +7,11 @@ import pyautogui as pag
 '''
 1. R 作为录像开关（切换器）
 2. 屏幕没有变化，则暂停录像，屏幕有变动则录像
+3. LT stop
+   LB pause
+   right fastmode
 '''
+
 
 screen_width = 1366
 screen_height= 768
@@ -131,7 +135,7 @@ def grabScreen():
             btmInfo = "Start Recording!"
             print("===> Start Recording!")
 
-        elif key == ord('x') or pag.position() == (0, 0): #  ~ ~ ~ ~ ~ ~ ~ Stop
+        elif key == ord('x') or pag.position() == (0, 0): #  ~ ~ ~ ~ ~ ~ ~ Stop (LEFT, TOP)
             record_switch = False
             vrecorder.release()
             btmLife = 3.5
