@@ -180,6 +180,8 @@ set undodir=/tmp
 nnoremap <left> :tabprevious<cr>
 nnoremap <right> :tabnext<cr>
 
+nnoremap vv 0v$
+
 "  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ set color for text width ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 "  " Text width settings
 "  set textwidth=78

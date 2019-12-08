@@ -35,7 +35,9 @@ alias fvi='vim $( find . -type f | fzf -e)'
 
 alias v='nvim'
 alias sv='sudo -E nvim'
+alias svn='sudo -E nvim /etc/network/interfaces'
 alias fcat='cat $( find . -type f | fzf )'
+alias ecommands='nvim Documents/commandss.txt'
 
 alias ga='git add .'
 alias gc='git commit -m \"update\"'
@@ -45,3 +47,4 @@ alias gitlog='gitlog | less'
 
 alias wifidown='sudo ifdown wlp3s0'
 alias wifiup='sudo ifup wlp3s0'
+alias gx='startx'

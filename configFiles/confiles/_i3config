@@ -19,7 +19,7 @@ bindsym $mod+Shift+e exec "kitty vifm"
 # exit i3 (logs you out of your X session)
 bindsym $mod+F10 exec "i3lock -i /home/vi/Pictures/Wallpapers/mountain.png"
 bindsym $mod+F11 exec "i3lock -c 050555"
-bindsym $mod+F12 exec "i3 exit"
+bindsym $mod+F12 exec "vboxmanage startvm win7_32"
 
 # Audio: volume
 bindsym $mod+Up exec amixer -q sset Master 3%+
