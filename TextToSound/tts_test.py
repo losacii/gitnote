@@ -38,7 +38,7 @@ def say(text):
     engine.runAndWait()
     engine.stop()
 
-text = " The crazy fox jumped over the lazy dog, normal mode, and FAST MODE! "
+text = "The crazy fox jumped over the lazy dog.\nnormal mode, and FAST MODE!"
 
 say(text)
 
