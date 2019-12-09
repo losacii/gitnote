@@ -76,7 +76,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     let g:lsp_signs_enabled = 0         " enable signs
     let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
     let g:lsp_signs_error = {'text': '✗'}
-    " Use <TAB> to select the popup menu:
+    " ncm2: Use <TAB> to select the popup menu:
     inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
     inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
