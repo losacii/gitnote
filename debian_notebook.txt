@@ -90,3 +90,5 @@ LibreOffice:
     -> sudo dpkg -i *.deb
 
     sudo apt install alsa-utils pcmafm
+    appinstall pipenv scrot
+

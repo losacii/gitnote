@@ -1,0 +1,17 @@
+λ pip install pqi -i http://mirrors.aliyun.com/pypi/simple/   --trusted-host mirrors.aliyun.com
+
+λ pqi ls
+
+pypi     https://pypi.python.org/simple/
+tuna     https://pypi.tuna.tsinghua.edu.cn/simple
+douban   http://pypi.douban.com/simple/
+aliyun   https://mirrors.aliyun.com/pypi/simple/
+ustc     https://mirrors.ustc.edu.cn/pypi/web/simple
+
+λ pqi use aliyun
+
+Source is changed to aliyun(https://mirrors.aliyun.com/pypi/simple/).
+
+λ pip install pipenv
+
+λ pip install opencv-python openpyxl pypiwin32 pyttsx3

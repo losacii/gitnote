@@ -1,0 +1,7 @@
+# Share keyboard & mouse between PCs
+
+Synergy is Free and Open Source Software that lets you easily share your mouse
+and keyboard between multiple computers, where each computer has its own
+display. No special hardware is required, all you need is a local area network.
+Synergy is supported on Windows, Mac OS X and Linux.
+

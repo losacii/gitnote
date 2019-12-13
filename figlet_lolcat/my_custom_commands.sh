@@ -10,7 +10,7 @@ function loban() {
 
 function xloban() {
   echo;
-  figlet -c -w 166 -f 3d $1 | lolcat
+  figlet -w 166 -f 3d $1 | lolcat
   echo;
 }
 

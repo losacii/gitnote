@@ -26,7 +26,8 @@ alias aliconfig='vim ~/.bash_aliases'
 
 alias clock='tty-clock -x -c'
 alias playText='python3 ~/gitnote/Vocabulary/playTexts.py'
-alias env='cd dev/env; pipenv shell'
+alias env='cd ~/dev/env; pipenv shell'
+alias cdproj='cd ~/Documents/projects/djangoLearn20191118/'
 
 alias fzf='fzf -e'
 alias fls='ls | fzf -l 25 -e'
@@ -35,10 +36,16 @@ alias fvi='vim $( find . -type f | fzf -e)'
 
 alias v='nvim'
 alias sv='sudo -E nvim'
+alias svn='sudo -E nvim /etc/network/interfaces'
 alias fcat='cat $( find . -type f | fzf )'
+alias ecommands='nvim Documents/commandss.txt'
 
 alias ga='git add .'
 alias gc='git commit -m \"update\"'
 alias gp='git push'
 alias py3='python3'
 alias gitlog='gitlog | less'
+
+alias wifidown='sudo ifdown wlp3s0'
+alias wifiup='sudo ifup wlp3s0'
+alias gx='startx'

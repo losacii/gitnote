@@ -1,0 +1,4 @@
+how to install mkdocs, material?
+pip3 install mkdocs mkdocs-material
+
+

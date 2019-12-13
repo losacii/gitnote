@@ -1,5 +1,7 @@
 install tmate
 
+(ssh-keygen -t rsa -b 4096)
+
 tmate
 tmate show-messages
 

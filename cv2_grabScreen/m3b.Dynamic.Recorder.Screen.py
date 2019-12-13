@@ -3,16 +3,40 @@ import cv2 as cv
 import mss
 import numpy as np
 import pyautogui as pag
+import threading
+
+import pyttsx3
+engine = pyttsx3.init()
+engine.setProperty('rate', 160)
+engine.setProperty('voice', 'english')
+
+def say(text):
+    engine.say(text, name=text)
+    engine.runAndWait()
+    engine.stop()
+
+def tts(txt):
+    x = threading.Thread(target=say, args=(txt,))
+    x.start()
+
+tts("Program start!")
+
 
 '''
 1. R 作为录像开关（切换器）
 2. 屏幕没有变化，则暂停录像，屏幕有变动则录像
+3. LT stop
+   LB pause
+   right fastmode
 '''
 
-TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
+
+screen_width = 1366
+screen_height= 768
+
+# TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
 # TOP = 77; LEFT = 0; WIDTH = 1280; HEIGHT = 720
-# TOP = 0; LEFT = 0; WIDTH = 1366; HEIGHT = 768
-# TOP = 0; LEFT = 0; WIDTH = 1920; HEIGHT = 1080
+TOP = 0; LEFT = 0; WIDTH = screen_width; HEIGHT = screen_height
 
 monitor = {"top":TOP, "left":LEFT, "width":WIDTH, "height":HEIGHT}
 sct = mss.mss()
@@ -96,11 +120,12 @@ def grabScreen():
             if fastMode:
                 textInfo("F".format(nonzero, alarm), resizedImg, 16, 86)
 
-        textInfo("INTERV"+str(int(interv * 1000)), resizedImg, 20, 106)
+        textInfo("INTERV: "+str(int(interv * 1000)), resizedImg, 20, 106)
         cv.imshow("Video Stream Monitor", resizedImg)
         #cv.moveWindow("Video Stream Monitor", 1350, 750)
 
         # 按键设置
+        x, y = pag.position()
         if fastMode:
             key = cv.waitKey(300)   # speed Fast! big interv jump.
             nonzero = 0
@@ -110,30 +135,42 @@ def grabScreen():
                 #w = 1
             key = cv.waitKey(35)
 
-        if key == ord('p') or pag.position().x == 0: #  _ _ _ Recording / Pause Toggle
+        if key == ord('p') or pag.position() == (0, screen_height-1): #  _ _ _ Recording / Pause Toggle
             record_switch = not record_switch
+            if record_switch:
+                tts("recording resume")
+            else:
+                tts("recording pause")
             time.sleep(3)
 
-        elif key == ord('f'): # _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  Fast mode Toggle
+        elif key == ord('f') or (x > 960 and y ==0): # _ _ _ _ _ _ _ _ _ _ _ _  Fast mode Toggle
             fastMode = not fastMode
+            if fastMode:
+                tts("fast mode")
+            else:
+                tts("normal mode")
+            time.sleep(2)
+
 
         elif key == ord('s'): # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Start
+            tts("counting")
             for i in range(3):
                 print(3 - i)
+                tts(str(3-i))
                 time.sleep(1)
-            print("Recording start!")
+            tts("Recording Start!")
             vrecorder.start()
             record_switch = True
             btmLife = 4.5
             btmInfo = "Start Recording!"
             print("===> Start Recording!")
 
-        elif key == ord('x') or pag.position().x == 1919: #  ~ ~ ~ ~ ~ ~ ~ Stop
+        elif key == ord('x') or pag.position() == (0, 0): #  ~ ~ ~ ~ ~ ~ ~ Stop (LEFT, TOP)
+            tts("recording end")
             record_switch = False
             vrecorder.release()
-            btmLife = 4.5
+            btmLife = 3.5
             btmInfo = "Recording Stopped, video file saved!"
-            print("===> saved...\n")
 
         elif key & 0xff == 27:
             break

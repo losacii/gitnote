@@ -13,6 +13,11 @@ Chrome extensions:
     refresher
 
 
+pip install sounddevice
+appinstall libportaudio2
+
+appinstall libasound-dev
 
 
-
+https://github.com/SirVer/ultisnips
+https://vi.stackexchange.com/questions/7466/what-is-the-difference-between-the-vim-snippets-plugins

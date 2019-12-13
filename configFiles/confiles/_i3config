@@ -5,12 +5,12 @@ font pango:monospace 8
 floating_modifier $mod
 
 # Select area, image to clipboard
-bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
-bindsym $mod+s --release exec "scrot -s /home/vi/Pictures/%Y%m%d_%H%M%S.jpg"
+bindsym $mod+s --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym Print --release exec "scrot -s /home/vi/Pictures/%Y%m%d_%H%M%S.jpg"
 
 # start a terminal
-bindsym $mod+Return exec "mlterm -w 28"
-bindsym $mod+Shift+Return exec kitty
+bindsym $mod+Shift+Return exec "mlterm -w 28"
+bindsym $mod+Return exec kitty
 
 # File manager
 bindsym $mod+e exec "pcmanfm ~/ &"
@@ -19,7 +19,7 @@ bindsym $mod+Shift+e exec "kitty vifm"
 # exit i3 (logs you out of your X session)
 bindsym $mod+F10 exec "i3lock -i /home/vi/Pictures/Wallpapers/mountain.png"
 bindsym $mod+F11 exec "i3lock -c 050555"
-bindsym $mod+F12 exec "i3 exit"
+bindsym $mod+F12 exec "vboxmanage startvm win7_32"
 
 # Audio: volume
 bindsym $mod+Up exec amixer -q sset Master 3%+
