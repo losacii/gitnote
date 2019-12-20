@@ -6,8 +6,8 @@ int main(int argc, char* argv[])
   printf("CLOCKS_PER_SEC: %ld\n\n", CLOCKS_PER_SEC);
 
   for (int i = 0; i < 5; i++) {
-    printf("...delay 1000 milli-seconds >> "); fflush(stdout);
-    delay(1000);
+    printf("...delay 50 milli-seconds >> "); fflush(stdout);
+    delay(50);
     printf("now time is: %ld\n", clock());
   }
   return 0;
