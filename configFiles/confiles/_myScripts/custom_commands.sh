@@ -10,6 +10,22 @@ function loban() {
 
 function xloban() {
   echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
+  echo;
   figlet -c -w 166 -f 3d $1 | lolcat
   echo;
 }
