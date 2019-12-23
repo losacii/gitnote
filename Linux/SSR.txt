@@ -1,0 +1,6 @@
+
+
+
+sudo python3 ./shadowsocks/local.py -c config.json -d start
+
+proxychains4 curl myip.ipip.net
