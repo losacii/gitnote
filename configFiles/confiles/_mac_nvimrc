@@ -1,0 +1,276 @@
+" 设置 mapleader
+let mapleader=','
+colorscheme diablo3
+
+" 打开配置文件
+nnoremap <leader>rc :tabnew /usr/local/Cellar/neovim/0.3.8/share/nvim/sysinit.vim<CR>
+
+" line number
+set nu rnu
+
+"" open file in new tab
+nnoremap ,to :execute "tabnew ".getline('.')
+
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('/usr/local/Cellar/neovim/0.3.8/share/nvim/plugged')
+
+    " Make sure you use single quotes
+    
+    " file tree choice
+    Plug 'scrooloose/nerdtree'
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+    
+    "Commenter <leader>c<cpace>
+    Plug 'mattn/emmet-vim'
+    Plug 'scrooloose/nerdcommenter'
+
+    " Beautify Status Bar
+    Plug 'bling/vim-airline'
+
+    " https://github.com/junegunn/fzf.vim 
+    " In Terminal, Ctrl+t,  Esc > c, alt+c
+    " --> Commands: Files Colors Ag
+    " Rg(alt-a alt-d)
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+    if executable('fzf')
+        nnoremap <c-p> :FZF -e<cr>
+    endif
+
+    " And, FlyGrep  :FlyGrep (instead of ark!)
+    " https://github.com/wsdjeg/FlyGrep.vim  c-a c-e c-j c-k
+    Plug 'wsdjeg/FlyGrep.vim'
+    nnoremap <leader>rg :FlyGrep<cr>
+
+	" for Kite autcomplete
+	inoremap µ <c-n><c-p>
+	
+	"Auto Pair
+    Plug 'jiangmiao/auto-pairs'
+
+    " vim-sneak:  s<char><char> ; 3; `` s<enter>
+    " https://github.com/justinmk/vim-sneak
+    Plug 'justinmk/vim-sneak'
+
+    " highlight yank
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'tpope/vim-surround'
+
+"Initialize plugin system
+call plug#end()
+
+"File Tree
+let g:NERDTreeWinSize=24
+nnoremap <space>/ :NERDTreeToggle<cr>
+
+"Yank!
+nnoremap yp yyp
+nnoremap Y y$$
+nnoremap <c-a> ggvG
+
+"" Swap two Words: mm <leader>rw
+nnoremap <leader>sw my`x"xyiw`yviw"xp`xviwp`y
+
+"Split Toggle
+nnoremap <space><space> <c-w>w
+
+"File Tree
+"nnoremap <space>/ :NERDTreeToggle<cr>
+
+"Save & Quit
+nnoremap ,w :update<cr>
+nnoremap <leader>fe :q!<cr>
+nnoremap <leader>ee :qa!<cr>
+
+"Toggle Line Number
+nnoremap <space>nn :set nu! rnu!<cr>
+
+" Basic
+set autoindent
+set smartindent
+""set showcmd
+set ruler      " show cursor position all the time
+set cursorline " hignlight cursor-line
+
+set encoding=utf-8
+
+" tab settings
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+nnoremap g. :tabnext<cr>
+nnoremap g, :tabNext<cr>
+
+" Disable Anoying auto Visual mode Feature!!!
+set mouse-=a
+
+" backspace over everything in instert mode
+set backspace=indent,eol,start
+
+" keys modify
+nnoremap j gj
+nnoremap k gk
+
+nnoremap cw ciw
+nnoremap dw diw
+nnoremap vw viw
+nnoremap vs vis
+nnoremap dl 0d$
+
+nnoremap H Hjj
+nnoremap L Lkk
+
+
+" Buffers
+nnoremap <space>bn :bnext<cr>
+nnoremap <space>bp :bprevious<cr>
+nnoremap <space>tp :tabnext<cr>
+nnoremap <space>tp :tabNext<cr>
+nnoremap <space>w <c-w>
+
+" git commands
+nnoremap ,ga :!git add .
+nnoremap ,gc :!git commit -m ""<left>
+nnoremap ,gp :!git push
+" os clipboard sharing
+set clipboard=unnamed
+
+" Undo file after reopening
+set undofile
+set undodir=/tmp
+
+" navigate tabs
+nnoremap <left> :tabprevious<cr>
+nnoremap <right> :tabnext<cr>
+
+nnoremap vv 0v$
+
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 81)
+
+" sort lines
+vnoremap <leader>st :'<,'>!sort -f<cr>
+
+nnoremap <leader>rr :%s///g<left><left>
+
+
+" Current line as url, Open it with Chromium!
+nnoremap gx :exe ':silent !chromium '.getline('.')<CR>
+
+" Visual-selection! Google Search it
+function! GoogleSearch()
+     let searchterm = getreg("g")
+     silent! exec "silent! !chromium \"http://google.com/search?q=" . searchterm . "\" &"
+endfunction
+vnoremap gs "gy<Esc>:call GoogleSearch()<CR>
+
+" English Definition of this word!!
+nnoremap gw viw"gy<Esc>:execute "Ici ".getreg("g")<CR>
+nnoremap gW viw"gy<Esc>:!python3 ~/gitnote/pyDictionary/_forVim.py <c-r>g<CR>
+
+set ignorecase
+
+" AUTO SAVE FOLDS
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave *.* mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
+" change window focus
+nnoremap <space><space> <c-w>w
+nnoremap <space>h <c-w>h
+nnoremap <space>j <c-w>j
+nnoremap <space>k <c-w>k
+nnoremap <space>l <c-w>l
+
+nnoremap gw viwy:Ici 0
+
+nnoremap z<space> za
+
+" inoremap <Tab> <C-X><C-F>
+
+nnoremap ∆ }
+nnoremap ˚ {
+nnoremap ˙  H
+nnoremap µ M
+nnoremap ¬ L
+
+" Move cursors
+inoremap ˙ <Left>
+"inoremap ∆ <Down>
+"inoremap ˚ <Up>
+inoremap ¬ <Right>
+inoremap <m-h> <Left>
+inoremap <m-j> <Down>
+inoremap <m-k> <Up>
+inoremap <m-l> <Right>
+
+inoremap <m-i> <left><left><left><left><left>
+inoremap <m-o> <right><right><right><right><right>
+inoremap ˆ <left><left><left><left><left>
+inoremap ø <right><right><right><right><right>
+
+inoremap <m-,> <esc>0i
+inoremap <m-.> <esc>$a
+inoremap ≤ <esc>0i
+inoremap ≥ <esc>$a
+
+
+set sessionoptions=blank,winsize,tabpages,resize
+
+" for html
+nnoremap {% i{%<space><space>%}<left><left><left>
+nnoremap yt yat
+
+vnoremap <F2> "+y
+"
+""   random pick
+"nnoremap ;cc :28vs ~/Documents/gitnote/configFiles/vim_color_themes/clrs<cr>
+"
+""save file, exit file, exit vim
+"nnoremap <leader>w :up<cr>
+"nnoremap ;fw :up<cr>
+"nnoremap ;fe :q!<cr>
+"nnoremap ;ee :qa!<cr>
+"nnoremap ;x :xa<cr>
+"
+"nnoremap <leader>o :tabnew <space>
+"
+"nnoremap Y y$$
+"nnoremap yp yyP
+"nnoremap yb mmvBy`mp
+"
+"nnoremap <leader>rp :%w !python3<cr>
+" Python print this line value
+nnoremap <leader>vp :execute "!python3 -c 'print(" .getline('.') . ")'"<CR>
+
+"nnoremap <leader>pr o'''<esc>yypk:r!python3 %<cr>
+"nnoremap ;rr :%s///g<left><left>
+"
+"nnoremap t, :tabNext<cr>
+"nnoremap t. :tabnext<cr>
+"nnoremap ;snp :tabnew ~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/_.snip
+"
+
+"" Current line as VIM Operation:  "oyy@o   yy@"
+"" Current line as Ex Command:     :execute getline(".")
+"
+"" Current
+":vnoremap <f2> :<c-u>exe join(getline("'<","'>"),'<bar>')<cr>
+"
+"" Swap this line and 'x-line
+"nnoremap <leader>rl ddmy'xPjdd'yP
+"
+"" move Word / right left
+"nnoremap <m-l> diWmaEviWp`aPE
+"
+"" Surround a word with []
+"nnoremap ;x viwxi[]<esc>P
+"vnoremap ;x xi[]<esc>P

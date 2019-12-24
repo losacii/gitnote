@@ -4,21 +4,8 @@ import mss
 import numpy as np
 import pyautogui as pag
 import threading
-import pyttsx3
-engine = pyttsx3.init()
-engine.setProperty('rate', 160)
-engine.setProperty('voice', 'english')
 
-def say(text):
-    engine.say(text, name=text)
-    engine.runAndWait()
-    engine.stop()
-
-def tts(txt):
-    x = threading.Thread(target=say, args=(txt,))
-    x.start()
-
-tts("Program start!")
+print("Program start!")
 
 
 '''
@@ -31,10 +18,10 @@ tts("Program start!")
 
 screen_width = 1024
 screen_height= 768
+# TOP = 0; LEFT = 0; WIDTH = screen_width; HEIGHT = screen_height
 
 # TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
-# TOP = 77; LEFT = 0; WIDTH = 1280; HEIGHT = 720
-TOP = 0; LEFT = 0; WIDTH = screen_width; HEIGHT = screen_height
+TOP = 45; LEFT = 0; WIDTH = 1024; HEIGHT = 768
 
 monitor = {"top":TOP, "left":LEFT, "width":WIDTH, "height":HEIGHT}
 sct = mss.mss()
@@ -136,27 +123,27 @@ def grabScreen():
         if key == ord('p') or pag.position() == (0, screen_height-1): #  _ _ _ Recording / Pause Toggle
             record_switch = not record_switch
             if record_switch:
-                tts("recording resume")
+                print("recording resume")
             else:
-                tts("recording pause")
+                print("recording pause")
             time.sleep(3)
 
         elif key == ord('f') or (x > 960 and y ==0): # _ _ _ _ _ _ _ _ _ _ _ _  Fast mode Toggle
             fastMode = not fastMode
             if fastMode:
-                tts("fast mode")
+                print("fast mode")
             else:
-                tts("normal mode")
+                print("normal mode")
             time.sleep(2)
 
 
         elif key == ord('s'): # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Start
-            tts("counting")
+            print("counting")
             for i in range(3):
                 print(3 - i)
-                tts(str(3-i))
+                print(str(3-i))
                 time.sleep(1)
-            tts("Recording Start!")
+            print("Recording Start!")
             vrecorder.start()
             record_switch = True
             btmLife = 4.5
@@ -164,7 +151,7 @@ def grabScreen():
             print("===> Start Recording!")
 
         elif key == ord('x') or pag.position() == (0, 0): #  ~ ~ ~ ~ ~ ~ ~ Stop (LEFT, TOP)
-            tts("recording end")
+            print("recording end")
             record_switch = False
             vrecorder.release()
             btmLife = 3.5
@@ -190,4 +177,4 @@ def grabScreen():
 
 if __name__ == "__main__":
     grabScreen()
-    print("Done!")
+    print("Program End!")
