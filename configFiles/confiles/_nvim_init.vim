@@ -1,16 +1,22 @@
 "mapleader
 let mapleader=','
 
+autocmd BufNewFile *.txt :echom "text(txt-type) file Buffer!"
+
 " open rc file
-nnoremap <leader>rc :tabnew ~/.config/nvim/init.vim<CR>
+nnoremap <leader>rc :tabnew $MYVIMRC<CR>
+
+inoremap kj <c-c>
+inoremap jk <c-c>
 
 " line number
-" set nu rnu
+set nu rnu
 
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
+
     " Make sure you use single quotes
     Plug 'scrooloose/nerdtree'
     autocmd StdinReadPre * let s:std_in=1
@@ -60,7 +66,9 @@ call plug#begin('~/.local/share/nvim/plugged')
     let g:ncm2_look_enabled = 1
 
     autocmd BufEnter * call ncm2#enable_for_buffer()
-    set completeopt=noinsert,menuone,noselect
+
+    "" pop up information
+    set completeopt=noinsert,menuone,noselect 
     Plug 'ncm2/ncm2-bufword'
     Plug 'ncm2/ncm2-path'
 
@@ -88,22 +96,30 @@ call plug#begin('~/.local/share/nvim/plugged')
 
     " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
     let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<m-f>"
-    let g:UltiSnipsJumpBackwardTrigger="<m-b>"
+    let g:UltiSnipsJumpForwardTrigger="<m-n>"
+    let g:UltiSnipsJumpBackwardTrigger="<m-m>"
 
     " If you want :UltiSnipsEdit to split your window.
     let g:UltiSnipsEditSplit="vertical"
 
 "Initialize plugin system
 call plug#end()
-colorscheme molokai
+
+source ~/gitnote/configFiles/vim_color_themes/dark/diablo3.vim
 
 "Yank!
 nnoremap yp yyp
 nnoremap Y y$$
+nnoremap <c-a> ggVG
+
+"" Swap two Words: mm <leader>rw
+nnoremap <leader>sw my`x"xyiw`yviw"xp`xviwp`y
+"mnviW"ny`mviW"myviW"np`nviW"mp
+"nnoremap <leader>rw mnviw"ny`mviw"myviw"np`nviw"mp
 
 "Split Toggle
 nnoremap <space><space> <c-w>w
+nnoremap <space>w <c-w>
 
 "File Tree
 nnoremap <space>/ :NERDTreeToggle<cr>
@@ -135,6 +151,8 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 set smarttab
+nnoremap g. :tabnext<cr>
+nnoremap g, :tabNext<cr>
 
 " Disable Anoying auto Visual mode Feature!!!
 set mouse-=a
@@ -271,10 +289,6 @@ inoremap ≥ <esc>$a
 
 set sessionoptions=blank,winsize,tabpages,resize
 
-" Absolute direction for n and N...
-nnoremap  <silent><expr> n  'Nn'[v:searchforward] . ":call HLNext()\<CR>"
-nnoremap  <silent><expr> N  'nN'[v:searchforward] . ":call HLNext()\<CR>"
-
 " for html
 nnoremap {% i{%<space><space>%}<left><left><left>
 nnoremap yt yat
@@ -334,17 +348,11 @@ nnoremap <leader>vp :execute "!python3 -c 'print(" .getline('.') . ")'"<CR>
 "" Swap this line and 'x-line
 "nnoremap <leader>rl ddmy'xPjdd'yP
 "
-"
-"" Swap two Words: mm <leader>rw
-"nnoremap <leader>rW mnviW"ny`mviW"myviW"np`nviW"mp
-"nnoremap <leader>rw mnviw"ny`mviw"myviw"np`nviw"mp
-"
+
 "" move Word / right left
 "nnoremap <m-l> diWmaEviWp`aPE
 "
 "" Surround a word with []
 "nnoremap ;x viwxi[]<esc>P
 "vnoremap ;x xi[]<esc>P
-"
-"
 "
