@@ -29,7 +29,7 @@ tts("Program start!")
    right fastmode
 '''
 
-screen_width = 1024
+screen_width = 1366
 screen_height= 768
 
 # TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
