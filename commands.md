@@ -23,3 +23,7 @@
     VBoxManage startvm Debian10 --type headless
     ping 192.168.1.9
     ssh losacii@192.168.1.9
+
+## rsync: Copy, Sync
+rsync -zarP --exclude="*.mp4" --delete ~/gitnote/ losacii@192.168.1.9:~/gitnote/ 
+rsync -zarP --exclude="*.mp4" --delete ~/dev/ losacii@192.168.1.9:~/dev/

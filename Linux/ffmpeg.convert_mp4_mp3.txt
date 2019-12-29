@@ -1,0 +1,3 @@
+The better way to encode MP3 is to use -q:a for variable bit rate.
+
+ffmpeg -i k.mp4 -q:a 0 -map a k.mp3
