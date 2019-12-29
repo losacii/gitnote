@@ -1,5 +1,5 @@
 # feh --recursive --randomize --bg-fill ~/Pictures/Wallpapers/
-feh --bg-fill ~/Pictures/Wallpapers/9.jpg
+feh --bg-fill ~/Pictures/Wallpapers/c.jpg
 
 compton &
 
