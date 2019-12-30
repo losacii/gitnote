@@ -38,10 +38,10 @@ sudo apt autoremove
 
 # ProxyChains4
 
-cd ~/Downloads/SSR/shadowsocksr-manyuser                               
-sudo python3 ./shadowsocks/local.py -c config.json -d start            
+cd ~/Downloads/SSR/shadowsocksr-manyuser
+sudo python3 ./shadowsocks/local.py -c config.json -d start
 
-proxychains4 <commands>  
+proxychains4 <commands>
 
 
 # stuff
