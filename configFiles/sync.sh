@@ -1,15 +1,15 @@
 
 echo "Deleting..."
-rm ~/.bash_aliases              
-rm ~/.bashrc                    
-rm ~/.inputrc                   
-rm ~/.config/nvim/init.vim
-rm  ~/.zshrc                     
-rm  ~/.config/i3/config          
-rm  ~/.i3status.conf             
-rm  ~/.config/kitty/kitty.conf   
-rm  ~/.config/vifm/vifmrc        
-rm  ~/.xinitrc                   
+mv  ~/.bash_aliases  ~/.bash_aliases.bak
+mv  ~/.bashrc  ~/.bashrc.bak
+mv  ~/.inputrc  ~/.inputrc.bak
+mv  ~/.config/nvim/init.vim  ~/.config/nvim/init.vim.bak
+mv  ~/.zshrc  ~/.zshrc.bak
+mv  ~/.config/i3/config  ~/.config/i3/config.bak
+mv  ~/.i3status.conf  ~/.i3status.conf.bak
+mv  ~/.config/kitty/kitty.conf  ~/.config/kitty/kitty.conf.bak
+mv  ~/.config/vifm/vifmrc  ~/.config/vifm/vifmrc.bak
+mv  ~/.xinitrc  ~/.xinitrc.bak
 #rm  ~/.Spacevim.dBack/init.toml
 #rm  ~/.SpacevimBack/config/main.vim
 
