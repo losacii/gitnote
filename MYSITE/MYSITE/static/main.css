@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: 0 auto;
+    /* background-image: url('img/space.jpg'); */
+    background-size: 150%, 150%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    width: 90%;
+}
+
+#sf {
+    margin-left:10px; 
+    font-size:10px; 
+    color:blue
+}
+
+#top {
+    font-size: 20px;
+    display: inline;
+}
+
+#content {
+    padding: 15px 20px;
+    columns: 3;
+    min-height: 500px;
+}
+
+#bottom {
+    text-align: center;
+    font-size: 26px;
+    font-family: 'Monaco NF', '仿宋';
+}
+
+li {
+    list-style: none;
+    color: #52a34a; 
+    text-align: center;
+    text-shadow: 1px 1px 10px #52a34a;
+}
+
+a {
+    color: rgb(136, 76, 30);
+    text-shadow: 1px 1px 16px black;
+}
+a:hover {
+    color: gold;
+    text-shadow: 1px 1px 18px gold;
+}
+
+p {
+    font-family: 'Consolas', 'VictorMono NF'
+}

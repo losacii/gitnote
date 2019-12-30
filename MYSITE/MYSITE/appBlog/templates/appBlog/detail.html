@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    
+    {% include 'appBlog/list-inline.html' with post=post %}
+
+    {% if request.user.is_authenticated %}
+        <a href="{{ post.get_edit_url }}">Edit it...</a>
+        <a href="{{ post.get_delete_url }}">Delete</a>
+    {% endif %}
+
+{% endblock %}

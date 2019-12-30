@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>Base Page</title>
+    {% endif %}
+
+    {% include 'main/_bscss.html' %} 
+    <link rel="stylesheet" href="{% static 'main.css' %}" type="text/css">
+</head>
+<body>
+    <div class="container">
+
+        <div id="top">
+            {% include 'main/navbar.html' %}
+        </div>
+
+        <div class="row">
+            <div class="col-8 mx-auto">
+
+
+                {% block content %}
+                <h3>Base HTML...</h3>
+                {% endblock %}
+
+                {% include 'main/_bsjs.html' %} 
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

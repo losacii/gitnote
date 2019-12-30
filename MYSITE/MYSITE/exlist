@@ -1,0 +1,5 @@
+*.pyc
+*.vscode/
+*.mp4
+*.mp3
+Pipfile

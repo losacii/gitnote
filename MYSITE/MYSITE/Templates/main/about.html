@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <h1>About...</h1>
+    {% include 'main/cdtime.html' %}
+    <ul>
+        <li>{{ request.user }}</li>
+        <li>{{ request.user.is_authenticated }}</li>
+    </ul>
+{% endblock %}

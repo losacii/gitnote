@@ -1,0 +1,11 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+  <a href="{% url 'blog-create' %}">Write a new blog here...</a>
+
+  {% for post in posts %}
+      {% include 'appBlog/list-inline.html' with blog_post=post truncate=True %}
+  {% endfor %}
+
+{% endblock %}

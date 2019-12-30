@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-8 col-8 mx-auto small-text text-muted">
+
+        {% if query %}
+            <p class="lead">You searched for {{ query }}</p>
+        {% else %}
+            <p>Query Empty</p>
+        {% endif %}
+
+    </div>
+
+    {% for post in blog_list %}
+        {% include 'appBlog/list-inline.html' with blog_post=post truncate=True %}
+    {% endfor %}
+
+</div>
+
+{% endblock %}
