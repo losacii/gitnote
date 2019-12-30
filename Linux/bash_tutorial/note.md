@@ -53,4 +53,7 @@
 
 # if then elif elif else fi
 
+# list, for loop
+
+
 
