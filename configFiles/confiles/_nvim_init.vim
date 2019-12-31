@@ -48,7 +48,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     " vim-sneak:  s<char><char> ; 3; `` s<enter>
     " https://github.com/justinmk/vim-sneak
     Plug 'justinmk/vim-sneak'
-    " highlight yank
+    Plug 'easymotion/vim-easymotion'
     Plug 'machakann/vim-highlightedyank'
     Plug 'tpope/vim-surround'
     " Plug 'tpope/fugitive'   " git utils......
@@ -317,7 +317,7 @@ vnoremap <F2> "+y
 "nnoremap ;ee :qa!<cr>
 "nnoremap ;x :xa<cr>
 "
-"nnoremap <leader>o :tabnew <space>
+nnoremap <leader>to :tabnew <space>
 "
 "
 "nnoremap <C-A> ggVG

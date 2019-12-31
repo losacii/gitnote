@@ -1,7 +1,7 @@
 # check if file exists
-FILE=/home/vi/.bashrc
-if [ -f "$FILE" ]; then
-    echo "\"$FILE\" --> file EXIST."
+fx=~/.bashrc
+if [ -f "$fx" ]; then
+    echo "$fx --> EXIST!"
 else
-    echo "\"$FILE\" --> not exist"
+    echo "$fx --> ERROR: NOT exist"
 fi
