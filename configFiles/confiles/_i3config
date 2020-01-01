@@ -11,6 +11,7 @@ bindsym Print --release exec "scrot -s /home/vi/Pictures/%Y%m%d_%H%M%S.jpg"
 # start a terminal
 bindsym $mod+Shift+Return exec "mlterm -w 28"
 bindsym $mod+Return exec kitty
+bindsym $mod+Shift+t exec /home/vi/Apps/cool-retro-term/cool-retro-term --fullscreen
 
 # File manager
 bindsym $mod+e exec "pcmanfm ~/ &"
