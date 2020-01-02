@@ -1,0 +1,46 @@
+CREATE TABLE authorstbl (
+AuthorID INT NOT NULL AUTO_INCREMENT,
+AuthorName VARCHAR(64),
+PRIMARY KEY(AuthorID)
+);
+
+show tables;
+
+create table bookstbl (
+BookID INT NOT NULL AUTO_INCREMENT,
+BookName VARCHAR(128) NOT NULL,
+AuthorID INT NOT NULL,
+BookPrice DECIMAL(6,2) NOT NULL,
+BookLastUpdated TIMESTAMP,
+BookIsAvailable BOOLEAN,
+PRIMARY kEY (BookID),
+FOREIGN KEY (AuthorID) REFERENCES authorstbl(AuthorID)
+);
+
+insert into authorstbl (AuthorName) values ('Agatha Christle'), ('Stephen King'), ('John Clancy');
+
+MariaDB [bookstoredb]> select * from authorstbl;
++----------+-----------------+
+| AuthorID | AuthorName      |
++----------+-----------------+
+|        1 | Agatha Christle |
+|        2 | Stephen King    |
+|        3 | John Clancy     |
++----------+-----------------+
+
+insert into bookstbl (BookName, AuthorID, BookPrice, BookIsAvailable) values 
+('And Then There Were None', 1, 14.95, 1), 
+('The Stand', 2, 35.99, 1), 
+('The Green Mile', 2, 23.99, 1), 
+('Jack Ryan - The Prequel', 3, 24.55, 1);
+
+select * from bookstbl;
+select * from bookstbl where AuthorID=2;
+
+SELECT CONCAT(bookstbl.BookName, ' (', authorstbl.AuthorName, ')') AS Description, bookstbl.BookPrice FROM authorstbl JOIN bookstbl ON authorstbl.AuthorID = bookstbl.AuthorID;
+
+
+
+update bookstbl set BookPrice=15.88 where BookID=2;
+
+

@@ -20,7 +20,8 @@
     https://danielmiessler.com/study/manually-set-ip-linux
 
 ## VirtualBox headless running (in background)
-    VBoxManage startvm Debian10 --type headless
+    VBoxManage startvm   Debian10 --type headless
+    VBoxManage controlvm Debian10 poweroff
     ping 192.168.1.9
     ssh losacii@192.168.1.9
 

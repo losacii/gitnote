@@ -13,7 +13,7 @@ def list(request):
         my_qs = Post.objects.filter(user=request.user)
         qs = (qs | my_qs).distinct() # do not show duplicates
     # --> posts = Post.objects.filter(title_icontains='hello')
-    context = {"posts":qs}
+    context = {"posts":qs[:5]}
     template = 'appBlog/list.html'
     return render(request, template, context)
 
