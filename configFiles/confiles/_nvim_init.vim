@@ -48,6 +48,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     " vim-sneak:  s<char><char> ; 3; `` s<enter>
     " https://github.com/justinmk/vim-sneak
     Plug 'justinmk/vim-sneak'
+    Plug 'easymotion/vim-easymotion'
     " highlight yank
     Plug 'machakann/vim-highlightedyank'
     Plug 'tpope/vim-surround'
