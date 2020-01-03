@@ -4,21 +4,8 @@ import mss
 import numpy as np
 import pyautogui as pag
 import threading
-import pyttsx3
-engine = pyttsx3.init()
-engine.setProperty('rate', 160)
-engine.setProperty('voice', 'english')
 
-def say(text):
-    engine.say(text, name=text)
-    engine.runAndWait()
-    engine.stop()
-
-def tts(txt):
-    x = threading.Thread(target=say, args=(txt,))
-    x.start()
-
-tts("Program start!")
+print("Program start!")
 
 
 '''
@@ -29,12 +16,18 @@ tts("Program start!")
    right fastmode
 '''
 
-screen_width = 1366
-screen_height= 768
+wait_interv = 25
 
-# TOP = 17; LEFT = 1; WIDTH = 960 - LEFT; HEIGHT = 529 - TOP
-# TOP = 77; LEFT = 0; WIDTH = 1280; HEIGHT = 720
-TOP = 0; LEFT = 0; WIDTH = screen_width; HEIGHT = screen_height
+SCREEN_WIDTH = 1920
+SCREEN_HEIGHT = 1080
+
+pointStart = pag.position(608, 148)
+pointEnd = pag.position(1861, 932)
+
+HEIGHT  = pointEnd.y - pointStart.y
+WIDTH =  pointEnd.x - pointStart.x
+
+TOP = pointStart.y; LEFT = pointStart.x
 
 monitor = {"top":TOP, "left":LEFT, "width":WIDTH, "height":HEIGHT}
 sct = mss.mss()
@@ -79,6 +72,7 @@ def grabScreen():
     tmset = time.time()
     tmnow = time.time()
     interv = tmnow - tmset
+    global wait_interv
 
     while True:
         imgSet = img  # y --> x
@@ -124,39 +118,31 @@ def grabScreen():
 
         # 按键设置
         x, y = pag.position()
-        if fastMode:
-            key = cv.waitKey(300)   # speed Fast! big interv jump.
-            nonzero = 0
-        else:
-            #w = int(33 - interv * 1000)   # speed normal
-            #if w <= 0:
-                #w = 1
-            key = cv.waitKey(35)
+        key = cv.waitKey(wait_interv)
+        if key == ord('f') or x > SCREEN_WIDTH - 10:
+            fastMode = True
+            wait_interv = 300
+            print("Fast Mode!")
+        if key == ord('n') or x < 10:
+            fastMode = False
+            wait_interv = 25
+            print("Normal Mode.")
 
-        if key == ord('p') or pag.position() == (0, screen_height-1): #  _ _ _ Recording / Pause Toggle
+        if key == ord('p'): #  _ _ _ Recording / Pause Toggle
             record_switch = not record_switch
             if record_switch:
-                tts("recording resume")
+                print("recording resume")
             else:
-                tts("recording pause")
-            time.sleep(3)
-
-        elif key == ord('f') or (x > 960 and y ==0): # _ _ _ _ _ _ _ _ _ _ _ _  Fast mode Toggle
-            fastMode = not fastMode
-            if fastMode:
-                tts("fast mode")
-            else:
-                tts("normal mode")
-            time.sleep(2)
+                print("recording pause")
+            time.sleep(0.8)
 
 
         elif key == ord('s'): # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Start
-            tts("counting")
+            print("counting")
             for i in range(3):
                 print(3 - i)
-                tts(str(3-i))
                 time.sleep(1)
-            tts("Recording Start!")
+            print("Recording Start!")
             vrecorder.start()
             record_switch = True
             btmLife = 4.5
@@ -164,7 +150,7 @@ def grabScreen():
             print("===> Start Recording!")
 
         elif key == ord('x') or pag.position() == (0, 0): #  ~ ~ ~ ~ ~ ~ ~ Stop (LEFT, TOP)
-            tts("recording end")
+            print("recording end")
             record_switch = False
             vrecorder.release()
             btmLife = 3.5
@@ -189,6 +175,5 @@ def grabScreen():
     cv.destroyAllWindows()
 
 if __name__ == "__main__":
-    #grabScreen()
-    #print("Done!")
-    tts("Program start!")
+    grabScreen()
+    print("Done!")
