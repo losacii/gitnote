@@ -21,8 +21,8 @@ wait_interv = 25
 SCREEN_WIDTH = 1920
 SCREEN_HEIGHT = 1080
 
-pointStart = pag.position(608, 148)
-pointEnd = pag.position(1861, 932)
+pointStart = pag.position(4, 70)
+pointEnd = pag.position(1248, 852)
 
 HEIGHT  = pointEnd.y - pointStart.y
 WIDTH =  pointEnd.x - pointStart.x
@@ -123,12 +123,12 @@ def grabScreen():
             fastMode = True
             wait_interv = 300
             print("Fast Mode!")
-        if key == ord('n') or x < 10:
+        if key == ord('n') or y > SCREEN_HEIGHT - 30:
             fastMode = False
             wait_interv = 25
             print("Normal Mode.")
 
-        if key == ord('p'): #  _ _ _ Recording / Pause Toggle
+        if key == ord('p') or y < 20: #  _ _ _ Recording / Pause Toggle
             record_switch = not record_switch
             if record_switch:
                 print("recording resume")
