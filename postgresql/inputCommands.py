@@ -3,24 +3,39 @@ import pyperclip
 import time
 import sys, os
 
-if len(sys.argv) > 1:
-    text = sys.argv[1]
-else:
-    text = 'Hello world!\n' * 3
 
-print(f"PyAutoGui Version:{pag.__version__}".center(80, '-'))
+def operations():
+    if len(sys.argv) > 1:
+        text = sys.argv[1]
+    else:
+        text = 'Hello world!\n' * 3
 
-pag.moveTo(530, 80)
-pag.click()
+    pag.moveTo(1300, 300)
+    pag.click()
 
-print("Counting down:")
-for i in range(3):
-    print(3 - i)
-    sys.stdout.flush()
-    time.sleep(1)
+    pag.typewrite(text, interval=0.03)
+    # pag.press('enter')
+
+def op1():
+    """Use Clipboard
+    :returns: TODO
+
+    """
+    pag.moveTo(1300, 300)
+    pag.click()
+
+    #pyperclip.copy("It's leviOsa, not lêvioçÁ!")
+    pag.hotkey("ctrl",  "shift", "v")
 
 
-pag.typewrite(text, interval=0.03)
+if __name__ == "__main__":
+    p0 = pag.position()
 
-# pyperclip.copy("It's leviOsa, not lêvioçÁ!")
-# pag.hotkey("ctrl", "v")
+    #operations()
+    op1()
+
+    pag.moveTo(p0)
+    pag.click()
+    time.sleep(0.4)
+    pag.press('space')
+
