@@ -4,12 +4,12 @@
 echo "$1" 
 if (( $1 == 0 ))
 then
-    echo "===> Otion $1: Syncing to Gitnote"
-    rsync -arP --delete ../MYSITE/ ~/gitnote/MYSITE/
+    echo "===> Otion $1: Local over Gitnote"
+    rsync -arP --delete ~/dev/src/MYSITE/ ~/gitnote/MYSITE/
 elif (( $1 == 1 ))
 then
-    echo "===> Otion $1: Syncing From Gitnote..."
-    rsync -arP --delete ~/gitnote/MYSITE/ ../MYSITE/
+    echo "===> Otion $1: Gitnote Over Local"
+    rsync -arP --delete ~/gitnote/MYSITE/ ~/dev/src/MYSITE/
 else
     echo "===> something else..."
 fi
