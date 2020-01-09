@@ -8,6 +8,7 @@ import pyttsx3
 engine = pyttsx3.init()
 engine.setProperty('rate', 160)
 engine.setProperty('volume', 0.7)
+engine.setProperty('voice', 'english')
 
 def tts(s):
     tmset = time.time()
