@@ -242,11 +242,12 @@ vnoremap gs "gy<Esc>:call GoogleSearch()<CR>
 
 " English Definition of this word!!
 nnoremap gw viw"gy<Esc>:execute "Ici ".getreg("g")<CR>
-nnoremap gW viw"gy<Esc>:!python3 ~/gitnote/pyDictionary/_forVim.py <c-r>g<CR>
+nnoremap gW viw"gy<Esc>:!python3 ~/gitnote/Python/pyDictionary/main.py <c-r>g<CR>
 
 " { } behavior
 nnoremap } }zzj<c-e>
 nnoremap { {{jzz<c-y>
+nnoremap <leader>x :x<cr>
 
 set ignorecase
 
