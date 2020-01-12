@@ -10,11 +10,18 @@ def operations():
     else:
         text = 'Hello world!\n' * 3
 
+    pz = pag.position()
+
     pag.moveTo(1300, 300)
     pag.click()
+    for word in text.split(' '):
+        pag.typewrite(word, interval=0.02); 
+        pag.typewrite(' '); 
+        time.sleep(0.07)
+    pag.press('enter')
 
-    pag.typewrite(text, interval=0.03)
-    # pag.press('enter')
+    pag.moveTo(pz)
+    pag.click()
 
 def op1():
     """Use Clipboard
@@ -24,18 +31,9 @@ def op1():
     pag.moveTo(1300, 300)
     pag.click()
 
-    #pyperclip.copy("It's leviOsa, not lêvioçÁ!")
     pag.hotkey("ctrl",  "shift", "v")
 
 
 if __name__ == "__main__":
-    p0 = pag.position()
 
-    #operations()
-    op1()
-
-    pag.moveTo(p0)
-    pag.click()
-    time.sleep(0.4)
-    pag.press('space')
-
+    operations()

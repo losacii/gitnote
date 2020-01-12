@@ -3,6 +3,8 @@ let mapleader=','
 
 autocmd BufNewFile *.txt :echom "text(txt-type) file Buffer!"
 
+nnoremap <F8> ^"+y$:!python3 ~/inputCommand.py r""<left><c-r>0<cr>
+
 " open rc file
 nnoremap <leader>rc :tabnew /usr/local/Cellar/neovim/0.3.8/share/nvim/sysinit.vim<CR>
 
@@ -270,10 +272,8 @@ nnoremap z<space> za
 map ; <Plug>(easymotion-prefix)
 " Move cursors
 inoremap ˙ <Left>
-nnoremap ∆ <leader><leader>j
-nnoremap ˚ <leader><leader>k
-"inoremap ∆ <Down>
-"inoremap ˚ <Up>
+inoremap ∆ <Down>
+inoremap ˚ <Up>
 inoremap ¬ <Right>
 inoremap <m-h> <Left>
 inoremap <m-j> <Down>
@@ -301,7 +301,7 @@ nnoremap yt yat
 " Clang run program!
 "nnoremap <leader>rr :!clang % && ./a.out<cr>
 "" color themes: anokha, diablo3
-nnoremap <F2> "+0y$
+vnoremap <F2> "+y
 
 "nnoremap <F4> jmxkddggP'xzz
 "nnoremap <F5> jmxkddGP'xzz
