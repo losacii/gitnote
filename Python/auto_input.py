@@ -10,11 +10,13 @@ def operations():
     text = pyperclip.paste() 
 
     pz = pag.position()
+    pag.moveTo(1266, 150)
+    pag.click()
 
-    for i in range(3):
-        print(3-i)
-        sys.stdout.flush()
-        time.sleep(0.8)
+    # for i in range(2):
+        # print(2-i)
+        # sys.stdout.flush()
+        # time.sleep(0.8)
 
     pos = 0; start = 0
     checker = []
