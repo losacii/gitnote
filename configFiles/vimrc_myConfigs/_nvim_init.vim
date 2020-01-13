@@ -51,6 +51,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     " https://github.com/justinmk/vim-sneak
     Plug 'justinmk/vim-sneak'
     Plug 'easymotion/vim-easymotion'
+    " highlight yank
     Plug 'machakann/vim-highlightedyank'
     Plug 'tpope/vim-surround'
     " Plug 'tpope/fugitive'   " git utils......
@@ -112,6 +113,7 @@ source ~/gitnote/configFiles/vim_color_themes/dark/diablo3.vim
 "Yank!
 nnoremap yp yyp
 nnoremap Y y$$
+nnoremap yb mxvBy`xp
 nnoremap <c-a> ggVG
 
 "" Swap two Words: mm <leader>rw
@@ -128,8 +130,7 @@ nnoremap <space>/ :NERDTreeToggle<cr>
 
 "Save & Quit
 nnoremap <leader>w :update<cr>
-nnoremap <leader>x :x<cr>
-nnoremap <leader>fe :q!<cr>
+nnoremap <leader>x :q!<cr>
 nnoremap <leader>ee :qa!<cr>
 
 "Toggle Line Number
@@ -321,7 +322,7 @@ vnoremap <F2> "+y
 "nnoremap ;ee :qa!<cr>
 "nnoremap ;x :xa<cr>
 "
-nnoremap <leader>to :tabnew <space>
+nnoremap <leader>o :tabnew <space>
 "
 "
 "nnoremap <C-A> ggVG
