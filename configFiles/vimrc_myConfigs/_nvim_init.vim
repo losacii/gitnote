@@ -3,6 +3,8 @@ let mapleader=','
 
 autocmd BufNewFile *.txt :echom "text(txt-type) file Buffer!"
 
+nnoremap <F8> "+yy:!python3 ~/gitnote/Python/auto_input.py<cr>
+
 " open rc file
 nnoremap <leader>rc :tabnew $MYVIMRC<CR>
 
@@ -125,7 +127,8 @@ nnoremap <space>w <c-w>
 nnoremap <space>/ :NERDTreeToggle<cr>
 
 "Save & Quit
-nnoremap ,w :update<cr>
+nnoremap <leader>w :update<cr>
+nnoremap <leader>x :x<cr>
 nnoremap <leader>fe :q!<cr>
 nnoremap <leader>ee :qa!<cr>
 
@@ -146,6 +149,7 @@ set cursorline " hignlight cursor-line
 set encoding=utf-8
 
 " tab settings
+set nowrap
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -266,6 +270,7 @@ nnoremap <space>l <c-w>l
 nnoremap gw viwy:Ici 0
 nnoremap z<space> za
 
+map ; <Plug>(easymotion-prefix)
 " Move cursors
 inoremap ˙ <Left>
 inoremap ∆ <Down>
@@ -311,7 +316,6 @@ vnoremap <F2> "+y
 "nnoremap ;cc :28vs ~/Documents/gitnote/configFiles/vim_color_themes/clrs<cr>
 "
 ""save file, exit file, exit vim
-"nnoremap <leader>w :up<cr>
 "nnoremap ;fw :up<cr>
 "nnoremap ;fe :q!<cr>
 "nnoremap ;ee :qa!<cr>

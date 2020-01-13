@@ -3,6 +3,8 @@ let mapleader=','
 
 autocmd BufNewFile *.txt :echom "text(txt-type) file Buffer!"
 
+nnoremap <F8> ^"+y$:!python3 ~/inputCommand.py r""<left><c-r>0<cr>
+
 " open rc file
 nnoremap <leader>rc :tabnew $MYVIMRC<CR>
 
@@ -243,11 +245,12 @@ vnoremap gs "gy<Esc>:call GoogleSearch()<CR>
 
 " English Definition of this word!!
 nnoremap gw viw"gy<Esc>:execute "Ici ".getreg("g")<CR>
-nnoremap gW viw"gy<Esc>:!python3 ~/gitnote/pyDictionary/_forVim.py <c-r>g<CR>
+nnoremap gW viw"gy<Esc>:!python3 ~/gitnote/Python/pyDictionary/main.py <c-r>g<CR>
 
 " { } behavior
 nnoremap } }zzj<c-e>
 nnoremap { {{jzz<c-y>
+nnoremap <leader>x :x<cr>
 
 set ignorecase
 
@@ -271,8 +274,8 @@ nnoremap z<space> za
 map ; <Plug>(easymotion-prefix)
 " Move cursors
 inoremap ˙ <Left>
-"inoremap ∆ <Down>
-"inoremap ˚ <Up>
+inoremap ∆ <Down>
+inoremap ˚ <Up>
 inoremap ¬ <Right>
 inoremap <m-h> <Left>
 inoremap <m-j> <Down>
@@ -301,7 +304,6 @@ nnoremap yt yat
 "nnoremap <leader>rr :!clang % && ./a.out<cr>
 "" color themes: anokha, diablo3
 vnoremap <F2> "+y
-nnoremap <F2> "+0y$
 
 "nnoremap <F4> jmxkddggP'xzz
 "nnoremap <F5> jmxkddGP'xzz

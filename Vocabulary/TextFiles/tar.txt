@@ -91,56 +91,6 @@
 All that we are is the result of what we have thought. Buddha
 
 >>>
-<<<<<<< HEAD
-famous quotes have special talent only passionately curious albert einstein wisdom
-
->>>
-I have no special talent. I am only passionately curious. Albert Einstein
-
->>>
-famous quotes you judge people have time love them mother teresa wisdom
-
->>>
-If you judge people, you have no time to love them. Mother Teresa
-
->>>
-famous quotes wisely slow they stumble that run fast william shakespeare wisdom
-
->>>
-Wisely, and slow. They stumble that run fast. William Shakespeare
-
->>>
-famous quotes most courageous act still think yourself aloud coco chanel wisdom
-
->>>
-The most courageous act is still to think for yourself. Aloud. Coco Chanel
-
->>>
-Stay hungry, stay foolish. Steve Jobs
-
->>>
-famous quotes great man always willing little ralph waldo emerson wisdom
-
->>>
-A great man is always willing to be little. Ralph Waldo Emerson
-
->>>
-famous quotes greatest wealth live content little plato wisdom
-
->>>
-The greatest wealth is to live content with little. Plato
-
->>>
-famous quotes future belongs those who prepare today malcolm malcolmx wisdom
-
->>>
-The future belongs to those who prepare for it today. Malcolm X
-
->>>
-famous quotes successful warrior average man with laser like focus bruce lee wisdom
-
->>>
-=======
 I have no special talent. I am only passionately curious. Albert Einstein
 
 >>>
@@ -165,7 +115,30 @@ The greatest wealth is to live content with little. Plato
 The future belongs to those who prepare for it today. Malcolm X
 
 >>>
->>>>>>> 96ab59bcbffbe90fec33363c4b286c29aca6dd5a
+I have no special talent. I am only passionately curious. Albert Einstein
+
+>>>
+If you judge people, you have no time to love them. Mother Teresa
+
+>>>
+Wisely, and slow. They stumble that run fast. William Shakespeare
+
+>>>
+The most courageous act is still to think for yourself. Aloud. Coco Chanel
+
+>>>
+Stay hungry, stay foolish. Steve Jobs
+
+>>>
+A great man is always willing to be little. Ralph Waldo Emerson
+
+>>>
+The greatest wealth is to live content with little. Plato
+
+>>>
+The future belongs to those who prepare for it today. Malcolm X
+
+>>>
 The successful warrior is the average man, with laser-like focus. Bruce Lee
 
 >>>
@@ -189,7 +162,6 @@ No matter who you are or what you look like, how you started off, or how and who
 >>>
 Turn your wounds into wisdom. Oprah Winfrey
 
->>>
 >>>
 I don’t think of all the misery but of the beauty that still remains. Anne Frank
 
@@ -242,13 +214,7 @@ Love the life you live. Live the life you love. Bob Marley
 God helps those that help themselves. Benjamin Franklin
 
 >>>
-<<<<<<< HEAD
-By failing to prepare, you are preparing to fail. Benjamin Franklin (This is one of my favorite famous quote. Leave a reply here and let me know what’s yours!)
-=======
 By failing to prepare, you are preparing to fail. Benjamin Franklin
-
-(This is one of my favorite famous quote. Leave a reply here and let me know what’s yours!)
->>>>>>> 96ab59bcbffbe90fec33363c4b286c29aca6dd5a
 
 >>>
 I came, I saw, I conquered. Julius Caesar
@@ -338,21 +304,12 @@ Better to die standing than to live on your knees. Ernesto “Che” Guevara
 Big Brother is watching you. George Orwell
 
 >>>
-<<<<<<< HEAD
 Keep calm and carry on. Winston Churchill
 
 >>>
 Genius is eternal patience. Michelangelo
 
 >>>
-No. Rosa Parks
-
->>>
-=======
-Genius is eternal patience. Michelangelo
-
->>>
->>>>>>> 96ab59bcbffbe90fec33363c4b286c29aca6dd5a
 Fear is stupid. So are regrets. Marilyn Monroe
 
 >>>
@@ -542,12 +499,6 @@ Learn to value yourself, which means: to fight for your happiness. Ayn Rand
 You’ll never find a rainbow if you’re looking down. Charlie Chaplin
 
 >>>
-<<<<<<< HEAD
-See also: 50 Famously Successful People Who Failed At First
-
->>>
-=======
->>>>>>> 96ab59bcbffbe90fec33363c4b286c29aca6dd5a
 I would like to die on Mars. Just not on impact. Elon Musk
 
 >>>
@@ -1124,11 +1075,7 @@ Nobody can give you freedom. Nobody can give you equality or justice or anything
 You have to wake the people up first, then you’ll get action. Malcolm X
 
 >>>
-<<<<<<< HEAD
-Not everything that is faced can be changed, but nothing can be changed until it is faced. James Baldwing
-=======
 Not everything that is faced can be changed, but nothing can be changed until it is faced. James Baldwin
->>>>>>> 96ab59bcbffbe90fec33363c4b286c29aca6dd5a
 
 >>>
 Don’t aspire to make a living, aspire to make a difference. Denzel Washington
@@ -1175,12 +1122,7 @@ Hope is a good breakfast, but it is a bad supper. Francis Bacon
 >>>
 One child, one teacher, one book, one pen can change the world. Malala Yousafzai
 
->>>
-<<<<<<< HEAD
-The highest result of education is tolerance. Helen Kellerg
-=======
 The highest result of education is tolerance. Helen Keller
->>>>>>> 96ab59bcbffbe90fec33363c4b286c29aca6dd5a
 
 >>>
 Experience is the teacher of all things. Julius Caesar
@@ -1318,17 +1260,10 @@ Help me, Obi-Wan Kenobi. You’re my only hope. Star Wars
 May the Force be with you. Star Wars
 
 >>>
-<<<<<<< HEAD
-You wasted $150,000 on an education you coulda got for $1.50 in late fees at the public library. Good Will Huntin
-
->>>
-You’ll have bad times, but it’ll always wake you up to the good stuff you weren’t paying attention to. Good Will Huntin
-=======
 You wasted $150,000 on an education you coulda got for $1.50 in late fees at the public library. Good Will Hunting
 
 >>>
 You’ll have bad times, but it’ll always wake you up to the good stuff you weren’t paying attention to. Good Will Hunting
->>>>>>> 96ab59bcbffbe90fec33363c4b286c29aca6dd5a
 
 >>>
 Going in one more round when you don’t think you can. That’s what makes all the difference in your life. Rocky Balboa

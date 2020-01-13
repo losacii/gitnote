@@ -1,3 +1,14 @@
+import pyperclip
+
+s = pyperclip.paste()
+print(s)
+
+
+
+
+
+'''
+
 import pyautogui as pag
 import pyperclip
 import time
@@ -15,8 +26,8 @@ def operations():
     pag.moveTo(1300, 300)
     pag.click()
     for word in text.split(' '):
-        pag.typewrite(word, interval=0.02); 
-        pag.typewrite(' '); 
+        pag.typewrite(word, interval=0.02);
+        pag.typewrite(' ');
         time.sleep(0.07)
     pag.press('enter')
 
@@ -37,3 +48,4 @@ def op1():
 if __name__ == "__main__":
 
     operations()
+'''

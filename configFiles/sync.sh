@@ -1,15 +1,14 @@
-
 echo "Deleting..."
-mv  ~/.bash_aliases  ~/.bash_aliases.bak
-mv  ~/.bashrc  ~/.bashrc.bak
-mv  ~/.inputrc  ~/.inputrc.bak
-mv  ~/.config/nvim/init.vim  ~/.config/nvim/init.vim.bak
-mv  ~/.zshrc  ~/.zshrc.bak
-mv  ~/.config/i3/config  ~/.config/i3/config.bak
-mv  ~/.i3status.conf  ~/.i3status.conf.bak
-mv  ~/.config/kitty/kitty.conf  ~/.config/kitty/kitty.conf.bak
-mv  ~/.config/vifm/vifmrc  ~/.config/vifm/vifmrc.bak
-mv  ~/.xinitrc  ~/.xinitrc.bak
+rm  ~/.bash_aliases
+rm  ~/.bashrc
+rm  ~/.inputrc
+rm  ~/.config/nvim/init.vim
+rm  ~/.zshrc
+rm  ~/.config/i3/config
+rm  ~/.i3status.conf
+rm  ~/.config/kitty/kitty.conf
+rm  ~/.config/vifm/vifmrc
+rm  ~/.xinitrc
 #rm  ~/.Spacevim.dBack/init.toml
 #rm  ~/.SpacevimBack/config/main.vim
 
@@ -20,7 +19,7 @@ echo "linking..."
 ln  confiles/_bash_aliases      ~/.bash_aliases              
 ln  confiles/_bashrc            ~/.bashrc                    
 ln  confiles/_inputrc           ~/.inputrc                   
-ln  confiles/_nvim_init.vim     ~/.config/nvim/init.vim
+ln  vimrc_myConfigs/_nvim_init.vim     ~/.config/nvim/init.vim
 ln  confiles/_zshrc             ~/.zshrc                     
 ln  confiles/_i3config          ~/.config/i3/config          
 ln  confiles/_i3status.conf     ~/.i3status.conf             
