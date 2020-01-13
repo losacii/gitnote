@@ -1,5 +1,6 @@
 "mapleader
 let mapleader=','
+set pastetoggle=<F12>
 
 autocmd BufNewFile *.txt :echom "text(txt-type) file Buffer!"
 
