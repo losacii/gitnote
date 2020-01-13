@@ -4,7 +4,7 @@ let mapleader=','
 autocmd BufNewFile *.txt :echom "text(txt-type) file Buffer!"
 
 " open rc file
-nnoremap <leader>rc :tabnew /usr/local/Cellar/neovim/0.3.8/share/nvim/sysinit.vim<CR>
+nnoremap <leader>rc :tabnew $MYVIMRC<CR>
 
 inoremap kj <c-c>
 inoremap jk <c-c>
@@ -49,6 +49,7 @@ call plug#begin('~/.local/share/nvim/plugged')
     " https://github.com/justinmk/vim-sneak
     Plug 'justinmk/vim-sneak'
     Plug 'easymotion/vim-easymotion'
+    " highlight yank
     Plug 'machakann/vim-highlightedyank'
     Plug 'tpope/vim-surround'
     " Plug 'tpope/fugitive'   " git utils......
@@ -270,8 +271,6 @@ nnoremap z<space> za
 map ; <Plug>(easymotion-prefix)
 " Move cursors
 inoremap ˙ <Left>
-nnoremap ∆ <leader><leader>j
-nnoremap ˚ <leader><leader>k
 "inoremap ∆ <Down>
 "inoremap ˚ <Up>
 inoremap ¬ <Right>
@@ -301,6 +300,7 @@ nnoremap yt yat
 " Clang run program!
 "nnoremap <leader>rr :!clang % && ./a.out<cr>
 "" color themes: anokha, diablo3
+vnoremap <F2> "+y
 nnoremap <F2> "+0y$
 
 "nnoremap <F4> jmxkddggP'xzz
@@ -321,7 +321,7 @@ nnoremap <F2> "+0y$
 "nnoremap ;ee :qa!<cr>
 "nnoremap ;x :xa<cr>
 "
-nnoremap <leader>to :tabnew <space>
+nnoremap <leader>o :tabnew <space>
 "
 "
 "nnoremap <C-A> ggVG
