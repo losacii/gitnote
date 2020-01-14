@@ -7,6 +7,7 @@ nnoremap <F8> ^"+y$:!python3 ~/inputCommand.py r""<left><c-r>0<cr>
 
 " open rc file
 nnoremap <leader>rc :tabnew $MYVIMRC<CR>
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 inoremap kj <c-c>
 inoremap jk <c-c>
@@ -142,6 +143,13 @@ nnoremap <space>nn :set nu! rnu!<cr>
 " Basic
 set autoindent
 set smartindent
+set cindent
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set softtabstop=4
+set smarttab
+
 set showcmd
 set ruler      " show cursor position all the time
 set cursorline " hignlight cursor-line
@@ -150,11 +158,6 @@ set encoding=utf-8
 
 " tab settings
 set nowrap
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-set expandtab
-set smarttab
 nnoremap g. :tabnext<cr>
 nnoremap g, :tabNext<cr>
 
