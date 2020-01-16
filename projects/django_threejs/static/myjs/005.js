@@ -79,8 +79,8 @@ function init() {
         spotLight.position.set(-40, 60, -10);
         spotLight.castShadow = true;
         scene.add(spotLight);
-
 }
+
 
 // Animate Function
 var step = 0;
@@ -101,6 +101,7 @@ function animate() {
     renderer.render(scene, camera);
 }
 
+
 // Window Resize Handler, Event Listener
 function onWindowResize() {  
     // update renderer
@@ -109,6 +110,7 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 window.addEventListener('resize', onWindowResize, false);
+
 
 // main
 init();
