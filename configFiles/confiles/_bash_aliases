@@ -17,6 +17,7 @@ alias o='pcmanfm . &'
 alias cdd='cd ~/Documents'
 alias cdg='cd ~/gitnote'
 alias note='nvim gitnote/notebook.md'
+alias rm='rm -rf'
 
 alias appinstall='sudo apt install'
 alias appsearch='sudo apt search'

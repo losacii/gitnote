@@ -111,8 +111,6 @@ function onWindowResize() {
 }
 window.addEventListener('resize', onWindowResize, false);
 
-
 // main
 init();
 animate();
-
