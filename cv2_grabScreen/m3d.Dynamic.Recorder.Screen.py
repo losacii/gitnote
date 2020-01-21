@@ -18,11 +18,11 @@ print("Program start!")
 
 wait_interv = 25
 
-SCREEN_WIDTH = 1920
-SCREEN_HEIGHT = 1080
+SCREEN_WIDTH = 1366
+SCREEN_HEIGHT = 768
 
-pointStart = pag.position(4, 70)
-pointEnd = pag.position(1248, 852)
+pointStart = pag.position(0, 0)
+pointEnd = pag.position(1365, 767)
 
 HEIGHT  = pointEnd.y - pointStart.y
 WIDTH =  pointEnd.x - pointStart.x

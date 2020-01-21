@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-void delay(int milli_seconds);
+void delay(int);
 
 int main(void)
 {

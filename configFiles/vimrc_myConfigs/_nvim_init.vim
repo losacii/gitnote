@@ -1,37 +1,22 @@
-"mapleader
-let mapleader=','
-set pastetoggle=<F12>
+" Vim-Plug
+call plug#begin('~/.vim/plugged')
 
-autocmd BufNewFile *.txt :echom "text(txt-type) file Buffer!"
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-nnoremap <F8> "+yy:!python3 ~/gitnote/Python/auto_input.py<cr>
-
-" open rc file
-nnoremap <leader>rc :tabnew $MYVIMRC<CR>
-
-inoremap kj <c-c>
-inoremap jk <c-c>
-
-" line number
-set nu rnu
-
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.local/share/nvim/plugged')
-
-    " Make sure you use single quotes
     Plug 'scrooloose/nerdtree'
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-    "Commenter <leader>c<cpace>
-    Plug 'mattn/emmet-vim'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
     Plug 'scrooloose/nerdcommenter'
-    Plug 'vim-scripts/nc.vim'
-    " Beautify Status Bar
-    Plug 'bling/vim-airline'
-    " Plugin outside ~/.vim/plugged with post-update hook
-    " https://github.com/junegunn/fzf.vim 
+
+    Plug 'chun-yang/auto-pairs'
+    "Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+    Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
+
+    Plug 'morhetz/gruvbox'
+
+    "  ----- FZF -----
+    " https://github.com/junegunn/fzf.vim   
     " In Terminal, Ctrl+t,  Esc > c
     " --> Commands: Files Colors Ag
     " Rg(alt-a alt-d)
@@ -40,81 +25,239 @@ call plug#begin('~/.local/share/nvim/plugged')
     if executable('fzf')
         nnoremap <c-p> :FZF -e<cr>
     endif
+
+    " ----- GlyGrep -----
     " And, FlyGrep  :FlyGrep (instead of ark!)
     " https://github.com/wsdjeg/FlyGrep.vim  c-a c-e c-j c-k
     Plug 'wsdjeg/FlyGrep.vim'
     nnoremap <leader>rg :FlyGrep<cr>
-    "Color Theme
-    Plug 'tomasr/molokai'
-    "Auto Pair
-    Plug 'jiangmiao/auto-pairs'
-    " vim-sneak:  s<char><char> ; 3; `` s<enter>
-    " https://github.com/justinmk/vim-sneak
-    Plug 'justinmk/vim-sneak'
+
+    " Easy-Motion
     Plug 'easymotion/vim-easymotion'
+
     " highlight yank
     Plug 'machakann/vim-highlightedyank'
     Plug 'tpope/vim-surround'
-    " Plug 'tpope/fugitive'   " git utils......
-    
-    " Language Server Protocal
-    " vim-lsp: https://github.com/prabirshrestha/vim-lsp 
-    " ncm2:  https://github.com/ncm2/ncm2
-    Plug 'Flowerowl/ici.vim'
+
     Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/vim-lsp'
+    Plug 'Flowerowl/ici.vim'
     Plug 'roxma/nvim-yarp'
-    Plug 'ncm2/ncm2'
-    Plug 'ncm2/ncm2-vim-lsp'
-    Plug 'filipekiss/ncm2-look.vim'
-    let g:ncm2_look_enabled = 1
 
-    autocmd BufEnter * call ncm2#enable_for_buffer()
+    Plug 'bling/vim-airline'
 
-    "" pop up information
     set completeopt=noinsert,menuone,noselect 
-    Plug 'ncm2/ncm2-bufword'
-    Plug 'ncm2/ncm2-path'
 
-    if executable('pyls')
-    " pip install python-language-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python3', 'python'],
-        \ })
-    endif
-    let g:lsp_diagnostics_enabled = 0         " disable diagnostics support
-    let g:lsp_signs_enabled = 0         " enable signs
-    let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-    let g:lsp_signs_error = {'text': '✗'}
-    " ncm2: Use <TAB> to select the popup menu:
-    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+    Plug 'leafgarland/typescript-vim'
+    Plug 'ianks/vim-tsx'
 
-    " Track the engine.
-    Plug 'SirVer/ultisnips'
-
-    " Snippets are separated from the engine. Add this if you want them:
-    Plug 'honza/vim-snippets'
-
-    " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-    let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<m-n>"
-    let g:UltiSnipsJumpBackwardTrigger="<m-m>"
-
-    " If you want :UltiSnipsEdit to split your window.
-    let g:UltiSnipsEditSplit="vertical"
-
-"Initialize plugin system
+" Initialize plugin system
 call plug#end()
 
-source ~/gitnote/configFiles/vim_color_themes/dark/diablo3.vim
+set t_Co=256
+syntax on
+colorscheme gruvbox
+
+"mapleader
+let mapleader=','
+set pastetoggle=<F12>
+
+inoremap jk <ESC>
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+
+" open NERDTree automatically
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * NERDTree
+
+let g:NERDTreeIgnore = ['^node_modules$']
+
+" vim-prettier
+"let g:prettier#quickfix_enabled = 0
+"let g:prettier#quickfix_auto_focus = 0
+" prettier command for coc
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" run prettier on save
+"let g:prettier#autoformat = 0
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
+
+" ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" j/k will move virtual lines (lines that wrap)
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+set number
+set relativenumber
+
+" sync open file with NERDTree
+" " Check if NERDTree is open or active
+function! IsNERDTreeOpen()        
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
+  endif
+endfunction
+
+" Highlight currently open buffer in NERDTree
+autocmd BufEnter * call SyncTree()
+
+" coc config
+let g:coc_global_extensions = [
+  \ 'coc-json', 
+  \ 'coc-html', 
+  \ 'coc-css', 
+  \ 'coc-emmet', 
+  \ 'coc-eslint', 
+  \ 'coc-tslint', 
+  \ 'coc-tsserver', 
+  \ 'coc-snippets',
+  \ 'coc-python',
+  \ 'coc-word', 
+  \ 'coc-dictionary', 
+  \ 'coc-prettier', 
+  \ ]
+
+" from readme
+" if hidden is not set, TextEdit might fail.
+set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <space> <nop>
+
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+nmap <silent> <C-d> <Plug>(coc-range-select)
+xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+
+
+
+
+
+" change window focus
+nnoremap <space><space> <c-w>w
+nnoremap <space>h <c-w>h
+nnoremap <space>j <c-w>j
+nnoremap <space>k <c-w>k
+nnoremap <space>l <c-w>l
+
+
+" open rc file
+nnoremap <leader>rc :tabnew $MYVIMRC<CR>
+
+nnoremap <F8> "+yy:!python3 ~/gitnote/Python/auto_input.py<cr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+" ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 "Yank!
 nnoremap yp yyp
 nnoremap Y y$$
-nnoremap yb mxvBy`xp
+nnoremap yb mmvBhy`mp
 nnoremap <c-a> ggVG
 
 "" Swap two Words: mm <leader>rw
@@ -157,6 +300,7 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 set smarttab
+
 nnoremap g. :tabnext<cr>
 nnoremap g, :tabNext<cr>
 
@@ -172,9 +316,9 @@ nnoremap k gk
 
 nnoremap cw ciw
 nnoremap dw diw
-nnoremap vw viw
-nnoremap vs vis
-nnoremap dl 0d$
+nnoremap vw viW
+nnoremap yl 0y$
+nnoremap vv 0v$
 
 nnoremap H Hjj
 nnoremap L Lkk
@@ -193,37 +337,16 @@ nnoremap <space>w <c-w>
 nnoremap ,ga :!git add .
 nnoremap ,gc :!git commit -m ""<left>
 nnoremap ,gp :!git push
+
 " os clipboard sharing
 set clipboard=unnamed
 
 " Undo file after reopening
 set undofile
 set undodir=/tmp
-
-" navigate tabs
-nnoremap <left> :tabprevious<cr>
-nnoremap <right> :tabnext<cr>
-
 nnoremap vv 0v$
 
 "  ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ set color for text width ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-"  " Text width settings
-"  set textwidth=78
-"  set colorcolumn=78
-"  
-"  nnoremap <leader>cw :call ToggleColumnWidth()<cr>
-"  let g:wide_column = 1
-"  function! ToggleColumnWidth()
-"      if g:wide_column
-"          set textwidth=100
-"          set colorcolumn=100
-"          let g:wide_column = 0
-"      else
-"          set textwidth=80
-"          set colorcolumn=80
-"          let g:wide_column = 1
-"      endif
-"  endfunction
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 81)
 
@@ -247,11 +370,8 @@ vnoremap gs "gy<Esc>:call GoogleSearch()<CR>
 
 " English Definition of this word!!
 nnoremap gw viw"gy<Esc>:execute "Ici ".getreg("g")<CR>
+nnoremap gw viwy:Ici 0
 nnoremap gW viw"gy<Esc>:!python3 ~/gitnote/pyDictionary/_forVim.py <c-r>g<CR>
-
-" { } behavior
-nnoremap } }zzj<c-e>
-nnoremap { {{jzz<c-y>
 
 set ignorecase
 
@@ -269,10 +389,14 @@ nnoremap <space>j <c-w>j
 nnoremap <space>k <c-w>k
 nnoremap <space>l <c-w>l
 
-nnoremap gw viwy:Ici 0
 nnoremap z<space> za
 
 map ; <Plug>(easymotion-prefix)
+
+" Undo file after reopening
+set undofile
+set undodir=/tmp
+
 " Move cursors
 inoremap ˙ <Left>
 inoremap ∆ <Down>
@@ -296,15 +420,10 @@ inoremap ≥ <esc>$a
 
 set sessionoptions=blank,winsize,tabpages,resize
 
-" for html
-nnoremap {% i{%<space><space>%}<left><left><left>
-nnoremap yt yat
-
 ""~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 " Clang run program!
 "nnoremap <leader>rr :!clang % && ./a.out<cr>
 "" color themes: anokha, diablo3
-vnoremap <F2> "+y
 
 "nnoremap <F4> jmxkddggP'xzz
 "nnoremap <F5> jmxkddGP'xzz
@@ -323,13 +442,9 @@ vnoremap <F2> "+y
 "nnoremap ;ee :qa!<cr>
 "nnoremap ;x :xa<cr>
 "
-nnoremap <leader>o :tabnew <space>
+nnoremap <leader>to :tabnew <space>
+vnoremap <F2> "+y
 "
-"
-"nnoremap <C-A> ggVG
-"nnoremap Y y$$
-"nnoremap yp yyP
-"nnoremap yb mmvBy`mp
 "
 "nnoremap <leader>rp :%w !python3<cr>
 " Python print this line value
@@ -341,12 +456,6 @@ nnoremap <leader>vp :execute "!python3 -c 'print(" .getline('.') . ")'"<CR>
 "nnoremap t, :tabNext<cr>
 "nnoremap t. :tabnext<cr>
 "nnoremap ;snp :tabnew ~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/_.snip
-"
-"" open file in new tab
-"nnoremap ,to :execute "tabnew ".getline('.')
-"
-"" Current line as VIM Operation:  "oyy@o   yy@"
-"" Current line as Ex Command:     :execute getline(".")
 "
 "" Current
 ":vnoremap <f2> :<c-u>exe join(getline("'<","'>"),'<bar>')<cr>
@@ -361,4 +470,11 @@ nnoremap <leader>vp :execute "!python3 -c 'print(" .getline('.') . ")'"<CR>
 "" Surround a word with []
 "nnoremap ;x viwxi[]<esc>P
 "vnoremap ;x xi[]<esc>P
-"
+
+
+set foldmethod=manual
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
+

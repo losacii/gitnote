@@ -1,3 +1,28 @@
+# Nodejs, typescript
+( coc.nvim -->  https://github.com/neoclide/coc.nvim )
+( ---> install Nodjs: )
+( appinstall yarnpkg )
+( which yarnpkg )
+( sudo ln -s /usr/bin/yarnpkg /usr/bin/yarn )
+
+    curl -sL install-node.now.sh/lts | bash
+
+    sudo npm install -g typescript
+    sudo npm install -g @angular/cli
+
+    mkdir -p ~/.config/nvim/
+    touch    ~/.config/nvim/init.vim
+
+( https://medium.com/@s1n7ax/neovim-for-typescript-react-development-fdc7082c8a78 )
+
+    mkdir ~/.config/nvim/autoload/
+    mv  ~/Downloads/plug.vim  ~/.config/nvim/autoload/
+
+
+
+
+
+
 # Some notes
 
 ( They don't know, but they think they do. )
@@ -46,3 +71,8 @@ proxychains4 <commands>
 
 # stuff
 ...
+
+
+
+
+

@@ -33,6 +33,7 @@ alias fzf='fzf -e'
 alias fls='ls | fzf -l 25 -e'
 alias fcd='cd $(find . -type d | fzf -e)'
 alias fvi='nvim $( find . -type f | fzf -e)'
+alias gi='chromium --incognito'
 
 alias v='nvim'
 alias v.='nvim .'

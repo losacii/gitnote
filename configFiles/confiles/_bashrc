@@ -126,5 +126,5 @@ source ~/.myScripts/*
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-cd ~/gitnote/projects/django_threejs/
+cd ~/TS
 # cat ~/tip_info.txt
