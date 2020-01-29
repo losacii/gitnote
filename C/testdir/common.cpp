@@ -2,8 +2,13 @@
 #include <stdio.h>
 #include <time.h>
 
-#define log(x)  std::cout << x;
-#define logn(x) std::cout << x << std::endl;
+#include "common.h"
+
+void putstr(const char* message)
+{
+    std::cout << message << std::endl;
+}
+
 
 void delay(int milli_seconds)
 {
@@ -15,10 +20,3 @@ void delay(int milli_seconds)
   while (clock() - then < interv)
     ;
 }
-
-
-/* 
- * log(x)
- * logn(x)
- * delay(milli_seconds)
- */

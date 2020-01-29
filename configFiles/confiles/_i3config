@@ -12,6 +12,7 @@ bindsym Print --release exec "scrot -s /home/vi/Pictures/%Y%m%d_%H%M%S.jpg"
 bindsym $mod+Shift+Return exec terminator
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+t exec /home/vi/Apps/cool-retro-term/cool-retro-term --fullscreen
+bindsym $mod+o exec proxychains4 firefox-esr
 
 # File manager
 bindsym $mod+e exec "pcmanfm ~/ &"
