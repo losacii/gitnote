@@ -12,7 +12,7 @@ bindsym Print --release exec "scrot -s /home/vi/Pictures/%Y%m%d_%H%M%S.jpg"
 bindsym $mod+Shift+Return exec terminator
 bindsym $mod+Return exec kitty
 bindsym $mod+Shift+t exec /home/vi/Apps/cool-retro-term/cool-retro-term --fullscreen
-bindsym $mod+o exec proxychains4 firefox-esr
+bindsym $mod+o exec chromium  --proxy-server="socks5://127.0.0.1:1080" 2> /dev/null &
 
 # File manager
 bindsym $mod+e exec "pcmanfm ~/ &"

@@ -6,7 +6,7 @@ compton &
 # screenkey &
 
 exec i3
-# openbox-session
+#openbox-session
 
 # setxkbmap -option caps:swapescape
 # no longer needed, us.kmap is set

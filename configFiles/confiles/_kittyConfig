@@ -5,7 +5,7 @@ background_opacity 0.8
 font_family VictorMono NF
 #font_family Monaco NF
 
-font_size 10
+font_size 12
 thicken_font 1
 adjust_line_height 1
 adjust_column_width 1

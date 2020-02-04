@@ -12,10 +12,6 @@ int main(void) {
 
   char c;
   printf("(getche example) Please enter a character: ");
-  c = getche(); 
-  printf("\nYou entered: %c\n", c);
-
-  printf("(getch example) Please enter a character: ");
   c = getch(); 
   printf("\nYou entered: %c\n", c);
 

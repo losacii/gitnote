@@ -10,14 +10,16 @@ def operations():
     text = pyperclip.paste() 
 
     pz = pag.position()
-    pag.moveTo(1266, 150)
+    pag.moveTo(520, 44)
     pag.click()
 
+    # time count
     # for i in range(2):
         # print(2-i)
         # sys.stdout.flush()
         # time.sleep(0.8)
 
+    # input with animation
     pos = 0; start = 0
     checker = []
     for ch in text:

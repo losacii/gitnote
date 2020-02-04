@@ -1,0 +1,9 @@
+# python.filepath.from.arguments.txt
+
+import os
+import sys
+
+fn = sys.argv[1]
+if os.path.exists(fn):
+    print os.path.basename(fn)
+    # file exists
