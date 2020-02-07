@@ -1,9 +1,11 @@
 *.mp4
 *.wav
 *.mp3
+*.mp4
 *.rar
 *.zip
 *.vscode
 *.DS_Store
 *.pyc
 *.out
+__pycache__/
