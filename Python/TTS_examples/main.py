@@ -2,4 +2,5 @@ import ttsSpeaker
 
 speaker = ttsSpeaker.Speaker()
 speaker.engineReady()
-speaker.say("hello world, motion detected!")
+speaker.tts("hello world, motion detected!")
+print("Testing start")

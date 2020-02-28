@@ -31,7 +31,7 @@ function xloban() {
 }
 
 function pskill() {
-  ps aux | fzy | awk '{ print $2 }' | xargs kill
+  sudo ps aux | fzy | awk '{ print $2 }' | xargs kill
 }
 
 #----1---------2---------3---------4---------5---------6---------7---------8---------9--------10
