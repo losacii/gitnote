@@ -1,8 +1,0 @@
-sudo rtcwake -m off -s 360
-(shutdown, 360 seconds, power on)
-
-sudo rtcwake -m mem --date 2019-10-25 08:00
-sudo rtcwake -m mem --date 2019-10-29 07:50
-
-sudo rtcwake -m mem -s 30
-(sleep, after 30 seconds, wake up)
