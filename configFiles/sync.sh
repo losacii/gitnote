@@ -16,16 +16,18 @@ sudo rm /etc/default/keyboard
 
 echo "linking..."
 
-ln  confiles/_bash_aliases      ~/.bash_aliases              
-ln  confiles/_bashrc            ~/.bashrc                    
-ln  confiles/_inputrc           ~/.inputrc                   
-ln  vimrc_myConfigs/_nvim_init.vim     ~/.config/nvim/init.vim
-ln  confiles/_zshrc             ~/.zshrc                     
-ln  confiles/_i3config          ~/.config/i3/config          
-ln  confiles/_i3status.conf     ~/.i3status.conf             
-ln  confiles/_kittyConfig       ~/.config/kitty/kitty.conf   
-ln  confiles/_vifmrc            ~/.config/vifm/vifmrc        
-ln  confiles/_xinitrc           ~/.xinitrc                   
+cp          ~/.bash_aliases  confiles/_bash_aliases
+cp          ~/.bashrc  confiles/_bashrc                    
+sudo cp     /etc/default/keyboard  confiles/_etc.default.keyboard
+cp          ~/.config/i3/config  confiles/_i3config          
+cp          ~/.i3status.conf  confiles/_i3status.conf             
+cp          ~/.inputrc  confiles/_inputrc                   
+cp          ~/.config/nvim/init.vim  vimrc_myConfigs/_nvim_init.vim
+cp          ~/.inputrc  confiles/_inputrc
+cp          ~/.config/kitty/kitty.conf  confiles/_kittyConfig   
+cp -r       ~/.myScripts/  ~/confiles/myScripts/
+cp          ~/.config/vifm/vifmrc  confiles/_vifmrc        
+cp          ~/.zshrc  confiles/_zshrc                     
+cp          ~/.xinitrc  confiles/_xinitrc                   
 
-sudo cp confiles/_etc.default.keyboard /etc/default/keyboard
 sudo cp   /usr/share/keymaps/i386/qwerty/us.kmap.gz   confiles/us.kmap.gz

@@ -1,0 +1,12 @@
+rsync -zarmvP   --exclude-from /excludes.txt   / /mnt/MyDebian/
+
+/proc/
+/lost+found/
+/mnt/
+/home/vi/Video/
+/home/vi/gitnote/
+/home/vi/ovas/
+/home/vi/.local/share/Trash/files/
+*.iso
+*.mp4
+*.mp3

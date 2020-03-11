@@ -1,3 +1,5 @@
+" For snippets: ~/.config/nvim/UltiSnips/
+
 " Vim-Plug
 call plug#begin('~/.vim/plugged')
 
@@ -53,23 +55,42 @@ call plug#begin('~/.vim/plugged')
 " Initialize plugin system
 call plug#end()
 
+" Terminal Colors
 set t_Co=256
 syntax on
 colorscheme gruvbox
 
-"mapleader
+" mapleader
 let mapleader=','
 set pastetoggle=<F12>
 
+" Super Powers
+nnoremap <leader>a :AUTOINCLINE<cr>
+
+" Python print this line value
+nnoremap <leader>vp :execute "!python3 -c 'print(" .getline('.') . ")'"<CR>
+
+"Yank!
+nnoremap yp :COPYLINEDOWN<cr>
+nnoremap Y y$$
+nnoremap yb mmvBhy`mp
+nnoremap <c-a> ggVG
+
 inoremap jk <ESC>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
+inoremap kj <ESC>
 
 " open NERDTree automatically
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * NERDTree
 
 let g:NERDTreeIgnore = ['^node_modules$']
+
+" ~ ~ ~ ~ ~ ~ ~ ~ COC: Jump to placeholders
+" jump to next placeholder, <C-j> is default of coc.nvim 
+let g:coc_snippet_next = '<c-j>'
+
+" jump to previous placeholder, <C-k> is default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
 
 " vim-prettier
 "let g:prettier#quickfix_enabled = 0
@@ -93,7 +114,7 @@ set relativenumber
 
 " sync open file with NERDTree
 " " Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
+function! IsNERDTreeOpen()
   return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
 endfunction
 
@@ -111,13 +132,13 @@ autocmd BufEnter * call SyncTree()
 
 " coc config
 let g:coc_global_extensions = [
-  \ 'coc-json', 
-  \ 'coc-html', 
-  \ 'coc-css', 
-  \ 'coc-emmet', 
-  \ 'coc-eslint', 
-  \ 'coc-tslint', 
-  \ 'coc-tsserver', 
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-emmet',
+  \ 'coc-eslint',
+  \ 'coc-tslint',
+  \ 'coc-tsserver',
   \ 'coc-snippets',
   \ 'coc-python',
   \ 'coc-word', 
@@ -128,7 +149,6 @@ let g:coc_global_extensions = [
 " from readme
 " if hidden is not set, TextEdit might fail.
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
@@ -227,7 +247,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
 " change window focus
-nnoremap <space><space> <c-w>w
+nnoremap <space><space> :bnext<cr>
 nnoremap <space>h <c-w>h
 nnoremap <space>j <c-w>j
 nnoremap <space>k <c-w>k
@@ -237,28 +257,10 @@ nnoremap <space>l <c-w>l
 " open rc file
 nnoremap <leader>rc :tabnew $MYVIMRC<CR>
 
-nnoremap <F8> "+yy:!python3 ~/gitnote/Python/auto_input.py<cr>
-
-
-
-
-
-
-
-
-
-
-
-
+vnoremap <F8> "+y:!python3 ~/gitnote/Python/auto_input.py<cr>
 
 
 " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-
-"Yank!
-nnoremap yp yyp
-nnoremap Y y$$
-nnoremap yb mmvBhy`mp
-nnoremap <c-a> ggVG
 
 "" Swap two Words: mm <leader>rw
 nnoremap <leader>sw my`x"xyiw`yviw"xp`xviwp`y
@@ -282,7 +284,7 @@ nnoremap <space>nn :set nu! rnu!<cr>
 
 " show enter-char etc..
 " set list
-" set list listchars=tab:▸\ ,eol:¬
+set list listchars=tab:▸\ ,eol:¬
 
 " Basic
 set autoindent
@@ -295,14 +297,15 @@ set encoding=utf-8
 
 " tab settings
 set nowrap
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set expandtab
 set smarttab
 
 nnoremap g. :tabnext<cr>
 nnoremap g, :tabNext<cr>
+nnoremap <leader>to :tabnew <space>
 
 " Disable Anoying auto Visual mode Feature!!!
 set mouse-=a
@@ -318,6 +321,7 @@ nnoremap cw ciw
 nnoremap dw diw
 nnoremap vw viW
 nnoremap yl 0y$
+nnoremap dl ^d$
 nnoremap vv 0v$
 
 nnoremap H Hjj
@@ -376,11 +380,14 @@ nnoremap gW viw"gy<Esc>:!python3 ~/gitnote/pyDictionary/_forVim.py <c-r>g<CR>
 set ignorecase
 
 " AUTO SAVE FOLDS
-augroup remember_folds
+augroup AutoSaveFolds
   autocmd!
-  autocmd BufWinLeave *.* mkview
-  autocmd BufWinEnter * silent! loadview
-augroup END
+  " view files are about 500 bytes
+  " bufleave but not bufwinleave captures closing 2nd tab
+  " nested is needed by bufwrite* (if triggered via other autocmd)
+  autocmd BufWinLeave,BufLeave,BufWritePost ?* nested silent! mkview!
+  autocmd BufWinEnter ?* silent! loadview
+augroup end
 
 " change window focus
 nnoremap <space><space> <c-w>w
@@ -407,8 +414,8 @@ inoremap <m-j> <Down>
 inoremap <m-k> <Up>
 inoremap <m-l> <Right>
 
-inoremap <m-i> <left><left><left><left><left>
-inoremap <m-o> <right><right><right><right><right>
+inoremap <m-i> <esc>4hi
+inoremap <m-o> <esc>5la
 inoremap ˆ <left><left><left><left><left>
 inoremap ø <right><right><right><right><right>
 
@@ -420,7 +427,58 @@ inoremap ≥ <esc>$a
 
 set sessionoptions=blank,winsize,tabpages,resize
 
+vnoremap y "+y
+nnoremap <m-i> "+P
+
+" Better w and b (word forward/back)
+nnoremap w /\w\+<cr>:noh<cr>
+nnoremap b ?\w\+<cr>:noh<cr>
+
+" Upper Case
+nnoremap ;u viwUe
+inoremap ;u <esc>viwUea
+
+
+" Folding
+set foldmethod=manual
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
+
+" Undo history dir
+set hid
+set undodir=~/.vim/undodir
+set undofile
+set viewoptions=folds,cursor
+set sessionoptions=folds
+
+set nobackup nowritebackup
+
+"" Timer
+"let timer = timer_start(7000, 'TimerHandle',{'repeat':-1})
+"func! TimerHandle(timer)
+"  RANDTIP
+"endfunc
+
+set updatetime=5000
+autocmd CursorHold * RANDTIP
+
+
 ""~ ~ ~ ~ ~ ~ ~ ~ ~ ~ VI'S Settings ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+"
+" Swap this line and 'x-line
+nnoremap <leader>rl ddmy'xPjdd'yP
+
+" is his thoughtless; taste he is banal habits in restraints his housekeeping and a horror
+
+" move Word / right left
+nnoremap <m-l> diWmaEviWp`aPEb
+nnoremap <m-h> EBBdiWmaEviWp`aPEbB
+
+" Surround a with word []
+nnoremap ;x viwxi[]<esc>P
+vnoremap ;x xi[]<esc>P
+
 " Clang run program!
 "nnoremap <leader>rr :!clang % && ./a.out<cr>
 "" color themes: anokha, diablo3
@@ -435,46 +493,4 @@ set sessionoptions=blank,winsize,tabpages,resize
 "
 ""   random pick
 "nnoremap ;cc :28vs ~/Documents/gitnote/configFiles/vim_color_themes/clrs<cr>
-"
-""save file, exit file, exit vim
-"nnoremap ;fw :up<cr>
-"nnoremap ;fe :q!<cr>
-"nnoremap ;ee :qa!<cr>
-"nnoremap ;x :xa<cr>
-"
-nnoremap <leader>to :tabnew <space>
-vnoremap <F2> "+y
-"
-"
-"nnoremap <leader>rp :%w !python3<cr>
-" Python print this line value
-nnoremap <leader>vp :execute "!python3 -c 'print(" .getline('.') . ")'"<CR>
-
-"nnoremap <leader>pr o'''<esc>yypk:r!python3 %<cr>
-"nnoremap ;rr :%s///g<left><left>
-"
-"nnoremap t, :tabNext<cr>
-"nnoremap t. :tabnext<cr>
-"nnoremap ;snp :tabnew ~/.cache/vimfiles/repos/github.com/Shougo/neosnippet-snippets/neosnippets/_.snip
-"
-"" Current
-":vnoremap <f2> :<c-u>exe join(getline("'<","'>"),'<bar>')<cr>
-"
-"" Swap this line and 'x-line
-"nnoremap <leader>rl ddmy'xPjdd'yP
-"
-
-"" move Word / right left
-"nnoremap <m-l> diWmaEviWp`aPE
-"
-"" Surround a word with []
-"nnoremap ;x viwxi[]<esc>P
-"vnoremap ;x xi[]<esc>P
-
-
-set foldmethod=manual
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
-
 
