@@ -1,32 +1,44 @@
+# General
 alias c='clear'
 alias x='exit'
+alias a='cd ..'
+alias s='cd -'
+alias o='pcmanfm . &'
+alias rm='rm -rf'
+alias appinstall='sudo apt install'
+alias appsearch='sudo apt search'
+
+alias godown='sudo /sbin/poweroff'
+alias reboot='sudo /sbin/reboot'
 
 alias sbash='source ~/.bashrc'
 alias ebash='nvim ~/.bashrc'
 alias szsh='source ~/.zshrc'
 alias ezsh='nvim ~/.zshrc'
+
 alias xping='ping -s 16 -c 5 -i 0.3'
 
-alias godown='sudo /sbin/poweroff'
-alias reboot='sudo /sbin/reboot'
+# General: Python
 alias py='python3'
+alias py2='python2'
+alias py3='python3'
 
-alias a='cd ..'
-alias s='cd -'
-alias o='pcmanfm . &'
+# Directories
 alias cdd='cd ~/Documents'
 alias cdg='cd ~/gitnote'
+
 alias note='nvim gitnote/notebook.md'
-alias rm='rm -rf'
 alias di='py3 ~/gitnote/Python/pyDictionary/main.py'
 
-alias appinstall='sudo apt install'
-alias appsearch='sudo apt search'
-alias allconfig='cd ~/gitnote/configFiles/confiles/ && nvim'
+# configs
 alias i3config='nvim ~/.config/i3/config'
 alias aliconfig='nvim ~/.bash_aliases'
+alias allconfig='cd ~/gitnote/configFiles/confiles/ && nvim'
 
+# Clock
 alias clock='tty-clock -x -c'
+
+# Playtext
 alias playText='python3 ~/gitnote/Vocabulary/playTexts.py'
 alias env='cd ~/dev/env; pipenv shell'
 
