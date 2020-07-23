@@ -8,6 +8,7 @@ alias rm='rm -rf'
 alias appinstall='sudo apt install'
 alias appsearch='sudo apt search'
 
+alias showip='ip a | grep 192'
 alias godown='sudo /sbin/poweroff'
 alias reboot='sudo /sbin/reboot'
 

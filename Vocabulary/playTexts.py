@@ -138,7 +138,7 @@ def main():
     # Welcome Info
     # os.system('clear')
 
-    filepath = os.path.join(BASEDIR, "TextFiles", "tar.txt")
+    filepath = os.path.join(BASEDIR, "TextFiles", "tmp.txt")
     texts = separateFile(filepath)
     random.shuffle(texts)
     playTexts(texts, 0.02)
